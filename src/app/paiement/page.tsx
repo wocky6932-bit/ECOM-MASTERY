@@ -291,28 +291,6 @@ function PaiementContent() {
                   </p>
                 </div>
 
-                {/* Bannière Wave Officielle */}
-                <div className="mt-6 p-4 rounded-2xl bg-[#1BA5E0]/10 border border-[#1BA5E0]/20 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 relative shrink-0 bg-white rounded-xl shadow-sm p-1.5 flex items-center justify-center">
-                      <Image
-                        src="/images/wave-penguin.png"
-                        alt="Wave"
-                        width={36}
-                        height={36}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900">Paiement Mobile Wave Checkout</h4>
-                      <p className="text-[11px] text-slate-500 mt-0.5">Simple · Instantané · 0 FCFA de frais</p>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-bold text-[#1BA5E0] bg-white px-2.5 py-1 rounded-full shadow-xs border border-[#1BA5E0]/20">
-                    Sécurisé
-                  </span>
-                </div>
-
                 {/* Bouton de paiement officiel Wave */}
                 <button
                   type="submit"
