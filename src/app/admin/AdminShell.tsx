@@ -7,6 +7,7 @@ import { Logo } from "@/components/Logo";
 import {
   LayoutDashboard,
   Package,
+  BookOpen,
   ShoppingBag,
   Users,
   KeyRound,
@@ -34,6 +35,7 @@ export function AdminShell({ admin, children }: AdminShellProps) {
   const navLinks = [
     { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard },
     { href: "/admin/produits", label: "Produits & Ebooks", icon: Package },
+    { href: "/dashboard/ebooks", label: "Lire les ebooks (Accès Gratuit)", icon: BookOpen },
     { href: "/admin/commandes", label: "Commandes", icon: ShoppingBag },
     { href: "/admin/utilisateurs", label: "Utilisateurs", icon: Users },
     { href: "/admin/codes", label: "Codes d'accès", icon: KeyRound },

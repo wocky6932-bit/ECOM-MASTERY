@@ -2,6 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { cookies } from "next/headers";
+import { prisma } from "@/lib/prisma";
+import { verifyToken } from "@/lib/auth";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BookCover } from "@/components/BookCover";
@@ -50,9 +53,27 @@ export default async function EbookDetailPage({ params }: PageProps) {
     theme = "development";
   }
 
+  // Contrôle de session utilisateur
+  const cookieStore = await cookies();
+  const token = cookieStore.get("ecom_session")?.value;
+  const sessionUser = token ? verifyToken(token) : null;
+  const isAdmin = sessionUser?.role === "ADMIN";
+
+  let hasAccess = isAdmin;
+  if (!hasAccess && sessionUser) {
+    const paidOrder = await prisma.order.findFirst({
+      where: {
+        userId: sessionUser.userId,
+        product: { slug },
+        status: "PAID",
+      },
+    });
+    hasAccess = Boolean(paidOrder);
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFD] font-sans text-slate-800">
-      <Navbar />
+      <Navbar user={sessionUser ? { name: sessionUser.name, role: sessionUser.role } : null} />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
         {/* Fil d'Ariane moderne */}
@@ -167,14 +188,32 @@ export default async function EbookDetailPage({ params }: PageProps) {
                   </span>
                 </div>
 
-                <Link
-                  href={`/paiement?slug=${ebook.slug}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
-                >
-                  <ShoppingCart className="w-4 h-4" />
-                  <span>Acheter maintenant</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
+                {hasAccess ? (
+                  <div className="flex flex-col gap-2 w-full sm:w-auto items-stretch sm:items-end">
+                    <Link
+                      href={`/lecteur/${ebook.slug}`}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                    >
+                      <BookOpen className="w-4 h-4" />
+                      <span>{isAdmin ? "Lire l'ebook (Accès Admin Gratuit)" : "Lire mon ebook (Accès Débloqué)"}</span>
+                      <ArrowRight className="w-4 h-4 ml-1" />
+                    </Link>
+                    {isAdmin && (
+                      <span className="text-[11px] text-emerald-700 font-semibold text-center sm:text-right">
+                        ✨ Compte Administrateur — Vous lisez sans payer
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={`/paiement?slug=${ebook.slug}`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                    <span>Acheter maintenant</span>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                )}
               </div>
             </div>
 
