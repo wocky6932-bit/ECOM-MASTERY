@@ -177,10 +177,10 @@ export default function HomePage() {
 
             {/* Colonne droite : Composition Mockup 3D (Livre + Mobile + Badge Flottant) */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
-              <div className="relative w-full max-w-[420px] h-[480px] flex items-center justify-center">
+              <div className="relative w-full max-w-[340px] sm:max-w-[420px] h-[440px] sm:h-[480px] flex items-center justify-center">
                 
                 {/* Flèche ascendante stylisée bleu ciel en arrière-plan */}
-                <div className="absolute -top-6 -right-6 w-56 h-56 pointer-events-none opacity-20">
+                <div className="absolute -top-6 -right-6 w-48 sm:w-56 h-48 sm:h-56 pointer-events-none opacity-20">
                   <svg viewBox="0 0 200 200" fill="none" className="w-full h-full text-blue-600">
                     <path
                       d="M30 170 C 60 140, 100 120, 150 50"
@@ -199,9 +199,9 @@ export default function HomePage() {
                 </div>
 
                 {/* Badge flottant en haut à droite : +5000 Entrepreneurs */}
-                <div className="absolute top-2 right-0 sm:-right-2 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center">
-                    <Users className="w-5 h-5" />
+                <div className="absolute top-1 right-0 sm:-right-2 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 sm:px-4 sm:py-2.5 shadow-xl border border-slate-100 flex items-center gap-2.5 sm:gap-3 animate-bounce-slow">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center">
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-extrabold text-slate-900 leading-none">+5000</p>
@@ -220,12 +220,12 @@ export default function HomePage() {
                 </div>
 
                 {/* Smartphone iPhone en avant-plan posé devant le livre */}
-                <div className="absolute -bottom-2 -left-4 sm:-left-6 z-20 w-44 sm:w-48 bg-slate-900 p-2.5 rounded-[2.5rem] shadow-2xl border-4 border-slate-800 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute -bottom-2 left-0 sm:-left-6 z-20 w-36 sm:w-48 bg-slate-900 p-2 sm:p-2.5 rounded-[2.2rem] sm:rounded-[2.5rem] shadow-2xl border-4 border-slate-800 transform rotate-3 hover:rotate-0 transition-transform duration-300">
                   {/* Notch haut */}
-                  <div className="w-16 h-3.5 bg-black rounded-b-xl mx-auto mb-2" />
+                  <div className="w-14 sm:w-16 h-3 sm:h-3.5 bg-black rounded-b-xl mx-auto mb-2" />
                   
                   {/* Écran iPhone avec miniature ebook */}
-                  <div className="bg-gradient-to-b from-[#0B1528] to-[#0A2558] rounded-[1.8rem] p-3 text-white text-center flex flex-col justify-between h-56 sm:h-64 overflow-hidden border border-white/10">
+                  <div className="bg-gradient-to-b from-[#0B1528] to-[#0A2558] rounded-[1.6rem] sm:rounded-[1.8rem] p-2.5 sm:p-3 text-white text-center flex flex-col justify-between h-48 sm:h-64 overflow-hidden border border-white/10">
                     <div className="pt-1">
                       <div className="bg-white rounded-lg px-2 py-0.5 mx-auto w-16 mb-2">
                         <Image

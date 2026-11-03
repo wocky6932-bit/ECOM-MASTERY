@@ -28,7 +28,7 @@ export default async function AdminPage() {
       orderBy: { createdAt: "desc" },
       take: 5,
     }),
-    prisma.product.findMany({ where: { isActive: true } }),
+    prisma.product.findMany({ where: { status: "ACTIVE" } }),
     prisma.user.findMany({ where: { role: "CLIENT" } }),
     prisma.accessCode.findMany({ where: { status: "ACTIVE" } }),
   ]);

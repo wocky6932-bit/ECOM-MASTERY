@@ -7,7 +7,7 @@ interface ProfilClientProps {
     name: string;
     email: string;
     phone: string | null;
-    createdAt: string;
+    memberSince: string;
   };
 }
 
@@ -63,11 +63,7 @@ export function ProfilClient({ user }: ProfilClientProps) {
             <p className="text-lg font-semibold text-gray-900">{name}</p>
             <p className="text-sm text-gray-500">{user.email}</p>
             <p className="text-xs text-gray-400 mt-1">
-              Membre depuis{" "}
-              {new Date(user.createdAt).toLocaleDateString("fr-FR", {
-                month: "long",
-                year: "numeric",
-              })}
+              Membre depuis {user.memberSince}
             </p>
           </div>
         </div>

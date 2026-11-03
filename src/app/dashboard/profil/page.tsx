@@ -17,13 +17,17 @@ export default async function ProfilPage() {
   });
   if (!user) redirect("/login");
 
+  const memberSince = user.createdAt
+    ? new Intl.DateTimeFormat("fr-FR", { month: "long", year: "numeric" }).format(user.createdAt)
+    : "Récemment";
+
   return (
     <ProfilClient
       user={{
-        name: user.name,
+        name: user.name || "Client",
         email: user.email,
-        phone: user.phone,
-        createdAt: user.createdAt.toISOString(),
+        phone: user.phone || "",
+        memberSince,
       }}
     />
   );

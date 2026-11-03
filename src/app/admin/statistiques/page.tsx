@@ -62,7 +62,7 @@ export default async function AdminStatistiquesPage() {
     { label: "Chiffre d'affaires", value: `${totalRevenue.toLocaleString("fr-FR")} FCFA`, icon: TrendingUp, color: "text-green-600 bg-green-100" },
     { label: "Ventes totales", value: paidOrders.length, icon: ShoppingBag, color: "text-blue-600 bg-blue-100" },
     { label: "Clients", value: users.length, icon: Users, color: "text-purple-600 bg-purple-100" },
-    { label: "Ebooks actifs", value: products.filter((p) => p.isActive).length, icon: BookOpen, color: "text-orange-600 bg-orange-100" },
+    { label: "Ebooks actifs", value: products.filter((p) => p.status === "ACTIVE").length, icon: BookOpen, color: "text-orange-600 bg-orange-100" },
   ];
 
   return (
