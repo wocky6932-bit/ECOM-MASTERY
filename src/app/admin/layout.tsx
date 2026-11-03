@@ -51,7 +51,7 @@ export default async function AdminLayout({
       <aside className="w-64 bg-[#0B1528] text-white flex flex-col fixed h-full z-10">
         <div className="p-6 border-b border-white/10">
           <Link href="/">
-            <Logo variant="light" className="h-8" />
+            <Logo variant="light" className="h-10" size="md" />
           </Link>
           <div className="flex items-center gap-2 mt-2">
             <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />

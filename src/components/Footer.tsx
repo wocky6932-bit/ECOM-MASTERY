@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Col 1: Marque & Présentation */}
           <div className="md:col-span-1 space-y-4">
-            <Logo showSlogan={true} />
+            <Logo showSlogan={true} size="lg" />
             <p className="text-sm text-slate-500 leading-relaxed pt-2">
               Plateforme spécialisée dans les ebooks, guides pratiques et ressources de pointe pour entreprendre et réussir dans le digital en Afrique francophone.
             </p>

@@ -57,7 +57,7 @@ export default async function DashboardLayout({
       <aside className="w-64 bg-[#0B1528] text-white flex flex-col fixed h-full z-10">
         <div className="p-6 border-b border-white/10">
           <Link href="/">
-            <Logo variant="light" className="h-8" />
+            <Logo variant="light" className="h-10" size="md" />
           </Link>
           <p className="text-xs text-slate-400 mt-2">Espace Client</p>
         </div>
