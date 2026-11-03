@@ -1,252 +1,434 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BookCover } from "@/components/BookCover";
 import {
   ShieldCheck,
   Zap,
-  Smartphone,
-  BookOpen,
-  ArrowRight,
-  CheckCircle2,
   Lock,
-  Sparkles,
-  ChevronDown
+  ArrowRight,
+  PlayCircle,
+  ShoppingCart,
+  Users,
+  Smartphone,
+  Headphones,
+  Laptop,
+  Star,
+  CheckCircle2,
+  HelpCircle,
+  Rocket,
 } from "lucide-react";
 
 export default function HomePage() {
+  const popularEbooks = [
+    {
+      id: "lancer-sa-boutique",
+      slug: "lancer-sa-boutique-en-ligne",
+      title: "Lancer sa boutique en ligne",
+      subtitle: "Le guide pratique e-commerce",
+      category: "E-commerce",
+      theme: "ecommerce" as const,
+      badgeColor: "bg-blue-600 text-white",
+      rating: "4.8",
+      reviews: "1,2k avis",
+      price: 5000,
+      description:
+        "Le guide pratique pour choisir un produit gagnant, trouver ses premiers clients et développer son activité e-commerce.",
+    },
+    {
+      id: "marketing-digital",
+      slug: "strategies-marketing-digital",
+      title: "Stratégies Marketing Digital",
+      subtitle: "Acquisition & Ventes directes",
+      category: "Marketing",
+      theme: "marketing" as const,
+      badgeColor: "bg-purple-600 text-white",
+      rating: "4.8",
+      reviews: "856 avis",
+      price: 5000,
+      description:
+        "Attirez plus de clients qualifiés grâce aux meilleures techniques de copywriting, contenu viral et Meta Ads ciblées.",
+    },
+    {
+      id: "boostez-productivite",
+      slug: "boostez-votre-productivite",
+      title: "Boostez votre productivité",
+      subtitle: "Organisation & Focus absolu",
+      category: "Productivité",
+      theme: "productivity" as const,
+      badgeColor: "bg-emerald-600 text-white",
+      rating: "4.8",
+      reviews: "723 avis",
+      price: 5000,
+      description:
+        "Organisez vos journées, éliminez définitivement la procrastination et atteignez vos objectifs professionnels rapidement.",
+    },
+    {
+      id: "developpeur-fullstack",
+      slug: "developpeur-web-full-stack",
+      title: "Développeur Web Full Stack",
+      subtitle: "Applications modernes de A à Z",
+      category: "Développement",
+      theme: "development" as const,
+      badgeColor: "bg-orange-600 text-white",
+      rating: "4.8",
+      reviews: "942 avis",
+      price: 5000,
+      description:
+        "Maîtrisez le développement web de A à Z : Next.js, API sécurisées, PostgreSQL et déploiement cloud professionnel.",
+    },
+  ];
+
+  const faqItems = [
+    {
+      q: "Comment acheter un ebook sur Ecom Mastery ?",
+      a: "Choisissez votre ebook dans la boutique, cliquez sur 'Acheter', renseignez votre nom, e-mail et numéro de téléphone, puis validez votre paiement instantané via Wave Checkout. Vos accès et votre code d'accès s'affichent immédiatement après validation.",
+    },
+    {
+      q: "Comment payer avec Wave ?",
+      a: "Sur la page de commande, cliquez sur 'Payer avec Wave'. Vous serez redirigé vers l'application Wave sur votre mobile ou scannerez le QR code pour confirmer les 5 000 FCFA sans aucun frais additionnel.",
+    },
+    {
+      q: "Puis-je lire l'ebook sur mon téléphone et ma tablette ?",
+      a: "Oui, absolument ! Notre lecteur en ligne est 100% responsive et optimisé pour smartphone, tablette et ordinateur. Vous pouvez connecter jusqu'à 2 appareils simultanés en toute sécurité.",
+    },
+    {
+      q: "Que faire si je perds mon code d'accès ?",
+      a: "Votre code d'accès vous est envoyé instantanément par e-mail après chaque commande. Vous pouvez aussi le retrouver à tout moment dans votre espace client sous l'onglet 'Mes codes'.",
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white font-sans text-slate-800">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-slate-50/80 via-white to-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* ===================== HERO SECTION ===================== */}
+      <section className="relative overflow-hidden pt-10 pb-20 md:pt-16 md:pb-28 bg-gradient-to-b from-[#F8FAFD] via-white to-white">
+        {/* Cercles diffus d'ambiance en arrière-plan */}
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Colonne gauche (Textes et Actions) */}
+            {/* Colonne gauche : Titres, Description & CTA */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-semibold text-[#0066FF]">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Des ressources pour avancer</span>
+              {/* Badge Pilule */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/90 text-xs font-semibold text-[#0066FF] shadow-sm">
+                <Rocket className="w-3.5 h-3.5 text-[#0066FF]" />
+                <span>Votre réussite commence ici</span>
               </div>
 
+              {/* Grand Titre */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1528] tracking-tight leading-[1.12]">
                 Apprenez aujourd’hui. <br />
                 <span className="text-[#0066FF]">Construisez votre réussite demain.</span>
               </h1>
 
-              <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
+              {/* Paragraphe descriptif */}
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
                 Découvrez des ebooks et des ressources pratiques pour développer vos compétences, entreprendre et progresser dans le monde du digital.
               </p>
 
+              {/* Boutons d'action */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/boutique"
-                  className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-7 py-3.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
                 >
+                  <ShoppingCart className="w-4 h-4" />
                   <span>Découvrir les ebooks</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
+
                 <Link
                   href="/#a-propos"
-                  className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200/80 text-slate-700 px-6 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+                  className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-3.5 rounded-full font-semibold text-sm transition-colors"
                 >
-                  Notre approche
+                  <PlayCircle className="w-4 h-4 text-slate-600" />
+                  <span>Notre approche</span>
                 </Link>
               </div>
 
-              {/* Badges de réassurance sous Hero */}
-              <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center gap-6 text-xs font-medium text-slate-500">
+              {/* Badges de réassurance alignés */}
+              <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center gap-6 sm:gap-8 text-xs font-medium text-slate-600">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                  </div>
                   <span>Paiement sécurisé Wave</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-amber-500" />
+                  <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                    <Zap className="w-3.5 h-3.5" />
+                  </div>
                   <span>Accès immédiat garanti</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-blue-600" />
+                  <div className="w-5 h-5 rounded-full bg-blue-100 text-[#0066FF] flex items-center justify-center shrink-0">
+                    <Lock className="w-3.5 h-3.5" />
+                  </div>
                   <span>Lecture personnelle protégée</span>
                 </div>
               </div>
             </div>
 
-            {/* Colonne droite (Visuel 3D / Livre en vedette) */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                <div className="relative transform hover:scale-[1.02] transition-transform duration-300">
+            {/* Colonne droite : Composition Mockup 3D (Livre + Mobile + Badge Flottant) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
+              <div className="relative w-full max-w-[420px] h-[480px] flex items-center justify-center">
+                
+                {/* Flèche ascendante stylisée bleu ciel en arrière-plan */}
+                <div className="absolute -top-6 -right-6 w-56 h-56 pointer-events-none opacity-20">
+                  <svg viewBox="0 0 200 200" fill="none" className="w-full h-full text-blue-600">
+                    <path
+                      d="M30 170 C 60 140, 100 120, 150 50"
+                      stroke="currentColor"
+                      strokeWidth="24"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M100 50 L 155 50 L 155 105"
+                      stroke="currentColor"
+                      strokeWidth="24"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                {/* Badge flottant en haut à droite : +5000 Entrepreneurs */}
+                <div className="absolute top-2 right-0 sm:-right-2 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
+                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-extrabold text-slate-900 leading-none">+5000</p>
+                    <p className="text-[10px] text-slate-500 font-medium mt-0.5">Entrepreneurs accompagnés</p>
+                  </div>
+                </div>
+
+                {/* Le Grand Livre 3D incliné */}
+                <div className="relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                   <BookCover
                     title="Lancer sa boutique en ligne"
                     subtitle="Le guide pratique e-commerce"
-                    size="lg"
+                    size="hero"
+                    theme="ecommerce"
                   />
-                  <div className="mt-4 text-center">
-                    <span className="inline-block bg-[#0B1528] text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                      Prix : 5 000 FCFA
-                    </span>
+                </div>
+
+                {/* Smartphone iPhone en avant-plan posé devant le livre */}
+                <div className="absolute -bottom-2 -left-4 sm:-left-6 z-20 w-44 sm:w-48 bg-slate-900 p-2.5 rounded-[2.5rem] shadow-2xl border-4 border-slate-800 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                  {/* Notch haut */}
+                  <div className="w-16 h-3.5 bg-black rounded-b-xl mx-auto mb-2" />
+                  
+                  {/* Écran iPhone avec miniature ebook */}
+                  <div className="bg-gradient-to-b from-[#0B1528] to-[#0A2558] rounded-[1.8rem] p-3 text-white text-center flex flex-col justify-between h-56 sm:h-64 overflow-hidden border border-white/10">
+                    <div className="pt-1">
+                      <div className="bg-white rounded-lg px-2 py-0.5 mx-auto w-16 mb-2">
+                        <Image
+                          src="/images/logo.png"
+                          alt="EM"
+                          width={60}
+                          height={20}
+                          className="object-contain w-full h-auto"
+                        />
+                      </div>
+                      <p className="text-[9px] uppercase font-bold tracking-wider text-blue-300">Ecom Mastery</p>
+                    </div>
+
+                    <div className="py-2">
+                      <h4 className="text-[11px] font-black uppercase leading-tight">
+                        LANCER SA BOUTIQUE EN LIGNE
+                      </h4>
+                      <p className="text-[9px] text-blue-200 mt-1 italic">Le guide pratique</p>
+                    </div>
+
+                    <div className="pb-2">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-1">
+                        <ShoppingCart className="w-4 h-4" />
+                      </div>
+                      <span className="text-[8px] bg-white/10 px-2 py-0.5 rounded-full text-slate-300 font-semibold">
+                        Version Mobile HD
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== SECTION LIVRES POPULAIRES ===================== */}
+      <section className="py-16 md:py-24 bg-slate-50/60 border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header section */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+              <div className="inline-block bg-blue-100/80 text-[#0066FF] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                Nos ebooks populaires
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B1528]">
+                Des livres pratiques pour passer à l&apos;action
+              </h2>
+            </div>
+            <Link
+              href="/boutique"
+              className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-sm font-bold text-[#0066FF] hover:text-[#0052CC] group"
+            >
+              <span>Voir toute la boutique</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          {/* Grille des 4 livres avec identités distinctes */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularEbooks.map((book) => (
+              <div
+                key={book.id}
+                className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group"
+              >
+                {/* Couverture avec badge de catégorie positionné en haut */}
+                <div className="relative mb-5 flex justify-center pt-2">
+                  <span
+                    className={`absolute -top-2 right-2 z-20 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm ${book.badgeColor}`}
+                  >
+                    {book.category}
+                  </span>
+                  <BookCover
+                    title={book.title}
+                    subtitle={book.subtitle}
+                    theme={book.theme}
+                    size="md"
+                  />
+                </div>
+
+                {/* Métadonnées & Description */}
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base leading-snug group-hover:text-[#0066FF] transition-colors">
+                      {book.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
+                      {book.description}
+                    </p>
+                  </div>
+
+                  {/* Avis & Étoiles */}
+                  <div className="mt-4 pt-3 border-t border-slate-50 flex items-center justify-between">
+                    <div className="flex items-center gap-1 text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                      <span className="text-xs font-bold text-slate-700 ml-1">
+                        {book.rating}
+                      </span>
+                      <span className="text-[11px] text-slate-400">
+                        ({book.reviews})
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Prix & Bouton Acheter */}
+                  <div className="mt-3 flex items-center justify-between">
+                    <div>
+                      <p className="text-base font-black text-[#0B1528]">
+                        {book.price.toLocaleString("fr-FR")} FCFA
+                      </p>
+                    </div>
+                    <Link
+                      href={`/paiement?ebook=${book.slug}`}
+                      className="inline-flex items-center gap-1.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-4 py-2 rounded-full text-xs font-bold shadow-sm transition-all"
+                    >
+                      <span>Acheter</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
                 </div>
               </div>
-            </div>
-
+            ))}
           </div>
+
         </div>
       </section>
 
-      {/* Section Produits Populaires */}
-      <section className="py-20 bg-white">
+      {/* ===================== SECTION AVANTAGES ===================== */}
+      <section id="a-propos" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl font-extrabold text-[#0B1528] tracking-tight">
-              Nos ebooks populaires
-            </h2>
-            <p className="text-slate-500 text-sm mt-2">
-              Des livres pratiques pour passer de l&apos;idée à l&apos;action concrète.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Produit 1 (En vedette) */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-blue-400 hover:shadow-hover transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-center mb-5">
-                  <BookCover
-                    title="Lancer sa boutique en ligne"
-                    subtitle="Le guide pratique"
-                    size="md"
-                  />
-                </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#0066FF] bg-blue-50 px-2.5 py-1 rounded-full">
-                  E-commerce
-                </span>
-                <h3 className="font-bold text-slate-900 text-lg mt-3 group-hover:text-[#0066FF] transition-colors">
-                  Lancer sa boutique en ligne
-                </h3>
-                <p className="text-slate-500 text-xs mt-2 line-clamp-3 leading-relaxed">
-                  Le guide pratique pour choisir un produit, trouver ses premiers clients et développer son activité e-commerce.
-                </p>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-slate-400 block">Tarif unique</span>
-                  <span className="text-lg font-black text-[#0B1528]">5 000 FCFA</span>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Colonne gauche : Titre & description */}
+            <div className="lg:col-span-5 space-y-4">
+              <span className="inline-block bg-blue-50 text-[#0066FF] px-3.5 py-1 rounded-full text-xs font-bold">
+                Pourquoi choisir Ecom Mastery ?
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B1528] leading-tight">
+                Une plateforme pensée pour votre confort
+              </h2>
+              <p className="text-sm sm:text-base text-slate-500 leading-relaxed">
+                Un accès simple, sécurisé et flexible à des contenus de qualité, où que vous soyez.
+              </p>
+              <div className="pt-2">
                 <Link
-                  href="/ebook/lancer-sa-boutique-en-ligne"
-                  className="bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors"
+                  href="/boutique"
+                  className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-sm"
                 >
-                  Découvrir
+                  <span>En savoir plus</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
 
-            {/* Produit 2 */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-blue-400 hover:shadow-hover transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-center mb-5">
-                  <BookCover
-                    title="Stratégies Marketing Digital"
-                    subtitle="Attirez plus de clients"
-                    size="md"
-                  />
+            {/* Colonne droite : 4 Avantages côte-à-côte avec séparateurs fins */}
+            <div className="lg:col-span-7 bg-[#F8FAFD] rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+                
+                {/* Avantage 1 */}
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-100/70 text-[#0066FF] flex items-center justify-center mb-3">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xs font-bold text-slate-900 leading-snug">
+                    Accès immédiat après achat
+                  </h4>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">
-                  Marketing
-                </span>
-                <h3 className="font-bold text-slate-900 text-lg mt-3 group-hover:text-[#0066FF] transition-colors">
-                  Stratégies Marketing Digital
-                </h3>
-                <p className="text-slate-500 text-xs mt-2 line-clamp-3 leading-relaxed">
-                  Attirez plus de clients grâce aux meilleures techniques de copywriting, contenu viral et Meta Ads.
-                </p>
-              </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-slate-400 block">Tarif unique</span>
-                  <span className="text-lg font-black text-[#0B1528]">5 000 FCFA</span>
+                {/* Avantage 2 */}
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center mb-3">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xs font-bold text-slate-900 leading-snug">
+                    Paiement sécurisé Wave
+                  </h4>
                 </div>
-                <Link
-                  href="/ebook/strategies-marketing-digital"
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2.5 rounded-lg transition-colors"
-                >
-                  Voir détails
-                </Link>
-              </div>
-            </div>
 
-            {/* Produit 3 */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-blue-400 hover:shadow-hover transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-center mb-5">
-                  <BookCover
-                    title="Boostez votre productivité"
-                    subtitle="Organisez vos journées"
-                    size="md"
-                  />
+                {/* Avantage 3 */}
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-2xl bg-sky-100/70 text-sky-600 flex items-center justify-center mb-3">
+                    <Laptop className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xs font-bold text-slate-900 leading-snug">
+                    Lecture sur tous vos appareils
+                  </h4>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
-                  Productivité
-                </span>
-                <h3 className="font-bold text-slate-900 text-lg mt-3 group-hover:text-[#0066FF] transition-colors">
-                  Boostez votre productivité
-                </h3>
-                <p className="text-slate-500 text-xs mt-2 line-clamp-3 leading-relaxed">
-                  Organisez-vous, éliminez la procrastination et atteignez vos objectifs professionnels.
-                </p>
-              </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-slate-400 block">Tarif unique</span>
-                  <span className="text-lg font-black text-[#0B1528]">5 000 FCFA</span>
+                {/* Avantage 4 */}
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-2xl bg-purple-100/70 text-purple-600 flex items-center justify-center mb-3">
+                    <Headphones className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xs font-bold text-slate-900 leading-snug">
+                    Support réactif 24/7
+                  </h4>
                 </div>
-                <Link
-                  href="/ebook/boostez-votre-productivite"
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2.5 rounded-lg transition-colors"
-                >
-                  Voir détails
-                </Link>
-              </div>
-            </div>
 
-            {/* Produit 4 */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-blue-400 hover:shadow-hover transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex justify-center mb-5">
-                  <BookCover
-                    title="Développeur Web Full Stack"
-                    subtitle="Le parcours complet"
-                    size="md"
-                  />
-                </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full">
-                  Développement
-                </span>
-                <h3 className="font-bold text-slate-900 text-lg mt-3 group-hover:text-[#0066FF] transition-colors">
-                  Développeur Web Full Stack
-                </h3>
-                <p className="text-slate-500 text-xs mt-2 line-clamp-3 leading-relaxed">
-                  Maîtrisez le développement web de A à Z : Next.js, API sécurisées, PostgreSQL et déploiement pro.
-                </p>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <div>
-                  <span className="text-xs text-slate-400 block">Tarif unique</span>
-                  <span className="text-lg font-black text-[#0B1528]">5 000 FCFA</span>
-                </div>
-                <Link
-                  href="/ebook/developpeur-web-full-stack"
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-2.5 rounded-lg transition-colors"
-                >
-                  Voir détails
-                </Link>
               </div>
             </div>
 
@@ -254,168 +436,107 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section Avantages */}
-      <section id="a-propos" className="py-20 bg-slate-50/60 border-y border-slate-100">
+      {/* ===================== BANNIÈRE CTA CENTRALE ===================== */}
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0066FF] bg-blue-50 px-3 py-1 rounded-full">
-              L&apos;expérience Ecom Mastery
-            </span>
-            <h2 className="text-3xl font-extrabold text-[#0B1528] tracking-tight mt-3">
-              Une plateforme pensée pour votre confort et votre sécurité
-            </h2>
-            <p className="text-slate-500 text-sm mt-2">
-              Chaque détail a été calibré pour vous garantir une expérience d&apos;apprentissage fluide et instantanée.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-subtle hover:border-blue-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6" />
+          <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#070F1E] via-[#0B1E42] to-[#070F1E] text-white p-8 sm:p-12 md:p-16 shadow-2xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+            
+            {/* Visuel 3D Livres superposés à gauche */}
+            <div className="hidden lg:flex items-center justify-center shrink-0 w-48 relative">
+              <div className="transform -rotate-12 translate-y-2 opacity-80">
+                <BookCover title="Ecom" size="sm" theme="ecommerce" />
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-2">Accès immédiat</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Votre accès est activé automatiquement dès la confirmation de votre paiement Wave.
+              <div className="absolute transform rotate-6 translate-x-6 z-10 shadow-2xl">
+                <BookCover title="Mastery" size="sm" theme="ecommerce" />
+              </div>
+            </div>
+
+            {/* Texte et Appel à l'action au centre */}
+            <div className="flex-1 text-center lg:text-left space-y-4 max-w-xl">
+              <span className="inline-block bg-blue-500/20 text-blue-300 border border-blue-400/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                Passez à l&apos;action dès maintenant
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-white">
+                Prêt à lancer votre projet dès aujourd&apos;hui ?
+              </h2>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Rejoignez des milliers d&apos;apprenants et transformez vos ambitions en réalité.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/paiement?ebook=lancer-sa-boutique-en-ligne"
+                  className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg transition-all"
+                >
+                  <span>Commencer avec le guide e-commerce (5 000 FCFA)</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Slogan en calligraphie à droite */}
+            <div className="hidden md:flex flex-col items-center justify-center text-right shrink-0">
+              <p className="text-2xl sm:text-3xl font-serif italic text-blue-200 tracking-wide font-light select-none">
+                Learn. Grow.
+              </p>
+              <p className="text-2xl sm:text-3xl font-serif italic text-white tracking-wide font-semibold select-none">
+                Succeed.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-subtle hover:border-blue-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-2">Paiement par Wave</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Réglez en toute confiance en 1 clic via votre compte Wave sans aucuns frais cachés.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-subtle hover:border-blue-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
-                <Lock className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-2">Lecture sécurisée</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Lecteur web haute lisibilité, protégé par filigrane dynamique et gestion de sessions.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-subtle hover:border-blue-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
-                <Smartphone className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-2">Mobile & Ordinateur</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Interface responsive adaptée aux smartphones, tablettes et ordinateurs portables.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-subtle hover:border-blue-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-2">Contenu pédagogique</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Des guides étape par étape, des cas concrets et des plans d&apos;action immédiatement applicables.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Section FAQ */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-extrabold text-[#0B1528] tracking-tight">
-              Foire aux questions
-            </h2>
-            <p className="text-slate-500 text-sm mt-2">
-              Toutes les réponses à vos questions sur vos achats et votre accès.
-            </p>
-          </div>
+      {/* ===================== SECTION FAQ ===================== */}
+      <section id="faq" className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Colonne gauche : Titre & Bulles 3D */}
+            <div className="lg:col-span-5 space-y-4">
+              {/* Bulles 3D stylisées */}
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0066FF] flex items-center justify-center font-black text-xl shadow-sm">
+                  ?
+                </div>
+                <div className="w-8 h-8 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-black text-sm shadow-sm">
+                  ?
+                </div>
+              </div>
 
-          <div className="space-y-4">
-            <details className="group bg-slate-50 border border-slate-200/80 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-              <summary className="flex items-center justify-between font-semibold text-slate-800 text-sm">
-                <span>Comment acheter un ebook sur Ecom Mastery ?</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                Sélectionnez l&apos;ebook de votre choix, cliquez sur « Acheter maintenant », renseignez votre nom, e-mail et numéro de téléphone, puis validez votre paiement via Wave. Votre compte et votre accès sont créés dans la seconde.
+              <span className="inline-block bg-blue-50 text-[#0066FF] px-3.5 py-1 rounded-full text-xs font-bold">
+                Questions fréquentes
+              </span>
+
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1528] leading-tight">
+                Foire aux questions
+              </h2>
+
+              <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
+                Trouvez rapidement les réponses à vos questions sur nos ebooks et votre accès.
               </p>
-            </details>
+            </div>
 
-            <details className="group bg-slate-50 border border-slate-200/80 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-              <summary className="flex items-center justify-between font-semibold text-slate-800 text-sm">
-                <span>Comment payer avec Wave ?</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                Vous êtes redirigé vers la page sécurisée officielle Wave Checkout. Vous pouvez valider en un clic depuis votre application mobile Wave ou en scannant le QR code sur votre écran d&apos;ordinateur.
-              </p>
-            </details>
+            {/* Colonne droite : Accordéon moderne */}
+            <div className="lg:col-span-7 space-y-4">
+              {faqItems.map((item, idx) => (
+                <details
+                  key={idx}
+                  className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm transition-all open:shadow-md open:border-blue-200"
+                >
+                  <summary className="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm sm:text-base list-none select-none">
+                    <span>{item.q}</span>
+                    <span className="w-7 h-7 rounded-full bg-slate-100 group-open:bg-blue-100 group-open:text-[#0066FF] flex items-center justify-center text-slate-500 font-bold transition-all shrink-0 ml-4">
+                      +
+                    </span>
+                  </summary>
+                  <div className="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed animate-fade-in">
+                    {item.a}
+                  </div>
+                </details>
+              ))}
+            </div>
 
-            <details className="group bg-slate-50 border border-slate-200/80 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-              <summary className="flex items-center justify-between font-semibold text-slate-800 text-sm">
-                <span>Comment recevoir mon accès personnel ?</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                Dès la confirmation du paiement par Wave, vous êtes connecté à votre tableau de bord personnel. Vous recevez simultanément par email votre récapitulatif de commande et votre code d&apos;accès unique au format NEX-XXXX-XXXX-XXXX.
-              </p>
-            </details>
-
-            <details className="group bg-slate-50 border border-slate-200/80 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-              <summary className="flex items-center justify-between font-semibold text-slate-800 text-sm">
-                <span>Puis-je lire l&apos;ebook sur mon téléphone et ma tablette ?</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                Oui. Le lecteur web Ecom Mastery est conçu pour s&apos;adapter parfaitement aux smartphones et tablettes. Votre progression de lecture est automatiquement sauvegardée entre vos appareils autorisés (jusqu&apos;à 2 appareils actifs).
-              </p>
-            </details>
-
-            <details className="group bg-slate-50 border border-slate-200/80 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-              <summary className="flex items-center justify-between font-semibold text-slate-800 text-sm">
-                <span>Puis-je partager mon compte ou mon code d&apos;accès ?</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                Non. Les codes et accès sont strictement nominatifs et rattachés à votre compte personnel. Des mesures de sécurité (limitation d&apos;appareils, filigrane dynamique et détection des sessions simultanées) empêchent le partage public non autorisé.
-              </p>
-            </details>
-
-            <details className="group bg-slate-50 border border-slate-200/80 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
-              <summary className="flex items-center justify-between font-semibold text-slate-800 text-sm">
-                <span>Que faire si je perds mon code ou mes accès ?</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
-                Vous pouvez à tout moment vous connecter avec votre adresse e-mail ou utiliser la fonction de récupération d&apos;accès pour recevoir un lien sécurisé par email. Notre support WhatsApp est également disponible 7j/7 pour vous assister.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Final */}
-      <section className="py-16 bg-[#0B1528] text-white">
-        <div className="max-w-5xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Prêt à lancer votre projet dès aujourd&apos;hui ?
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-            Rejoignez des centaines d&apos;entrepreneurs qui développent leur boutique et leurs compétences avec nos méthodes.
-          </p>
-          <div>
-            <Link
-              href="/ebook/lancer-sa-boutique-en-ligne"
-              className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg hover:shadow-xl transition-all"
-            >
-              <span>Commencer avec le guide e-commerce (5 000 FCFA)</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>

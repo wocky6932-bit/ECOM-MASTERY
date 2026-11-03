@@ -1,46 +1,105 @@
 import React from "react";
 import Image from "next/image";
+import { ShoppingCart, Megaphone, TrendingUp, Code2, BookOpen } from "lucide-react";
 
-interface BookCoverProps {
+export interface BookCoverProps {
   title: string;
   subtitle?: string;
   category?: string;
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "hero";
+  theme?: "ecommerce" | "marketing" | "productivity" | "development" | "auto";
 }
+
+// Thèmes visuels des livres adaptés à la maquette
+const themes = {
+  ecommerce: {
+    bg: "linear-gradient(145deg, #071329 0%, #0A2558 50%, #050E1F 100%)",
+    accent: "#0066FF",
+    glow: "rgba(0, 102, 255, 0.25)",
+    icon: ShoppingCart,
+    subColor: "text-blue-300",
+  },
+  marketing: {
+    bg: "linear-gradient(145deg, #1E0A38 0%, #44136E 50%, #150529 100%)",
+    accent: "#A855F7",
+    glow: "rgba(168, 85, 247, 0.25)",
+    icon: Megaphone,
+    subColor: "text-purple-300",
+  },
+  productivity: {
+    bg: "linear-gradient(145deg, #04241B 0%, #06543F 50%, #021B14 100%)",
+    accent: "#10B981",
+    glow: "rgba(16, 185, 129, 0.25)",
+    icon: TrendingUp,
+    subColor: "text-emerald-300",
+  },
+  development: {
+    bg: "linear-gradient(145deg, #2C1108 0%, #78350F 50%, #1D0A04 100%)",
+    accent: "#F97316",
+    glow: "rgba(249, 115, 22, 0.25)",
+    icon: Code2,
+    subColor: "text-amber-300",
+  },
+};
 
 export const BookCover: React.FC<BookCoverProps> = ({
   title,
   subtitle = "Le guide pratique",
+  category = "",
   className = "",
   size = "md",
+  theme = "auto",
 }) => {
+  // Détection automatique du thème
+  let activeThemeKey: keyof typeof themes = "ecommerce";
+  if (theme !== "auto" && themes[theme]) {
+    activeThemeKey = theme;
+  } else {
+    const text = (title + " " + category).toLowerCase();
+    if (text.includes("market") || text.includes("vente") || text.includes("copywriting")) {
+      activeThemeKey = "marketing";
+    } else if (text.includes("productiv") || text.includes("organis") || text.includes("succes")) {
+      activeThemeKey = "productivity";
+    } else if (text.includes("dev") || text.includes("web") || text.includes("code") || text.includes("stack")) {
+      activeThemeKey = "development";
+    } else {
+      activeThemeKey = "ecommerce";
+    }
+  }
+
+  const currentTheme = themes[activeThemeKey];
+  const IconComponent = currentTheme.icon;
+
   const sizeClasses = {
-    sm: "w-28 h-40 text-xs",
-    md: "w-48 h-64 text-sm",
+    sm: "w-32 h-44 text-xs",
+    md: "w-52 h-72 text-sm",
     lg: "w-64 h-88 md:w-72 md:h-96 text-base",
+    hero: "w-72 h-[410px] md:w-80 md:h-[450px] text-base",
   };
 
   const badgeWidth = {
-    sm: "w-16 px-1.5 py-0.5",
-    md: "w-24 px-2 py-1",
-    lg: "w-32 px-3 py-1.5",
+    sm: "w-20 px-2 py-1",
+    md: "w-28 px-2.5 py-1",
+    lg: "w-36 px-3 py-1.5",
+    hero: "w-36 px-3 py-1.5",
   };
 
   return (
     <div
-      className={`relative rounded-xl overflow-hidden shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-hover border border-slate-700/30 flex flex-col justify-between p-4 sm:p-5 text-white ${sizeClasses[size]} ${className}`}
+      className={`relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 transform group-hover:-translate-y-1.5 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] border border-white/10 flex flex-col justify-between p-4 sm:p-6 text-white select-none ${sizeClasses[size]} ${className}`}
       style={{
-        background: "linear-gradient(135deg, #070F1E 0%, #0F1E3A 50%, #0A1428 100%)",
+        background: currentTheme.bg,
       }}
     >
-      {/* Effet reflet reliure livre */}
-      <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/40 via-white/10 to-transparent pointer-events-none" />
-      <div className="absolute top-0 bottom-0 left-3 w-[1px] bg-white/10 pointer-events-none" />
+      {/* Reliure 3D & reflets latéraux */}
+      <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/60 via-white/10 to-transparent pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-3 w-[1px] bg-white/15 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/20 pointer-events-none" />
 
-      {/* Header du livre avec Logo EM bien visible sur fond blanc contrasté */}
+      {/* Header avec Logo EM contrasté */}
       <div className="flex flex-col items-center pt-1 text-center z-10">
-        <div className={`bg-white rounded-lg shadow-md flex items-center justify-center ${badgeWidth[size]} mb-1`}>
+        <div className={`bg-white rounded-xl shadow-lg flex items-center justify-center ${badgeWidth[size]} mb-1.5 border border-white/40`}>
           <Image
             src="/images/logo.png"
             alt="Ecom Mastery"
@@ -52,37 +111,39 @@ export const BookCover: React.FC<BookCoverProps> = ({
         </div>
       </div>
 
-      {/* Titre & Sous-titre au centre */}
-      <div className="my-auto text-center z-10 px-1">
-        <h3 className="font-extrabold uppercase tracking-tight text-white leading-tight drop-shadow-md text-sm sm:text-base md:text-lg">
+      {/* Titre et Sous-titre au centre */}
+      <div className="my-auto text-center z-10 px-2">
+        <h3 className="font-black uppercase tracking-tight text-white leading-tight drop-shadow-md text-sm sm:text-base md:text-lg">
           {title}
         </h3>
-        <p className="text-blue-300 text-[11px] sm:text-xs mt-1 font-medium italic opacity-90">
-          {subtitle}
-        </p>
+        {subtitle && (
+          <p className={`${currentTheme.subColor} text-[11px] sm:text-xs mt-1.5 font-medium italic opacity-95`}>
+            {subtitle}
+          </p>
+        )}
       </div>
 
-      {/* Graphique / Icône E-commerce stylisée */}
+      {/* Illustration vectorielle thématique au bas */}
       <div className="z-10 flex flex-col items-center pb-1">
-        <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-400/20 flex items-center justify-center mb-1">
-          <svg
-            className="w-4 h-4 text-blue-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-            />
-          </svg>
+        <div
+          className="w-12 h-12 rounded-xl flex items-center justify-center mb-1.5 border transition-transform group-hover:scale-110"
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.08)",
+            borderColor: "rgba(255, 255, 255, 0.15)",
+          }}
+        >
+          <IconComponent
+            className="w-6 h-6"
+            style={{ color: currentTheme.accent }}
+          />
         </div>
       </div>
 
-      {/* Accent de brillance bleu électrique au bas */}
-      <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" />
+      {/* Lueur d'ambiance colorée au bas */}
+      <div
+        className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full blur-3xl pointer-events-none opacity-40"
+        style={{ backgroundColor: currentTheme.accent }}
+      />
     </div>
   );
 };
