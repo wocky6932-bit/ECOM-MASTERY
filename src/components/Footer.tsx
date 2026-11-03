@@ -81,13 +81,15 @@ export const Footer: React.FC = () => {
                 Paiement sécurisé
               </h4>
               <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-3.5 py-2 rounded-xl backdrop-blur-sm">
-                <Image
-                  src="/images/wave-penguin.png"
-                  alt="Wave Secure"
-                  width={24}
-                  height={24}
-                  className="object-contain"
-                />
+                <div className="w-6 h-6 rounded-full overflow-hidden shrink-0">
+                  <Image
+                    src="/images/wave-penguin.png"
+                    alt="Wave Secure"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </div>
                 <div>
                   <p className="text-xs font-bold text-white tracking-wide">Wave</p>
                   <p className="text-[10px] text-blue-400 font-medium">Checkout 100% Vérifié</p>

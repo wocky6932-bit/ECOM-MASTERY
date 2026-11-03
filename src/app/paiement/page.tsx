@@ -326,13 +326,13 @@ function PaiementContent() {
                     </>
                   ) : (
                     <>
-                      <div className="w-6 h-6 relative shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm shrink-0 overflow-hidden">
                         <Image
                           src="/images/wave-penguin.png"
                           alt="Wave"
                           width={24}
                           height={24}
-                          className="object-contain brightness-0 invert"
+                          className="object-contain rounded-full"
                         />
                       </div>
                       <span>
