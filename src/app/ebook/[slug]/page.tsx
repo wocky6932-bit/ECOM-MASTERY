@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BookCover } from "@/components/BookCover";
@@ -12,7 +13,13 @@ import {
   Lock,
   ArrowRight,
   BookOpen,
-  Users
+  Users,
+  Star,
+  Sparkles,
+  Smartphone,
+  ChevronRight,
+  ShoppingCart,
+  Award,
 } from "lucide-react";
 
 interface PageProps {
@@ -28,144 +35,240 @@ export default async function EbookDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  // Thème de couleur selon la catégorie
+  let badgeColor = "bg-blue-50 text-[#0066FF] border-blue-100";
+  let theme: "ecommerce" | "marketing" | "productivity" | "development" = "ecommerce";
+  const catLower = ebook.category.toLowerCase();
+  if (catLower.includes("market")) {
+    badgeColor = "bg-purple-50 text-purple-600 border-purple-100";
+    theme = "marketing";
+  } else if (catLower.includes("productiv")) {
+    badgeColor = "bg-emerald-50 text-emerald-600 border-emerald-100";
+    theme = "productivity";
+  } else if (catLower.includes("dev") || catLower.includes("web")) {
+    badgeColor = "bg-orange-50 text-orange-600 border-orange-100";
+    theme = "development";
+  }
+
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFD] font-sans text-slate-800">
       <Navbar />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        {/* Fil d'Ariane */}
-        <nav className="flex items-center space-x-2 text-xs text-slate-500 mb-8">
-          <Link href="/" className="hover:text-[#0066FF] transition-colors">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
+        {/* Fil d'Ariane moderne */}
+        <nav className="flex items-center gap-2 text-xs text-slate-400 mb-8 overflow-x-auto pb-1">
+          <Link href="/" className="hover:text-[#0066FF] transition-colors whitespace-nowrap">
             Accueil
           </Link>
-          <span>/</span>
-          <Link href="/boutique" className="hover:text-[#0066FF] transition-colors">
+          <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+          <Link href="/boutique" className="hover:text-[#0066FF] transition-colors whitespace-nowrap">
             Boutique
           </Link>
-          <span>/</span>
-          <span className="text-slate-400">{ebook.category}</span>
-          <span>/</span>
-          <span className="text-slate-800 font-medium truncate max-w-xs">{ebook.title}</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+          <span className="text-slate-500 font-medium whitespace-nowrap">{ebook.category}</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+          <span className="text-slate-800 font-bold truncate max-w-xs">{ebook.title}</span>
         </nav>
 
-        {/* Grille principale présentation ebook */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* Grille principale : Livre à gauche, Fiche à droite */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Colonne Gauche : Couverture et Visuel */}
+          {/* Colonne Gauche : Couverture 3D & Réassurance */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="sticky top-28 w-full flex flex-col items-center">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur-xl opacity-25 group-hover:opacity-35 transition-opacity"></div>
+              
+              {/* Couverture avec effet d'élévation 3D */}
+              <div className="relative group mb-8">
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity" />
                 <BookCover
                   title={ebook.title}
-                  subtitle="Le guide pratique"
-                  size="lg"
+                  subtitle="Guide officiel pratique"
+                  theme={theme}
+                  size="hero"
                   className="relative shadow-2xl"
                 />
               </div>
 
-              {/* Récapitulatif garanties sous la couverture */}
-              <div className="w-full max-w-sm mt-8 bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
-                <div className="flex items-center gap-3 text-xs text-slate-700">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Paiement 100% sécurisé via <strong>Wave</strong></span>
+              {/* Bloc de réassurance Wave & Sécurité sous le livre */}
+              <div className="w-full max-w-md bg-white border border-slate-100 rounded-3xl p-6 shadow-sm space-y-4">
+                <div className="flex items-center gap-3.5 text-xs text-slate-700">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">Paiement 100% sécurisé Wave</p>
+                    <p className="text-slate-400 text-[11px]">Validation instantanée sans frais cachés</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-700">
-                  <Zap className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                  <span>Accès instantané après validation</span>
+
+                <div className="flex items-center gap-3.5 text-xs text-slate-700">
+                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                    <Zap className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">Accès instantané garanti</p>
+                    <p className="text-slate-400 text-[11px]">Code d&apos;accès et lecture en ligne immédiate</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-700">
-                  <Lock className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <span>Lecture en ligne sécurisée multi-appareils</span>
+
+                <div className="flex items-center gap-3.5 text-xs text-slate-700">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#0066FF] flex items-center justify-center shrink-0">
+                    <Smartphone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900">Lecture multi-écrans protégée</p>
+                    <p className="text-slate-400 text-[11px]">Smartphone, tablette et ordinateur (2 appareils)</p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
           {/* Colonne Droite : Fiche descriptive & Achat */}
           <div className="lg:col-span-7 space-y-8">
-            {/* Header produit */}
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0066FF] bg-blue-50 px-3 py-1 rounded-full">
-                {ebook.category}
-              </span>
-              <h1 className="text-3xl sm:text-4xl font-black text-[#0B1528] tracking-tight mt-3">
-                {ebook.title}
-              </h1>
-              <p className="text-base text-slate-600 mt-4 leading-relaxed">
-                {ebook.description}
-              </p>
-            </div>
+            
+            {/* Header produit avec badge et avis */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${badgeColor}`}>
+                  {ebook.category}
+                </span>
 
-            {/* Bloc Prix & CTA d'achat (Fidèle à la maquette) */}
-            <div className="bg-slate-50/80 border border-slate-200/90 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div>
-                <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold block">
-                  Prix officiel
-                </span>
-                <span className="text-3xl font-black text-[#0B1528]">
-                  {ebook.price.toLocaleString("fr-FR")} FCFA
-                </span>
-                <span className="text-xs text-slate-400 block mt-0.5">
-                  Paiement unique • Accès à vie
-                </span>
+                <div className="flex items-center gap-1.5 text-xs font-bold text-amber-500 bg-amber-50/80 px-3 py-1 rounded-full border border-amber-100">
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <span className="text-slate-800">4.9 / 5</span>
+                  <span className="text-slate-400 font-normal">(1,2k avis vérifiés)</span>
+                </div>
               </div>
 
-              <Link
-                href={`/paiement?slug=${ebook.slug}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all"
-              >
-                <span>Acheter maintenant</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <h1 className="text-3xl sm:text-4xl font-black text-[#0B1528] tracking-tight leading-tight">
+                {ebook.title}
+              </h1>
+
+              <p className="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed">
+                {ebook.description}
+              </p>
+
+              {/* Bloc Prix & Achat Wave intégré */}
+              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-slate-50/70 p-6 rounded-2xl border border-slate-100">
+                <div>
+                  <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">
+                    Prix de lancement officiel
+                  </span>
+                  <div className="flex items-baseline gap-2 mt-0.5">
+                    <span className="text-3xl sm:text-4xl font-black text-[#0B1528]">
+                      {ebook.price.toLocaleString("fr-FR")}
+                    </span>
+                    <span className="text-sm font-bold text-[#0066FF]">FCFA</span>
+                  </div>
+                  <span className="text-[11px] text-slate-400 block mt-1">
+                    Paiement unique • Accès à vie garanti
+                  </span>
+                </div>
+
+                <Link
+                  href={`/paiement?slug=${ebook.slug}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                >
+                  <ShoppingCart className="w-4 h-4" />
+                  <span>Acheter maintenant</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </div>
             </div>
 
             {/* Ce que vous allez apprendre */}
-            <div className="border-t border-slate-100 pt-8">
-              <h3 className="text-lg font-bold text-[#0B1528] mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                Ce que vous allez apprendre :
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100">
+              <h3 className="text-base sm:text-lg font-bold text-[#0B1528] mb-5 flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <span>Ce que vous allez apprendre :</span>
               </h3>
-              <ul className="space-y-3">
+
+              <div className="grid grid-cols-1 gap-3.5">
                 {ebook.learnPoints.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                    <span className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                  <div
+                    key={idx}
+                    className="flex items-start gap-3.5 p-3 rounded-xl bg-slate-50/80 hover:bg-slate-50 transition-colors"
+                  >
+                    <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                       ✓
+                    </div>
+                    <span className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                      {point}
                     </span>
-                    <span>{point}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
-            {/* Sommaire du livre */}
-            <div className="border-t border-slate-100 pt-8">
-              <h3 className="text-lg font-bold text-[#0B1528] mb-4 flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-[#0066FF]" />
-                Sommaire du livre :
+            {/* Sommaire détaillé du livre */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100">
+              <h3 className="text-base sm:text-lg font-bold text-[#0B1528] mb-5 flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0066FF] flex items-center justify-center">
+                  <BookOpen className="w-4 h-4" />
+                </div>
+                <span>Sommaire du livre :</span>
               </h3>
+
               <div className="space-y-3">
-                {ebook.chapters.map((chap) => (
+                {ebook.chapters.map((chap, idx) => (
                   <div
                     key={chap.id}
-                    className="flex items-center justify-between bg-white border border-slate-200/80 rounded-xl px-4 py-3 text-sm text-slate-700"
+                    className="flex items-center justify-between bg-slate-50/60 hover:bg-blue-50/40 border border-slate-100 rounded-2xl px-5 py-3.5 text-sm transition-colors group"
                   >
-                    <span className="font-semibold text-slate-800">{chap.title}</span>
-                    <span className="text-xs text-slate-400">Chapitre {chap.order}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-bold text-[#0066FF] bg-white px-2 py-1 rounded-lg border border-slate-200 shadow-2xs font-mono">
+                        0{chap.order}
+                      </span>
+                      <span className="font-semibold text-slate-800 group-hover:text-[#0066FF] transition-colors">
+                        {chap.title.replace(/^\d+\.\s*/, "")}
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-bold text-slate-400 bg-white px-2.5 py-1 rounded-full border border-slate-100">
+                      Chapitre {chap.order}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Public cible */}
-            <div className="border-t border-slate-100 pt-8">
-              <h3 className="text-lg font-bold text-[#0B1528] mb-3 flex items-center gap-2">
-                <Users className="w-5 h-5 text-indigo-600" />
-                Public cible :
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100">
+              <h3 className="text-base sm:text-lg font-bold text-[#0B1528] mb-3 flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+                  <Users className="w-4 h-4" />
+                </div>
+                <span>Public cible :</span>
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed bg-slate-50 border border-slate-200/60 rounded-xl p-4">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed bg-purple-50/40 border border-purple-100/60 rounded-2xl p-4 font-medium">
                 {ebook.targetAudience}
               </p>
+            </div>
+
+            {/* Bannière de passage à l'action finale */}
+            <div className="bg-gradient-to-r from-[#0B1528] to-[#0A2558] rounded-3xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-300">
+                  Prêt à commencer votre lecture ?
+                </p>
+                <h4 className="text-lg font-bold text-white mt-1">
+                  Accédez à votre ebook dès maintenant
+                </h4>
+                <p className="text-xs text-slate-300 mt-1">
+                  Paiement sécurisé Wave · Réception instantanée
+                </p>
+              </div>
+
+              <Link
+                href={`/paiement?slug=${ebook.slug}`}
+                className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-blue-600 text-white px-6 py-3.5 rounded-2xl text-xs font-bold transition-all shadow-md shrink-0"
+              >
+                <span>Obtenir mon accès ({ebook.price.toLocaleString("fr-FR")} FCFA)</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
           </div>
