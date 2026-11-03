@@ -10,9 +10,9 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Logo showSlogan={false} />
+        <Logo showSlogan={false} size="md" />
 
         {/* Navigation principale */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
