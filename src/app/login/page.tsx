@@ -4,7 +4,17 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Logo } from "@/components/Logo";
-import { Lock, Mail, ArrowRight, Loader2, KeyRound } from "lucide-react";
+import {
+  Lock,
+  Mail,
+  ArrowRight,
+  Loader2,
+  KeyRound,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowLeft,
+  Sparkles,
+} from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -35,43 +45,53 @@ export default function LoginPage() {
       } else {
         router.push("/dashboard");
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Identifiants invalides ou problème de connexion.");
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
-      <header className="bg-white border-b border-slate-100 py-4 px-6">
-        <div className="max-w-md mx-auto flex items-center justify-between">
-          <Logo />
-          <Link href="/" className="text-xs font-semibold text-slate-500 hover:text-slate-800">
-            Retour au site
+    <div className="min-h-screen bg-[#F8FAFD] flex flex-col justify-between font-sans text-slate-800">
+      {/* Header */}
+      <header className="bg-white/95 backdrop-blur-md border-b border-slate-100 py-3.5 px-6 sticky top-0 z-30 shadow-2xs">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <Logo size="sm" />
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors bg-slate-50 hover:bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Retour au site</span>
           </Link>
         </div>
       </header>
 
-      <main className="flex-1 max-w-md mx-auto w-full px-4 py-12">
-        <div className="bg-white rounded-3xl border border-slate-200/90 p-8 shadow-subtle">
+      {/* Main card */}
+      <main className="flex-1 max-w-md mx-auto w-full px-4 py-12 flex flex-col justify-center">
+        <div className="bg-white rounded-3xl border border-slate-100 p-8 sm:p-10 shadow-sm">
+          
           <div className="text-center mb-8">
+            <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0066FF] flex items-center justify-center mx-auto mb-3 shadow-2xs">
+              <Lock className="w-5 h-5" />
+            </div>
             <h1 className="text-2xl font-black text-[#0B1528] tracking-tight">
               Connexion à votre espace
             </h1>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-500 mt-1.5">
               Accédez à vos ebooks achetés et à votre lecteur sécurisé.
             </p>
           </div>
 
           {error && (
-            <div className="mb-6 p-3 bg-red-50 border border-red-200 text-xs text-red-700 rounded-xl">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-xs text-red-700 rounded-2xl font-medium leading-relaxed">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                 Adresse e-mail
               </label>
               <div className="relative">
@@ -81,13 +101,14 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  placeholder="votre@email.com"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white transition-all font-medium"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                 Mot de passe
               </label>
               <div className="relative">
@@ -97,7 +118,8 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF]"
+                  placeholder="••••••••"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white transition-all font-medium"
                 />
               </div>
             </div>
@@ -105,27 +127,37 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white py-3 px-4 rounded-xl font-bold text-sm shadow transition-all disabled:opacity-50 mt-6"
+              className="w-full flex items-center justify-center gap-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white py-3.5 px-6 rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all disabled:opacity-60 cursor-pointer mt-6"
             >
-              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <span>Se connecter</span>}
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Vérification...</span>
+                </>
+              ) : (
+                <>
+                  <span>Se connecter</span>
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
             </button>
           </form>
 
           {/* Quick presets for testing */}
           <div className="mt-8 pt-6 border-t border-slate-100">
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-2 text-center">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-3 text-center">
               Comptes de test pré-configurés
             </span>
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="grid grid-cols-2 gap-2.5 text-xs">
               <button
                 type="button"
                 onClick={() => {
                   setEmail("makhou@example.sn");
                   setPassword("Client2026!");
                 }}
-                className="p-2 rounded-lg bg-blue-50 text-[#0066FF] font-medium hover:bg-blue-100 transition-colors text-center"
+                className="p-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0066FF] font-bold transition-colors text-center border border-blue-100"
               >
-                Compte Client (Makhou)
+                Client (Makhou)
               </button>
               <button
                 type="button"
@@ -133,9 +165,9 @@ export default function LoginPage() {
                   setEmail("admin@ecommastery.sn");
                   setPassword("AdminMastery2026!");
                 }}
-                className="p-2 rounded-lg bg-slate-100 text-slate-800 font-medium hover:bg-slate-200 transition-colors text-center"
+                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition-colors text-center border border-slate-200"
               >
-                Compte Admin
+                Super-Admin
               </button>
             </div>
           </div>
@@ -143,17 +175,18 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
             <Link
               href="/activer-code"
-              className="text-xs font-semibold text-[#0066FF] hover:underline inline-flex items-center gap-1"
+              className="text-xs font-semibold text-[#0066FF] hover:underline inline-flex items-center gap-1.5"
             >
               <KeyRound className="w-3.5 h-3.5" />
               <span>Vous avez déjà un code d&apos;accès ? Activez-le ici</span>
             </Link>
           </div>
+
         </div>
       </main>
 
       <footer className="py-6 text-center text-xs text-slate-400 bg-white border-t border-slate-100">
-        © {new Date().getFullYear()} Ecom Mastery — Accès sécurisé
+        © {new Date().getFullYear()} Ecom Mastery — Accès chiffré SSL 256 bits · Réalisé par WockyTech
       </footer>
     </div>
   );
