@@ -1,6 +1,13 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return null;
+  }
+  return new Resend(apiKey);
+}
+
 const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
 interface OrderEmailData {
@@ -15,6 +22,12 @@ interface OrderEmailData {
 // Email de confirmation d'achat
 export async function sendOrderConfirmation(data: OrderEmailData) {
   try {
+    const resend = getResendClient();
+    if (!resend) {
+      console.warn("[Resend] Ignoré: RESEND_API_KEY non configurée.");
+      return { success: false, reason: "No API key" };
+    }
+
     const { error } = await resend.emails.send({
       from: `Ecom Mastery <${fromEmail}>`,
       to: data.customerEmail,
@@ -125,6 +138,12 @@ export async function sendOrderConfirmation(data: OrderEmailData) {
 // Email de bienvenue après inscription
 export async function sendWelcomeEmail(name: string, email: string) {
   try {
+    const resend = getResendClient();
+    if (!resend) {
+      console.warn("[Resend] Ignoré: RESEND_API_KEY non configurée.");
+      return { success: false, reason: "No API key" };
+    }
+
     const { error } = await resend.emails.send({
       from: `Ecom Mastery <${fromEmail}>`,
       to: email,
@@ -178,6 +197,12 @@ export async function sendWelcomeEmail(name: string, email: string) {
 export async function sendAdminSaleNotification(data: OrderEmailData) {
   const adminEmail = process.env.ADMIN_DEFAULT_EMAIL || "admin@ecommastery.sn";
   try {
+    const resend = getResendClient();
+    if (!resend) {
+      console.warn("[Resend] Ignoré: RESEND_API_KEY non configurée.");
+      return { success: false, reason: "No API key" };
+    }
+
     const { error } = await resend.emails.send({
       from: `Ecom Mastery <${fromEmail}>`,
       to: adminEmail,
