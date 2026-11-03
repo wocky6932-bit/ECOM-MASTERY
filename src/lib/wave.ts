@@ -28,8 +28,8 @@ export class WaveService {
 
   /**
    * Crée une session Wave Checkout officielle.
-   * Si les clés API Wave ne sont pas encore renseignées dans l'environnement (mode dev local),
-   * le service bascule de manière transparente sur le simulateur officiel Wave intégré.
+   * Redirige directement vers le lien marchand officiel Wave :
+   * https://pay.wave.com/m/M_sn_BGVLqeWyqF_C/c/sn en forçant le paiement du montant (5 000 FCFA).
    */
   static async createCheckoutSession(params: {
     amount: number;
@@ -38,40 +38,15 @@ export class WaveService {
     successUrl: string;
     errorUrl: string;
   }): Promise<{ waveLaunchUrl: string; sessionId: string }> {
-    if (!this.isConfigured) {
-      // Mode simulation sécurisé pour le développement et la validation
-      const simSessionId = `cos_sim_${crypto.randomBytes(8).toString("hex")}`;
-      const simLaunchUrl = `/wave-checkout-simulator?session_id=${simSessionId}&order=${params.orderNumber}&amount=${params.amount}`;
-      return {
-        waveLaunchUrl: simLaunchUrl,
-        sessionId: simSessionId,
-      };
-    }
+    const merchantId = "M_sn_BGVLqeWyqF_C";
+    const amount = params.amount || 5000;
+    // URL directe marchande Wave avec montant forcé
+    const waveLaunchUrl = `https://pay.wave.com/m/${merchantId}/c/sn?amount=${amount}&a=${amount}`;
+    const sessionId = `wave_m_${crypto.randomBytes(6).toString("hex")}`;
 
-    const response = await fetch("https://api.wave.com/v1/checkout/sessions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${this.apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        amount: params.amount.toString(),
-        currency: params.currency,
-        error_url: params.errorUrl,
-        success_url: params.successUrl,
-        client_reference: params.orderNumber,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Wave API checkout failed (${response.status}): ${errorText}`);
-    }
-
-    const data: WaveCheckoutResponse = await response.json();
     return {
-      waveLaunchUrl: data.wave_launch_url,
-      sessionId: data.id,
+      waveLaunchUrl,
+      sessionId,
     };
   }
 

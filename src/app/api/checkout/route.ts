@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { WaveService } from "@/lib/wave";
-import { generateOrderNumber, hashPassword } from "@/lib/auth";
+import { generateOrderNumber, hashPassword, generateAccessCode, hashCode } from "@/lib/auth";
 import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
 
 export async function POST(req: NextRequest) {
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // Créer la commande en PENDING
+    // Créer la commande
     const orderNumber = generateOrderNumber();
     const order = await prisma.order.create({
       data: {
@@ -77,6 +77,37 @@ export async function POST(req: NextRequest) {
         customerEmail: email.toLowerCase(),
         customerPhone: phone,
       },
+    });
+
+    // Générer dès maintenant le code d'accès unique pour ce client
+    const plainCode = generateAccessCode();
+    const codeHash = hashCode(plainCode);
+    await prisma.accessCode.create({
+      data: {
+        code: plainCode,
+        codeHash,
+        userId: user.id,
+        productId: product.id,
+        orderId: order.id,
+        status: "ACTIVE",
+      },
+    });
+
+    // Initialiser la progression de lecture
+    await prisma.readingProgress.upsert({
+      where: {
+        userId_productId: {
+          userId: user.id,
+          productId: product.id,
+        },
+      },
+      create: {
+        userId: user.id,
+        productId: product.id,
+        lastPosition: 1,
+        progressPct: 0,
+      },
+      update: {},
     });
 
     // Initialiser la transaction Wave Checkout
