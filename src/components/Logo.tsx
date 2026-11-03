@@ -10,10 +10,10 @@ interface LogoProps {
 }
 
 const sizeMap = {
-  sm: { container: "w-12 h-12", img: 48 },
-  md: { container: "w-16 h-16", img: 64 },
-  lg: { container: "w-24 h-24", img: 96 },
-  xl: { container: "w-32 h-32", img: 128 },
+  sm: { width: 120, height: 42 },
+  md: { width: 160, height: 55 },
+  lg: { width: 200, height: 69 },
+  xl: { width: 260, height: 90 },
 };
 
 export const Logo: React.FC<LogoProps> = ({
@@ -25,16 +25,15 @@ export const Logo: React.FC<LogoProps> = ({
   const s = sizeMap[size];
   return (
     <Link href="/" className={`inline-flex items-center gap-3 group select-none ${className}`}>
-      <div className={`relative ${s.container} flex items-center justify-center shrink-0`}>
-        <Image
-          src="/images/logo.png"
-          alt="Ecom Mastery"
-          width={s.img}
-          height={s.img}
-          className="object-contain"
-          priority
-        />
-      </div>
+      <Image
+        src="/images/logo.png"
+        alt="Ecom Mastery"
+        width={s.width}
+        height={s.height}
+        className="object-contain"
+        style={{ width: s.width, height: "auto" }}
+        priority
+      />
       {showSlogan && (
         <span
           className={`text-[11px] uppercase tracking-widest font-semibold ${
