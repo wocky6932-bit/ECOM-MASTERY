@@ -717,6 +717,217 @@ function FacebookABTestMockup({ theme }: { theme: "light" | "sepia" | "dark" }) 
   );
 }
 
+
+// 9. Graphique interactif de Résultats de Tests A/B (Pages 14 & 15)
+function FacebookABTestResultsChart({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const [metric, setMetric] = useState<"cost" | "reach" | "device">("cost");
+
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-indigo-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-gradient-to-br from-indigo-50/60 via-white to-purple-50/60 border-indigo-200 text-slate-800"
+      }`}
+    >
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-3 border-b border-black/10 dark:border-white/10">
+        <div>
+          <span className="text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+            Rapport de Performance Meta Ads
+          </span>
+          <h4 className="text-sm sm:text-base font-black tracking-tight mt-0.5">
+            Résultats Comparatifs du Test par Répartition
+          </h4>
+        </div>
+        {/* Sélecteur de Métrique */}
+        <div className="flex p-1 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[11px] font-bold">
+          <button
+            onClick={() => setMetric("cost")}
+            className={`px-3 py-1 rounded-lg transition-all ${
+              metric === "cost" ? "bg-indigo-600 text-white shadow-xs" : "opacity-60 hover:opacity-100"
+            }`}
+          >
+            Coût / Résultat
+          </button>
+          <button
+            onClick={() => setMetric("reach")}
+            className={`px-3 py-1 rounded-lg transition-all ${
+              metric === "reach" ? "bg-indigo-600 text-white shadow-xs" : "opacity-60 hover:opacity-100"
+            }`}
+          >
+            Portée
+          </button>
+          <button
+            onClick={() => setMetric("device")}
+            className={`px-3 py-1 rounded-lg transition-all ${
+              metric === "device" ? "bg-indigo-600 text-white shadow-xs" : "opacity-60 hover:opacity-100"
+            }`}
+          >
+            Mobile vs PC
+          </button>
+        </div>
+      </div>
+
+      {metric === "cost" && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span>Ensemble A : Audience Large (20 - 55 ans)</span>
+              <span className="text-rose-500 font-mono">450 FCFA / clic</span>
+            </div>
+            <div className="w-full h-3 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
+              <div className="h-full bg-purple-400 rounded-full" style={{ width: "85%" }} />
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border-2 border-emerald-500 shadow-md">
+            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span className="flex items-center gap-1.5 text-emerald-600">
+                <span>⭐ Ensemble B : Audience Ciblée (24 - 45 ans + Acheteurs)</span>
+                <span className="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-500 text-white">Gagnant 🏆</span>
+              </span>
+              <span className="text-emerald-600 font-mono font-black">180 FCFA / clic (-60%)</span>
+            </div>
+            <div className="w-full h-3 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
+              <div className="h-full bg-emerald-500 rounded-full" style={{ width: "34%" }} />
+            </div>
+          </div>
+          <p className="text-[11px] opacity-70">
+            📊 <strong>Conclusion financière :</strong> L'ensemble B génère 2,5x plus de prospects pour le même budget. Vous devez couper l'ensemble A et injecter 100% de votre capital sur l'ensemble B.
+          </p>
+        </div>
+      )}
+
+      {metric === "reach" && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span>Ensemble A : Budget mal optimisé</span>
+              <span className="font-mono opacity-80">2 950 personnes touchées</span>
+            </div>
+            <div className="w-full h-3 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
+              <div className="h-full bg-purple-400 rounded-full" style={{ width: "41%" }} />
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border-2 border-indigo-500 shadow-md">
+            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span className="text-indigo-600 flex items-center gap-1.5">
+                <span>⭐ Ensemble B : Meilleur taux de répétition</span>
+                <span className="text-[10px] font-extrabold px-2 py-0.5 rounded bg-indigo-600 text-white">Gagnant</span>
+              </span>
+              <span className="text-indigo-600 font-mono font-black">7 145 personnes touchées (+142%)</span>
+            </div>
+            <div className="w-full h-3 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
+              <div className="h-full bg-indigo-600 rounded-full" style={{ width: "100%" }} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {metric === "device" && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border-2 border-teal-500 shadow-xs">
+            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span className="flex items-center gap-1.5 text-teal-600">
+                <span>📱 Smartphones (Android 4G / iPhone)</span>
+                <span className="text-[10px] font-extrabold px-2 py-0.5 rounded bg-teal-600 text-white">96,8% des ventes</span>
+              </span>
+              <span className="text-teal-600 font-mono font-bold">18 420 clics</span>
+            </div>
+            <div className="w-full h-3 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
+              <div className="h-full bg-teal-500 rounded-full" style={{ width: "96.8%" }} />
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+            <div className="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span className="opacity-70">💻 Ordinateurs portables / Bureau</span>
+              <span className="font-mono opacity-70">3,2% des ventes</span>
+            </div>
+            <div className="w-full h-3 rounded-full bg-black/5 dark:bg-white/10 overflow-hidden">
+              <div className="h-full bg-slate-400 rounded-full" style={{ width: "3.2%" }} />
+            </div>
+          </div>
+          <p className="text-[11px] opacity-70">
+            ⚡ En Afrique francophone, <strong>plus de 95% des achats e-commerce sont finalisés sur smartphone</strong>. Concevez toujours vos visuels, vos boutons Wave et votre boutique d'abord pour mobile.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// 10. Carte d'Architecture du Pixel Facebook & Tracking (Page 16)
+function FacebookPixelArchitectureCard({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const benefits = [
+    { title: "Ciblage chirurgical", desc: "Diffuse vos publicités auprès des personnes les plus enclines à acheter." },
+    { title: "Audiences de Remarketing", desc: "Crée des audiences de tous ceux qui ont visité sans finaliser la commande." },
+    { title: "Déclenchement automatique", desc: "Active l'optimisation par IA de Meta pour baisser le coût par acquisition." },
+    { title: "Mesure exacte du ROI", desc: "Permet de savoir précisément combien chaque franc investi vous rapporte." },
+  ];
+
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-cyan-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-gradient-to-br from-cyan-50/70 via-white to-blue-50/70 border-cyan-200 text-slate-800"
+      }`}
+    >
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+      <div className="mb-5 pb-3 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+          Moteur de Données & Tracking Événementiel
+        </span>
+        <h4 className="text-base sm:text-lg font-black tracking-tight mt-0.5">
+          Comment Fonctionne le Pixel Facebook ?
+        </h4>
+        <p className="text-xs opacity-75 mt-1 leading-relaxed">
+          Le Pixel est un extrait de code JavaScript placé dans l'en-tête de votre boutique. Dès qu'un internaute consulte une page, clique sur « Commander » ou paie par Wave, le Pixel transmet immédiatement le signal aux serveurs de Meta.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+        {benefits.map((b, idx) => (
+          <div
+            key={idx}
+            className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs"
+          >
+            <span className="text-xs font-bold text-cyan-700 dark:text-cyan-300 block mb-0.5">
+              ✓ {b.title}
+            </span>
+            <p className="text-[11px] opacity-75 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-xs leading-relaxed">
+        <strong>📌 Les 4 Événements Clés à Suivre :</strong>
+        <div className="flex flex-wrap gap-2 mt-2">
+          <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-black/40 font-mono text-[11px] border border-cyan-500/20">
+            👁️ ViewContent (Visite fiche produit)
+          </span>
+          <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-black/40 font-mono text-[11px] border border-cyan-500/20">
+            🛒 AddToCart (Ajout panier)
+          </span>
+          <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-black/40 font-mono text-[11px] border border-cyan-500/20">
+            💳 InitiateCheckout (Début paiement)
+          </span>
+          <span className="px-2.5 py-1 rounded-lg bg-emerald-500 text-white font-mono text-[11px] font-bold shadow-xs">
+            💰 Purchase (Achat Wave / COD validé)
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Bloc de code moderne avec barre macOS et bouton de copie
 function ModernCodeBlock({
   code,
@@ -770,6 +981,16 @@ function ModernCodeBlock({
   // 7. Infographie : Formats Publicitaires Facebook
   if (code.includes("FORMATS PUBLICITAIRES FACEBOOK")) {
     return <FacebookFormatsInfographic theme={theme} />;
+  }
+
+    // 9. Graphique Résultats Tests A/B Facebook
+  if (code.includes("TESTS AB RESULTATS FACEBOOK")) {
+    return <FacebookABTestResultsChart theme={theme} />;
+  }
+
+  // 10. Carte Pixel Facebook Architecture
+  if (code.includes("PIXEL FACEBOOK ARCHITECTURE")) {
+    return <FacebookPixelArchitectureCard theme={theme} />;
   }
 
   // 8. Mockup : Tests A/B Facebook

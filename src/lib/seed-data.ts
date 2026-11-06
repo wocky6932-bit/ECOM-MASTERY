@@ -392,7 +392,13 @@ Pour maximiser sa rentabilité et arrêter de gaspiller de l'argent, un e-commer
 TESTS AB FACEBOOK
 \`\`\`
 
-### Le principe du Test A/B :
+### Comparaison des Performances & Décision de Scaling :
+
+\`\`\`
+TESTS AB RESULTATS FACEBOOK
+\`\`\`
+
+### Le principe fondamental du Split Testing :
 Les tests par répartition consistent à diffuser au moins deux versions d'une publicité à deux groupes d'audience similaires en changeant **une seule variable à la fois** :
 - **Test de Créatif :** Même audience, mais Vidéo A (problème/solution) contre Vidéo B (témoignage déballage).
 - **Test d'Audience :** Même vidéo, mais Audience 1 (Dakar 20-35 ans) contre Audience 2 (Dakar 35-50 ans).
@@ -401,7 +407,22 @@ Vous coupez immédiatement la variante perdante et allouez 100% du budget sur la
 
 ---
 
-## IX. TikTok Ads : La pépite sous-exploitée en Afrique
+## IX. Le Pixel Facebook & l'API de Conversions : La machine à traquer les ventes
+
+\`\`\`
+PIXEL FACEBOOK ARCHITECTURE
+\`\`\`
+
+« Le Pixel Facebook est un outil d'analyse indispensable qui mesure l'efficacité de vos campagnes en suivant les actions entreprises par les visiteurs sur votre site web. »
+
+### Pourquoi le Pixel est indispensable pour votre boutique en ligne :
+1. **S'assurer que vos publicités sont montrées aux acheteurs réels :** L'algorithme apprend le profil précis de ceux qui sortent leur carte ou leur téléphone Wave pour payer.
+2. **Créer des audiences personnalisées ultra-rentables :** Retargeting automatique des paniers abandonnés avec une offre de livraison gratuite.
+3. **Générer des ventes automatiques en continu :** L'algorithme affine ses enchères jour après jour pour faire baisser votre coût par achat.
+
+---
+
+## X. TikTok Ads : La pépite sous-exploitée en Afrique
 
 TikTok offre aujourd'hui un coût par vue (CPM) jusqu'à **3 fois inférieur à celui de Facebook**.
 - **La règle d'or sur TikTok :** *« Don't make ads, make TikToks »*. N'utilisez jamais d'affiches publicitaires rigides. Tournez des vidéos authentiques au smartphone, en lumière naturelle, avec une voix-off dynamique en français ou en langue locale (Wolof, Baoulé, Bambara).
