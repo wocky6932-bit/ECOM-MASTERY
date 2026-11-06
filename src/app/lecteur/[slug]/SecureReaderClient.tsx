@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
+  Smartphone, Coins, Palette, Search, 
   ChevronLeft,
   ChevronRight,
   BookOpen,
@@ -417,6 +418,305 @@ function SparkleGoalBanner({ text }: { text: string }) {
   );
 }
 
+
+// 3. bis Mockup Audience Personnalisée (Page 8)
+function FacebookCustomAudienceMockup({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const sources = [
+    { name: "Fichier client", desc: "Numéros de téléphone WhatsApp et emails de vos acheteurs.", icon: "📁", badge: "Recommandé" },
+    { name: "Trafic du site web", desc: "Visiteurs ayant vu vos pages produit via le Pixel.", icon: "🌐", badge: "Pixel" },
+    { name: "Interactions Page & Instagram", desc: "Personnes ayant liké, commenté ou envoyé un message.", icon: "💬", badge: "Chaud" },
+    { name: "Activité hors ligne", desc: "Clients ayant commandé par téléphone ou livraison coursier.", icon: "📦", badge: "COD" },
+  ];
+
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-teal-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-teal-50/50 border-teal-200 text-slate-800"
+      }`}
+    >
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+      <div className="mb-4 pb-3 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-wider text-teal-600 dark:text-teal-400">
+          Audiences Personnalisées & Remarketing
+        </span>
+        <h4 className="text-sm sm:text-base font-black tracking-tight mt-0.5">
+          Comment souhaitez-vous créer cette audience ?
+        </h4>
+        <p className="text-xs opacity-70 mt-0.5">
+          Touchez les personnes qui ont déjà manifesté un intérêt avéré pour vos produits.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {sources.map((s, idx) => (
+          <div
+            key={idx}
+            className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 flex items-start justify-between gap-3 shadow-xs"
+          >
+            <div className="flex items-start gap-2.5">
+              <span className="text-2xl">{s.icon}</span>
+              <div>
+                <h5 className="text-xs font-bold">{s.name}</h5>
+                <p className="text-[11px] opacity-70 leading-relaxed mt-0.5">{s.desc}</p>
+              </div>
+            </div>
+            <span className="text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-teal-500/10 text-teal-600 border border-teal-500/20 shrink-0">
+              {s.badge}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[11px] opacity-75">
+        <span>⚡ Taux de conversion moyen en remarketing : <strong>3x à 5x supérieur</strong></span>
+        <span className="font-bold text-teal-600">Base Lookalike 1% à 5%</span>
+      </div>
+    </div>
+  );
+}
+
+// 4. Mockup Placements Publicitaires (Page 10)
+function FacebookPlacementsMockup({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-blue-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-blue-50/50 border-blue-200 text-slate-800"
+      }`}
+    >
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+      <div className="mb-4 pb-3 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-wider text-[#0066FF] dark:text-blue-400">
+          Distribution & Canaux de diffusion
+        </span>
+        <h4 className="text-sm sm:text-base font-black tracking-tight mt-0.5">
+          Où vos publicités doivent-elles apparaître ?
+        </h4>
+      </div>
+
+      <div className="space-y-3 text-xs">
+        <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border-2 border-[#0066FF] shadow-xs">
+          <div className="flex items-center justify-between mb-1">
+            <span className="font-black text-sm text-[#0066FF] flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-[#0066FF] text-white flex items-center justify-center text-[10px]">✓</span>
+              Placements Advantage+ (Automatiques - Fortement Recommandé)
+            </span>
+            <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+              Optimal
+            </span>
+          </div>
+          <p className="text-xs opacity-75 leading-relaxed pl-6">
+            Meta diffuse intelligemment votre pub sur Facebook, Instagram, Messenger et Audience Network pour obtenir le coût par vente le plus bas.
+          </p>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-white/70 dark:bg-black/20 border border-black/5 dark:border-white/10">
+          <span className="font-bold text-xs opacity-80 block mb-2">
+            Placements Manuels (Fil d'actualité, Reels, Stories) :
+          </span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <span className="p-2 rounded-xl bg-black/5 dark:bg-white/5 font-semibold text-center text-[11px]">
+              📱 Fil Facebook & Vidéos
+            </span>
+            <span className="p-2 rounded-xl bg-black/5 dark:bg-white/5 font-semibold text-center text-[11px]">
+              📸 Instagram Feed & Reels
+            </span>
+            <span className="p-2 rounded-xl bg-black/5 dark:bg-white/5 font-semibold text-center text-[11px]">
+              ⚡ Stories Facebook & Insta
+            </span>
+            <span className="p-2 rounded-xl bg-black/5 dark:bg-white/5 font-semibold text-center text-[11px]">
+              💬 Boîte Messenger
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// 5. Mockup Budget et Calendrier (Page 11)
+function FacebookBudgetMockup({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-amber-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-amber-50/50 border-amber-200 text-slate-800"
+      }`}
+    >
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+      <div className="mb-4 pb-3 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">
+          Gestion Financière & Contrôle des Dépenses
+        </span>
+        <h4 className="text-sm sm:text-base font-black tracking-tight mt-0.5">
+          Définition du Budget et du Calendrier
+        </h4>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+          <span className="text-[10px] font-extrabold uppercase text-slate-400 block mb-1">
+            Type de Budget
+          </span>
+          <span className="font-extrabold text-sm block mb-1 text-slate-900 dark:text-white">
+            Budget Quotidien (Daily Budget)
+          </span>
+          <div className="flex items-center gap-2 mt-2">
+            <span className="px-3 py-1.5 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 font-black text-sm border border-amber-500/20">
+              5 000 FCFA / jour (ou ~10 €)
+            </span>
+          </div>
+          <p className="text-[11px] opacity-70 mt-2 leading-relaxed">
+            Dépense moyenne lissée chaque jour pour laisser l'algorithme apprendre et délivrer des ventes régulières.
+          </p>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+          <span className="text-[10px] font-extrabold uppercase text-slate-400 block mb-1">
+            Calendrier de diffusion
+          </span>
+          <span className="font-extrabold text-sm block mb-1 text-slate-900 dark:text-white">
+            Diffusion continue en temps réel
+          </span>
+          <p className="text-[11px] opacity-70 mt-2 leading-relaxed">
+            Ne fixez pas de date de fin arbitraire : laissez la pub tourner tant que le ROAS est supérieur à 2.5x, et coupez manuellement si nécessaire.
+          </p>
+          <div className="mt-3 text-[11px] font-bold text-amber-600 flex items-center gap-1.5">
+            <span>🛡️ Plafond hebdomadaire estimé : 35 000 FCFA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// 6. Infographie Graphique : Formats Publicitaires Meta (Page 12)
+function FacebookFormatsInfographic({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const formats = [
+    { name: "CARROUSEL", desc: "Jusqu'à 10 fiches produits défilantes avec prix et liens dédiés.", color: "bg-purple-500 text-white", tag: "Catalogue" },
+    { name: "VIDÉO COURTE", desc: "Démonstration en 30s du produit en action. Format N°1 en Afrique.", color: "bg-amber-500 text-white", tag: "⭐ Meilleur ROAS" },
+    { name: "PHOTO UNIQUE", desc: "Image choc haute résolution avec texte d'accroche et offre promotionnelle.", color: "bg-teal-500 text-white", tag: "Impact Visuel" },
+    { name: "MESSENGER / WHATSAPP", desc: "Bouton d'appel direct vers une conversation pour clore la vente en direct.", color: "bg-rose-500 text-white", tag: "Closing Immédiat" },
+    { name: "DIAPORAMA", desc: "Enchaînement léger d'images ultra-rapide à charger sur connexion 3G/4G.", color: "bg-amber-600 text-white", tag: "Léger 4G" },
+    { name: "EXPÉRIENCE COLLECTION", desc: "Vitrine mobile immersive qui s'ouvre instantanément en plein écran.", color: "bg-cyan-600 text-white", tag: "Mobile Fast" },
+  ];
+
+  return (
+    <div
+      className={`my-8 rounded-3xl p-6 sm:p-8 border shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-white/10 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-white border-slate-200 text-slate-800"
+      }`}
+    >
+      <div className="text-center mb-6 pb-4 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 border border-purple-500/20">
+          Création de Contenu de Vente
+        </span>
+        <h4 className="text-base sm:text-xl font-black mt-2 tracking-tight">
+          Les 6 Grands Formats Publicitaires Meta
+        </h4>
+        <p className="text-xs opacity-70 mt-1 max-w-lg mx-auto">
+          Sur Facebook et Instagram : <strong>Format = Visuel immersif + Storytelling texte</strong>.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        {formats.map((f, idx) => (
+          <div
+            key={idx}
+            className="rounded-2xl border border-black/10 dark:border-white/10 overflow-hidden flex flex-col justify-between shadow-xs"
+          >
+            <div className={`p-3 text-center ${f.color}`}>
+              <span className="text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-white/20 mb-1 inline-block">
+                {f.tag}
+              </span>
+              <h5 className="font-black text-xs tracking-wider">{f.name}</h5>
+            </div>
+            <div className="p-3.5 flex-1 bg-white dark:bg-black/20 flex items-center">
+              <p className="text-xs opacity-80 leading-relaxed text-center w-full">
+                {f.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// 7. Mockup Tests A/B par répartition (Page 13)
+function FacebookABTestMockup({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-indigo-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-indigo-50/50 border-indigo-200 text-slate-800"
+      }`}
+    >
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+      <div className="mb-4 pb-3 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+          Optimisation Scientifique & Mesure
+        </span>
+        <h4 className="text-sm sm:text-base font-black tracking-tight mt-0.5">
+          Configuration d'un Test A/B par Répartition
+        </h4>
+        <p className="text-xs opacity-70 mt-0.5">
+          Comparez deux variantes avec une seule variable modifiée pour identifier scientifiquement la plus rentable.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border-2 border-indigo-500 shadow-xs">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-black text-sm text-indigo-600">Variante A (50% du Budget)</span>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-50 text-indigo-700">Contrôle</span>
+          </div>
+          <p className="text-xs opacity-80 mb-2">
+            <strong>Créatif Vidéo 1 :</strong> Démonstration directe du problème et solution en 30s.
+          </p>
+          <div className="p-2 rounded-xl bg-black/5 dark:bg-white/5 text-[11px] font-mono">
+            Coût par Prospect : <strong>420 FCFA</strong>
+          </div>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-white dark:bg-black/30 border-2 border-emerald-500 shadow-xs">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-black text-sm text-emerald-600">Variante B (50% du Budget)</span>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">Gagnant 🏆</span>
+          </div>
+          <p className="text-xs opacity-80 mb-2">
+            <strong>Créatif Vidéo 2 :</strong> Témoignage client face caméra avec déballage du produit.
+          </p>
+          <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-mono font-bold">
+            Coût par Prospect : <strong>190 FCFA (-55%)</strong>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[11px] opacity-75">
+        <span>💡 Règle d'or : Coupez la variante A et allouez 100% du budget sur la variante B gagnante.</span>
+        <span className="font-bold text-emerald-600">Gain de rentabilité : +120%</span>
+      </div>
+    </div>
+  );
+}
+
 // Bloc de code moderne avec barre macOS et bouton de copie
 function ModernCodeBlock({
   code,
@@ -450,6 +750,31 @@ function ModernCodeBlock({
   // 3. Mockup : Ciblage d'audience Facebook
   if (code.includes("CIBLAGE D'AUDIENCE FACEBOOK")) {
     return <FacebookAudienceMockup theme={theme} />;
+  }
+
+  // 4. Mockup : Audiences Personnalisées Facebook
+  if (code.includes("AUDIENCES PERSONNALISEES FACEBOOK")) {
+    return <FacebookCustomAudienceMockup theme={theme} />;
+  }
+
+  // 5. Mockup : Placements Publicitaires Facebook
+  if (code.includes("PLACEMENTS PUBLICITAIRES FACEBOOK")) {
+    return <FacebookPlacementsMockup theme={theme} />;
+  }
+
+  // 6. Mockup : Budget et Calendrier Facebook
+  if (code.includes("BUDGET ET CALENDRIER FACEBOOK")) {
+    return <FacebookBudgetMockup theme={theme} />;
+  }
+
+  // 7. Infographie : Formats Publicitaires Facebook
+  if (code.includes("FORMATS PUBLICITAIRES FACEBOOK")) {
+    return <FacebookFormatsInfographic theme={theme} />;
+  }
+
+  // 8. Mockup : Tests A/B Facebook
+  if (code.includes("TESTS AB FACEBOOK")) {
+    return <FacebookABTestMockup theme={theme} />;
   }
 
   return (

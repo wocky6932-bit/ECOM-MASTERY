@@ -293,7 +293,7 @@ Les objectifs publicitaires sont les actions précises que vous souhaitez que le
 
 Meta Ads distingue **3 grands objectifs commerciaux** :
 1. **La Notoriété :** Susciter de l'intérêt pour votre marque et faire découvrir votre existence à un maximum de personnes.
-2. **La Considération :** Inciter les prospects à s'intéresser activement à vos produits, à regarder vos vidéos, à poser des questions ou à visiter votre site.
+2. **La Considération :** Inciter les prospects à s'intéresser activement à vos produits, à regarder vos vidéos, à poser des questions ou à visiter votre boutique.
 3. **La Conversion :** Encourager les personnes qualifiées à acheter votre produit, à passer commande en ligne ou à valider une livraison en direct.
 
 \`\`\`
@@ -325,35 +325,58 @@ CIBLAGE D'AUDIENCE FACEBOOK
 
 ### 2. Les audiences personnalisées (Custom Audiences)
 Vous ciblez les personnes qui ont déjà eu un contact avec votre business :
-- Votre liste de contacts clients existants (numéros de téléphone et emails).
+
+\`\`\`
+AUDIENCES PERSONNALISEES FACEBOOK
+\`\`\`
+
+- Votre liste de contacts clients existants (fichiers numéros de téléphone WhatsApp et emails).
 - Les visiteurs de votre site web captés par le Pixel.
-- Les personnes ayant envoyé un message sur votre page Facebook ou votre compte Instagram ces 90 derniers jours.
+- Les personnes ayant envoyé un message ou interagi sur votre page Facebook ou compte Instagram ces 90 derniers jours.
 
 ### 3. Les audiences similaires (Lookalike)
-Meta analyse le profil de vos meilleurs clients actuels et recherche automatiquement des dizaines de milliers d'autres personnes ayant les mêmes comportements d'achat dans votre pays. C'est l'arme secrète pour scaler ses ventes !
+Meta analyse le profil de vos meilleurs clients actuels et recherche automatiquement des dizaines de milliers d'autres personnes ayant les mêmes comportements d'achat dans votre pays. C'est l'arme secrète pour scaler vos ventes !
 
 ---
 
-## V. Structure pro d'une campagne rentable à 5 000 FCFA / jour
+## V. Placement publicitaire : Où diffuser vos publicités ?
+
+Après avoir sélectionné votre audience, vous devez choisir où vos publicités apparaîtront.
 
 \`\`\`
-┌────────────────────────────────────────────────────────────────────────┐
-│                   STRUCTURE PRO D'UNE CAMPAGNE META ADS                │
-│                                                                        │
-│ [CAMPAGNE] ──► Objectif : Ventes (Conversions) ou Prospects WhatsApp   │
-│       │        Budget Advantage (CBO) : 5 000 FCFA / jour              │
-│       │                                                                │
-│       ├──► [ENSEMBLE DE PUB 1] : Ciblage Large Sénégal (22 - 50 ans)   │
-│       │         ├──► Créatif A : Vidéo Démonstration problème/solution │
-│       │         ├──► Créatif B : Vidéo Témoignage client face caméra   │
-│       │         └──► Créatif C : Carrousel 3 images avec prix choc     │
-│       │                                                                │
-│       └──► [ENSEMBLE DE PUB 2] : Ciblage Centres d'intérêt affinitaires│
-│                 └──► Mêmes créatifs A, B, C pour comparer les coûts    │
-└────────────────────────────────────────────────────────────────────────┘
+PLACEMENTS PUBLICITAIRES FACEBOOK
 \`\`\`
 
-### Anatomie d'une vidéo virale de vente en 30 secondes :
+Deux méthodes s'offrent à vous :
+- **Placements automatiques Advantage+ (Fortement recommandé) :** Facebook diffuse intelligemment votre pub là où le coût par résultat est le plus faible (Fils d'actualité, Stories, Reels, Messenger).
+- **Placements manuels :** Vous cochez vous-même les emplacements souhaités si votre créatif est au format exclusif vertical 9:16 (Stories/Reels) ou carré 1:1 (Fil).
+
+---
+
+## VI. Budget et calendrier de diffusion
+
+L'étape suivante consiste à définir le budget que vous voulez consacrer à la publicité et la période de diffusion.
+
+\`\`\`
+BUDGET ET CALENDRIER FACEBOOK
+\`\`\`
+
+Il existe 2 façons de configurer son budget :
+- **Le budget quotidien :** La somme moyenne investie par jour (recommandé : **5 000 FCFA / jour** pour tester un produit en Afrique).
+- **Le budget global :** La somme totale maximale allouée sur une durée fixe (ex: 35 000 FCFA sur 7 jours).
+- **Le mode CBO (Advantage Campaign Budget) :** Vous allouez le budget au niveau de la campagne, et Meta répartit automatiquement les sous sur les ensembles de publicités qui vendent le plus.
+
+---
+
+## VII. Formats publicitaires & Storytelling de vente
+
+Les formats publicitaires utilisés reflètent le storytelling que vous installez pour votre produit. Sur Meta : **Format = Image/Vidéo + Texte d'accroche (Copywriting)**.
+
+\`\`\`
+FORMATS PUBLICITAIRES FACEBOOK
+\`\`\`
+
+### L'anatomie d'une vidéo virale de vente en 30 secondes :
 1. **[00s - 03s] Le Hook (L'accroche visuelle & sonore) :** Stoppez immédiatement le scroll avec un mouvement rapide, un avant/après frappant ou une question percutante (*« Si vous en avez marre de perdre du temps à... »*).
 2. **[04s - 10s] La douleur réelle :** Montrez concrètement le problème quotidien vécu par votre client cible.
 3. **[11s - 22s] La solution magique :** Démonstration éclatante du produit en train de résoudre le problème en situation réelle.
@@ -361,7 +384,24 @@ Meta analyse le profil de vos meilleurs clients actuels et recherche automatique
 
 ---
 
-## VI. TikTok Ads : La pépite sous-exploitée en Afrique
+## VIII. Analyser les résultats & Tests A/B (Split Testing)
+
+Pour maximiser sa rentabilité et arrêter de gaspiller de l'argent, un e-commerçant professionnel ne devine jamais : il teste scientifiquement.
+
+\`\`\`
+TESTS AB FACEBOOK
+\`\`\`
+
+### Le principe du Test A/B :
+Les tests par répartition consistent à diffuser au moins deux versions d'une publicité à deux groupes d'audience similaires en changeant **une seule variable à la fois** :
+- **Test de Créatif :** Même audience, mais Vidéo A (problème/solution) contre Vidéo B (témoignage déballage).
+- **Test d'Audience :** Même vidéo, mais Audience 1 (Dakar 20-35 ans) contre Audience 2 (Dakar 35-50 ans).
+
+Vous coupez immédiatement la variante perdante et allouez 100% du budget sur la variante victorieuse !
+
+---
+
+## IX. TikTok Ads : La pépite sous-exploitée en Afrique
 
 TikTok offre aujourd'hui un coût par vue (CPM) jusqu'à **3 fois inférieur à celui de Facebook**.
 - **La règle d'or sur TikTok :** *« Don't make ads, make TikToks »*. N'utilisez jamais d'affiches publicitaires rigides. Tournez des vidéos authentiques au smartphone, en lumière naturelle, avec une voix-off dynamique en français ou en langue locale (Wolof, Baoulé, Bambara).
