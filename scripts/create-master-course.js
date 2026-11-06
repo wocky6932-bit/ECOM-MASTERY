@@ -212,9 +212,89 @@ Vous contactez une agence de transit locale à Dakar ou Abidjan (ex: GP Chine, S
     id: "chapitre-5",
     title: "5. Lancer une campagne publicitaire rentable de A à Z (Facebook Ads, Instagram & TikTok)",
     order: 5,
-    content: `## Construire un système d'acquisition de clients automatique
+    content: `## I. Pourquoi faire de la publicité sur Facebook ?
 
-La publicité payante est l'accélérateur ultime de votre e-commerce. Elle transforme 5 000 FCFA investis le matin en 25 000 FCFA de chiffre d'affaires le soir.
+Lorsque vous diffusez une simple publication sur votre page Facebook, seuls 2% à 5% de vos abonnés la voient. La publicité payante Facebook Ads vous permet au contraire de choisir avec une précision chirurgicale à qui vous voulez montrer vos produits.
+
+> 💬 QUOTE: DIFFUSER UN MESSAGE À UN MILLION DE PERSONNES AU HASARD OU LE DIFFUSER À MILLE PERSONNES POTENTIELLEMENT INTÉRESSÉES N'A PAS LE MÊME IMPACT... N'EST-CE PAS ?
+
+Avec Facebook, l'une des étapes les plus importantes dans la mise en place d'une campagne est le **choix de votre audience**. Vous attirez ainsi l'attention des bonnes personnes, vous leur diffusez un message sur-mesure pour votre business et surtout vous en analysez les retombées financières au centime près.
+
+La grande variété des formats publicitaires immersifs (vidéos de démonstration, carrousels, stories, formats verticaux Reels), la possibilité d'analyser les résultats en temps réel ainsi que le coût très accessible en Afrique font de Facebook la plateforme incontournable pour votre stratégie e-commerce.
+
+Facebook vous permet également de faire du **remarketing** (retargeting) : vous pouvez réadresser des publicités exclusives aux personnes qui ont déjà visité votre boutique ou entamé une discussion WhatsApp. L'outil technique qui rend cette magie possible est le **Pixel Facebook** (et l'API de Conversions Meta).
+
+---
+
+## II. Facebook Ads, comment ça marche ?
+
+Pour créer une campagne publicitaire professionnelle, il faut impérativement utiliser les outils dédiés de Meta plutôt que de simplement cliquer sur le bouton bleu « Booster la publication » de votre page (qui gaspille votre budget sans ciblage avancé).
+
+### 1. Le Gestionnaire de Publicité (Meta Ads Manager)
+Facebook met à votre disposition un environnement complet accessible depuis votre ordinateur à l'adresse **business.facebook.com** ou depuis l'application mobile Gestionnaire de Publicités (Android et iOS).
+
+Le nouveau Gestionnaire de publicités regroupe l'ancien Gestionnaire classique et les fonctionnalités avancées de Power Editor. Vous pouvez désormais :
+- Créer, modifier, dupliquer et gérer plusieurs campagnes et ensembles de publicités en un seul clic.
+- Contrôler vos budgets publicitaires au jour le jour (en FCFA, Euros ou Dollars).
+- Consulter vos métriques de rentabilité : coût par clic (CPC), coût par prospect WhatsApp, et retour sur dépenses publicitaires (ROAS).
+
+### 2. Création d'une campagne publicitaire
+Dans le Gestionnaire de publicités, deux parcours de création s'offrent à vous :
+- **La création guidée :** Elle vous assiste pas à pas à travers toutes les étapes de création de votre campagne, du choix de l'objectif jusqu'au paramétrage des visuels. Idéale pour démarrer en toute sécurité.
+- **La création rapide :** Destinée aux annonceurs qui souhaitent structurer rapidement plusieurs ensembles de publicités et variantes créatives.
+
+---
+
+## III. Les objectifs publicitaires de Meta
+
+> ✨ GOAL: COMME DANS TOUT PROJET, LA PREMIÈRE ÉTAPE PRIMORDIALE POUR CRÉER UNE PUBLICITÉ EST DE DÉFINIR UN OBJECTIF !
+
+Les objectifs publicitaires sont les actions précises que vous souhaitez que les personnes entreprennent lorsqu'elles découvrent vos publicités. L'algorithme de Meta optimise la diffusion en montrant votre pub en priorité aux utilisateurs les plus susceptibles de réaliser cette action précise.
+
+Meta Ads distingue **3 grands objectifs commerciaux** :
+1. **La Notoriété :** Susciter de l'intérêt pour votre marque et faire découvrir votre existence à un maximum de personnes.
+2. **La Considération :** Inciter les prospects à s'intéresser activement à vos produits, à regarder vos vidéos, à poser des questions ou à visiter votre site.
+3. **La Conversion :** Encourager les personnes qualifiées à acheter votre produit, à passer commande en ligne ou à valider une livraison en direct.
+
+\`\`\`
+OBJECTIFS PUBLICITAIRES FACEBOOK
+\`\`\`
+
+> 💡 **La recommandation pour démarrer en Afrique :**
+> - **Si vous n'avez pas encore de boutique en ligne :** Choisissez l'objectif **Messages WhatsApp** (sous Considération / Prospects). L'utilisateur clique sur votre pub vidéo et arrive directement dans votre discussion WhatsApp Business pour finaliser la commande.
+> - **Si vous avez votre boutique en ligne :** Choisissez l'objectif **Ventes / Conversions** avec l'événement « Achat » (Purchase) ou « Initialiser le paiement » (Initiate Checkout).
+
+---
+
+## IV. Le choix de l'audience et du ciblage laser
+
+Après avoir fixé l'objectif, vous devez définir précisément qui verra votre publicité. C'est l'étape du **ciblage**. 
+
+Lorsque vous créez une audience, vous disposez de 3 grandes options :
+
+### 1. Le ciblage principal (Données démographiques & Centres d'intérêt)
+Vous sélectionnez les utilisateurs selon leur pays, ville, tranche d'âge, sexe, langue et habitudes de consommation :
+
+\`\`\`
+CIBLAGE D'AUDIENCE FACEBOOK
+\`\`\`
+
+- **Lieux géographiques :** Ciblez les zones à forte concentration d'acheteurs et facilités de livraison (ex: Dakar et sa banlieue, Thiès, Mbour pour le Sénégal ; Abidjan : Cocody, Yopougon, Marcory pour la Côte d'Ivoire).
+- **Tranche d'âge :** 22 à 48 ans (la tranche qui possède des revenus réguliers et utilise activement Wave / Orange Money).
+- **Ciblage par centres d'intérêt :** Sélectionnez des centres d'intérêt affinitaires avec votre produit (ex: Soins de la peau, Shopping en ligne, Électronique, Décoration de maison).
+
+### 2. Les audiences personnalisées (Custom Audiences)
+Vous ciblez les personnes qui ont déjà eu un contact avec votre business :
+- Votre liste de contacts clients existants (numéros de téléphone et emails).
+- Les visiteurs de votre site web captés par le Pixel.
+- Les personnes ayant envoyé un message sur votre page Facebook ou votre compte Instagram ces 90 derniers jours.
+
+### 3. Les audiences similaires (Lookalike)
+Meta analyse le profil de vos meilleurs clients actuels et recherche automatiquement des dizaines de milliers d'autres personnes ayant les mêmes comportements d'achat dans votre pays. C'est l'arme secrète pour scaler ses ventes !
+
+---
+
+## V. Structure pro d'une campagne rentable à 5 000 FCFA / jour
 
 \`\`\`
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -233,30 +313,19 @@ La publicité payante est l'accélérateur ultime de votre e-commerce. Elle tran
 └────────────────────────────────────────────────────────────────────────┘
 \`\`\`
 
-### TikTok Ads : La pépite sous-exploitée en Afrique francophone
-TikTok possède un coût publicitaire (CPM) jusqu'à **3 fois moins cher que Facebook**. Les jeunes actifs et les femmes y passent des heures chaque jour.
-- Pour performer sur TikTok, n'utilisez jamais une publicité qui ressemble à une affiche de supermarché.
-- Votre vidéo doit ressembler à un contenu organique tourné avec un smartphone ordinaire.
+### Anatomie d'une vidéo virale de vente en 30 secondes :
+1. **[00s - 03s] Le Hook (L'accroche visuelle & sonore) :** Stoppez immédiatement le scroll avec un mouvement rapide, un avant/après frappant ou une question percutante (*« Si vous en avez marre de perdre du temps à... »*).
+2. **[04s - 10s] La douleur réelle :** Montrez concrètement le problème quotidien vécu par votre client cible.
+3. **[11s - 22s] La solution magique :** Démonstration éclatante du produit en train de résoudre le problème en situation réelle.
+4. **[23s - 30s] L'offre irrésistible & Appel à l'action (CTA) :** Annoncez le prix promotionnel (ex: 12 500 FCFA), précisez la livraison rapide et le paiement à la réception (Wave ou Cash) et invitez à commander immédiatement.
 
 ---
 
-### Création de contenu pour la vente : L'anatomie d'une vidéo virale en 30 secondes
+## VI. TikTok Ads : La pépite sous-exploitée en Afrique
 
-\`\`\`
-[00s - 03s] : LE HOOK (L'accroche visuelle et sonore)
-              "Arrêtez de gaspiller de l'argent dans..." ou "Si vous avez mal au dos, regardez ça !"
-              Mouvement rapide ou situation choquante pour forcer l'arrêt du scroll.
-
-[04s - 10s] : LE PROBLÈME RÉEL (Toucher la douleur)
-              Montrer la frustration quotidienne du client (la fatigue, le désordre, la douleur).
-
-[11s - 22s] : LA SOLUTION (Démonstration du produit en action)
-              Résultat magique et instantané. Gros plan sur l'utilisation facile.
-
-[23s - 30s] : L'OFFRE IRRÉSISTIBLE + APPEL À L'ACTION (CTA)
-              "Commandez aujourd'hui pour 12 500 FCFA au lieu de 20 000 FCFA !
-              Paiement à la livraison ou par Wave. Cliquez sur le lien sous la vidéo !"
-\`\`\``
+TikTok offre aujourd'hui un coût par vue (CPM) jusqu'à **3 fois inférieur à celui de Facebook**.
+- **La règle d'or sur TikTok :** *« Don't make ads, make TikToks »*. N'utilisez jamais d'affiches publicitaires rigides. Tournez des vidéos authentiques au smartphone, en lumière naturelle, avec une voix-off dynamique en français ou en langue locale (Wolof, Baoulé, Bambara).
+- Les vidéos courtes de 15 à 25 secondes montrant l'utilisation du produit génèrent un taux de conversion record auprès des jeunes actifs.`
   },
   {
     id: "chapitre-6",

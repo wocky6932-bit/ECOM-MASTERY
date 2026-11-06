@@ -27,6 +27,11 @@ import {
   Check,
   ArrowRight,
   CheckSquare,
+  Key,
+  Target,
+  Users,
+  Rocket,
+  TrendingUp,
 } from "lucide-react";
 
 interface Chapter {
@@ -67,7 +72,7 @@ function renderFormattedInlineText(text: string) {
   );
 }
 
-// Composant de schéma interactif pour "Le cycle vertueux du petit budget"
+// 1. Schéma interactif : "Le cycle vertueux du petit budget"
 function InteractiveCycleBudgetDiagram({ theme }: { theme: "light" | "sepia" | "dark" }) {
   const steps = [
     {
@@ -179,6 +184,239 @@ function InteractiveCycleBudgetDiagram({ theme }: { theme: "light" | "sepia" | "
   );
 }
 
+// 2. Infographie interactive : Les 3 Piliers d'Objectifs Meta Ads (Notoriété, Considération, Conversion)
+function FacebookAdsObjectivesInfographic({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const pillars = [
+    {
+      title: "1. NOTORIÉTÉ",
+      subtitle: "Susciter de l'intérêt pour votre marque",
+      headerBg: "bg-rose-500 text-white",
+      bodyBg: theme === "dark" ? "bg-rose-950/20 border-rose-500/20" : "bg-rose-50/70 border-rose-200",
+      accent: "text-rose-600 dark:text-rose-400",
+      items: [
+        { name: "Notoriété de la marque", desc: "Augmente le souvenir de vos produits chez les prospects" },
+        { name: "Portée", desc: "Touche le maximum absolu d'utilisateurs uniques au moindre coût" },
+      ],
+    },
+    {
+      title: "2. CONSIDÉRATION",
+      subtitle: "Inciter les gens à s'intéresser & interagir",
+      headerBg: "bg-amber-500 text-white",
+      bodyBg: theme === "dark" ? "bg-amber-950/20 border-amber-500/20" : "bg-amber-50/70 border-amber-200",
+      accent: "text-amber-600 dark:text-amber-400",
+      items: [
+        { name: "Trafic", desc: "Redirige vers votre boutique en ligne ou catalogue" },
+        { name: "Engagement", desc: "Génère des likes, commentaires et partages viraux" },
+        { name: "Vues de vidéos", desc: "Diffuse vos démonstrations produits au meilleur tarif" },
+        { name: "Génération de prospects", desc: "Formulaires intégrés sans sortir de Facebook" },
+        { name: "Messages WhatsApp / Messenger", desc: "⭐ L'arme N°1 en Afrique : discussion directe de vente" },
+      ],
+    },
+    {
+      title: "3. CONVERSION",
+      subtitle: "Déclencher l'achat & encaisser le cash",
+      headerBg: "bg-teal-600 text-white",
+      bodyBg: theme === "dark" ? "bg-teal-950/20 border-teal-500/20" : "bg-teal-50/70 border-teal-200",
+      accent: "text-teal-600 dark:text-teal-400",
+      items: [
+        { name: "Conversions (Achats)", desc: "Optimise pour les paiements Wave & commandes fermes" },
+        { name: "Ventes catalogue", desc: "Présente automatiquement vos collections de produits" },
+        { name: "Visites point de vente", desc: "Attire les clients vers votre point relais ou boutique physique" },
+      ],
+    },
+  ];
+
+  return (
+    <div
+      className={`my-8 rounded-3xl p-6 sm:p-8 border shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-white/10 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-white border-slate-200 text-slate-800"
+      }`}
+    >
+      <div className="text-center mb-6 pb-4 border-b border-black/10 dark:border-white/10">
+        <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-teal-500/10 text-teal-600 border border-teal-500/20">
+          Architecture Officielle Meta Ads
+        </span>
+        <h4 className="text-base sm:text-xl font-black mt-2 tracking-tight">
+          Les 3 Grands Piliers d'Objectifs Publicitaires
+        </h4>
+        <p className="text-xs opacity-70 mt-1 max-w-lg mx-auto">
+          Chaque objectif indique à l'intelligence artificielle de Facebook quel type d'acheteur cibler en priorité.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {pillars.map((pillar, idx) => (
+          <div
+            key={idx}
+            className="flex flex-col rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-sm"
+          >
+            <div className={`p-4 text-center ${pillar.headerBg}`}>
+              <h5 className="font-black text-sm tracking-wide uppercase">{pillar.title}</h5>
+              <p className="text-[11px] opacity-90 mt-0.5 leading-snug">{pillar.subtitle}</p>
+            </div>
+            <div className={`p-4 flex-1 space-y-2.5 border-t border-black/5 dark:border-white/5 ${pillar.bodyBg}`}>
+              {pillar.items.map((item, i) => (
+                <div
+                  key={i}
+                  className="p-2.5 rounded-xl bg-white/90 dark:bg-black/30 border border-black/5 dark:border-white/5 shadow-xs"
+                >
+                  <div className="text-xs font-bold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
+                    <span>{item.name}</span>
+                  </div>
+                  <p className="text-[11px] opacity-75 mt-0.5 ml-3.5 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 pt-4 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] opacity-75">
+        <span>💡 En Afrique : Démarrez par <strong>Messages WhatsApp</strong> ou <strong>Ventes (Conversions)</strong>.</span>
+        <span className="font-bold text-teal-600">Objectif = 80% du succès de votre campagne</span>
+      </div>
+    </div>
+  );
+}
+
+// 3. Mockup d'interface de ciblage Facebook Ads Manager (avec trombone 📎)
+function FacebookAudienceMockup({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  return (
+    <div
+      className={`my-8 rounded-3xl border p-6 sm:p-8 relative shadow-xl transition-all ${
+        theme === "dark"
+          ? "bg-[#0E1A33] border-teal-500/30 text-white"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-teal-50/50 border-teal-200 text-slate-800"
+      }`}
+    >
+      {/* Trombone paperclip illustré en haut à droite */}
+      <div className="absolute -top-3.5 right-6 w-6 h-10 border-2 border-rose-400 rounded-full rotate-12 shadow-sm pointer-events-none" />
+
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-3 border-b border-black/10 dark:border-white/10">
+        <div>
+          <span className="text-[10px] font-black uppercase tracking-wider text-teal-600 dark:text-teal-400">
+            Interface Gestionnaire de Publicités
+          </span>
+          <h4 className="text-sm sm:text-base font-black tracking-tight">
+            Configuration de l'Audience & Ciblage Laser
+          </h4>
+        </div>
+        <div className="flex gap-1.5">
+          <span className="px-3 py-1 rounded-xl text-[11px] font-extrabold bg-[#0066FF] text-white shadow-xs">
+            Créer une audience
+          </span>
+          <span className="px-3 py-1 rounded-xl text-[11px] font-medium opacity-60">
+            Audiences enregistrées
+          </span>
+        </div>
+      </div>
+
+      <div className="space-y-3.5 text-xs">
+        {/* Lieux */}
+        <div className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+          <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1.5">
+            Lieux géographiques ciblés
+          </label>
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="px-3 py-1 rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300 font-bold text-xs border border-teal-500/20 flex items-center gap-1.5">
+              📍 Sénégal · Dakar, Thiès, Mbour, Saint-Louis
+            </span>
+            <span className="px-3 py-1 rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300 font-bold text-xs border border-teal-500/20 flex items-center gap-1.5">
+              📍 Côte d'Ivoire · Abidjan (Cocody, Yopougon, Marcory)
+            </span>
+          </div>
+        </div>
+
+        {/* Âge / Sexe / Langue */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+            <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+              Âge
+            </label>
+            <span className="font-black text-sm text-[#0066FF]">22 ans - 48 ans</span>
+            <p className="text-[10px] opacity-60 mt-0.5">Tranche avec pouvoir d'achat actif</p>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+            <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+              Sexe
+            </label>
+            <div className="flex gap-1.5 mt-0.5">
+              <span className="px-2.5 py-1 rounded-lg bg-teal-600 text-white font-extrabold text-[10px]">Tous</span>
+              <span className="px-2.5 py-1 rounded-lg bg-black/5 dark:bg-white/10 text-[10px] opacity-60">Hommes</span>
+              <span className="px-2.5 py-1 rounded-lg bg-black/5 dark:bg-white/10 text-[10px] opacity-60">Femmes</span>
+            </div>
+          </div>
+          <div className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+            <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+              Langues
+            </label>
+            <span className="font-bold text-xs">Français (Tous)</span>
+          </div>
+        </div>
+
+        {/* Ciblage Avancé */}
+        <div className="p-3.5 rounded-2xl bg-white dark:bg-black/30 border border-black/5 dark:border-white/10 shadow-xs">
+          <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1.5">
+            Ciblage Avancé (Données démographiques & Centres d'intérêt)
+          </label>
+          <div className="flex flex-wrap gap-1.5">
+            <span className="px-2.5 py-1 rounded-lg bg-blue-500/10 text-[#0066FF] text-[11px] font-bold border border-blue-500/20">
+              ✓ Acheteurs actifs en ligne
+            </span>
+            <span className="px-2.5 py-1 rounded-lg bg-blue-500/10 text-[#0066FF] text-[11px] font-bold border border-blue-500/20">
+              ✓ E-commerce & Shopping
+            </span>
+            <span className="px-2.5 py-1 rounded-lg bg-blue-500/10 text-[#0066FF] text-[11px] font-bold border border-blue-500/20">
+              ✓ Utilisateurs mobiles 4G & Wi-Fi
+            </span>
+            <span className="px-2.5 py-1 rounded-lg bg-blue-500/10 text-[#0066FF] text-[11px] font-bold border border-blue-500/20">
+              ✓ Wave / Paiements mobiles
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 pt-3 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] opacity-75">
+        <span>💡 Conseil pro : Évitez de sur-restreindre vos centres d'intérêt au début.</span>
+        <span className="font-black text-teal-600">Taille d'audience estimée : 1.8M - 2.5M personnes</span>
+      </div>
+    </div>
+  );
+}
+
+// 4. Citation percutante illustrée (Teal callout avec bordure épaisse)
+function IllustratedPunchlineQuote({ quote }: { quote: string }) {
+  return (
+    <div className="my-8 rounded-2xl border-l-4 border-teal-500 bg-teal-500/10 p-5 sm:p-6 text-teal-950 dark:text-teal-200 shadow-sm">
+      <p className="text-sm sm:text-base font-black uppercase tracking-wide leading-relaxed">
+        « {quote} »
+      </p>
+    </div>
+  );
+}
+
+// 5. Bannière d'Objectif Sparkle
+function SparkleGoalBanner({ text }: { text: string }) {
+  return (
+    <div className="my-8 p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-teal-500/15 border border-amber-400/40 text-center shadow-sm">
+      <span className="text-xs sm:text-sm font-black tracking-wide text-amber-950 dark:text-amber-200 flex items-center justify-center gap-2">
+        <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+        <span>{text}</span>
+        <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+      </span>
+    </div>
+  );
+}
+
 // Bloc de code moderne avec barre macOS et bouton de copie
 function ModernCodeBlock({
   code,
@@ -195,13 +433,23 @@ function ModernCodeBlock({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Si c'est le diagramme du cycle budgétaire, rendre le composant graphique riche !
+  // 1. Schéma : Le cycle vertueux du petit budget
   if (
     code.includes("LE CYCLE VERTUEUX DU PETIT BUDGET") ||
     code.includes("CYCLE VERTUEUX") ||
     (code.includes("Petit Stock") && code.includes("Closing WhatsApp"))
   ) {
     return <InteractiveCycleBudgetDiagram theme={theme} />;
+  }
+
+  // 2. Infographie : Objectifs publicitaires Facebook
+  if (code.includes("OBJECTIFS PUBLICITAIRES FACEBOOK")) {
+    return <FacebookAdsObjectivesInfographic theme={theme} />;
+  }
+
+  // 3. Mockup : Ciblage d'audience Facebook
+  if (code.includes("CIBLAGE D'AUDIENCE FACEBOOK")) {
+    return <FacebookAudienceMockup theme={theme} />;
   }
 
   return (
@@ -416,21 +664,120 @@ function FormattedChapterContent({
       elements.push(
         <div key={index} className="my-10 flex items-center justify-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent" />
-          <div className="w-2 h-2 rounded-full bg-[#0066FF] shadow-xs" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#0066FF] shadow-xs" />
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent" />
         </div>
       );
       return;
     }
 
-    // 4. Titres H2 / H3
+    // 4. Citation percutante : > 💬 QUOTE:
+    if (line.startsWith("> 💬 QUOTE:")) {
+      const quoteText = line.replace("> 💬 QUOTE:", "").trim();
+      elements.push(<IllustratedPunchlineQuote key={index} quote={quoteText} />);
+      return;
+    }
+
+    // 5. Bannière d'objectif : > ✨ GOAL:
+    if (line.startsWith("> ✨ GOAL:")) {
+      const goalText = line.replace("> ✨ GOAL:", "").trim();
+      elements.push(<SparkleGoalBanner key={index} text={goalText} />);
+      return;
+    }
+
+    // 6. Titres H2 numérotés avec icônes illustrées (ex: ## I. , ## II. , ## III. ...)
+    if (line.startsWith("## I. ") || line.startsWith("## 1. ")) {
+      elements.push(
+        <div key={index} className="mt-12 mb-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 shadow-sm">
+            <Lightbulb className="w-5 h-5" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-indigo-950 dark:text-indigo-200">
+            {renderFormattedInlineText(line.replace(/^##\s*/, ""))}
+          </h2>
+        </div>
+      );
+      return;
+    }
+
+    if (line.startsWith("## II. ") || line.startsWith("## 2. ")) {
+      elements.push(
+        <div key={index} className="mt-12 mb-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 shadow-sm">
+            <Key className="w-5 h-5" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-indigo-950 dark:text-indigo-200">
+            {renderFormattedInlineText(line.replace(/^##\s*/, ""))}
+          </h2>
+        </div>
+      );
+      return;
+    }
+
+    if (line.startsWith("## III. ") || line.startsWith("## 3. ")) {
+      elements.push(
+        <div key={index} className="mt-12 mb-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-rose-500/15 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 shadow-sm">
+            <Target className="w-5 h-5" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-indigo-950 dark:text-indigo-200">
+            {renderFormattedInlineText(line.replace(/^##\s*/, ""))}
+          </h2>
+        </div>
+      );
+      return;
+    }
+
+    if (line.startsWith("## IV. ") || line.startsWith("## 4. ")) {
+      elements.push(
+        <div key={index} className="mt-12 mb-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 shadow-sm">
+            <Users className="w-5 h-5" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-indigo-950 dark:text-indigo-200">
+            {renderFormattedInlineText(line.replace(/^##\s*/, ""))}
+          </h2>
+        </div>
+      );
+      return;
+    }
+
+    if (line.startsWith("## V. ") || line.startsWith("## 5. ")) {
+      elements.push(
+        <div key={index} className="mt-12 mb-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 shadow-sm">
+            <Rocket className="w-5 h-5" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-indigo-950 dark:text-indigo-200">
+            {renderFormattedInlineText(line.replace(/^##\s*/, ""))}
+          </h2>
+        </div>
+      );
+      return;
+    }
+
+    if (line.startsWith("## VI. ") || line.startsWith("## 6. ")) {
+      elements.push(
+        <div key={index} className="mt-12 mb-6 pb-4 border-b border-black/10 dark:border-white/10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-purple-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 shadow-sm">
+            <TrendingUp className="w-5 h-5" />
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-indigo-950 dark:text-indigo-200">
+            {renderFormattedInlineText(line.replace(/^##\s*/, ""))}
+          </h2>
+        </div>
+      );
+      return;
+    }
+
+    // Autres Titres H2 / H3
     if (line.startsWith("### ")) {
       elements.push(
         <h3
           key={index}
-          className="text-base sm:text-xl font-black mt-8 mb-4 flex items-center gap-2.5 tracking-tight"
+          className="text-base sm:text-xl font-black mt-8 mb-4 flex items-center gap-2.5 tracking-tight text-teal-800 dark:text-teal-300"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#0066FF] shrink-0 shadow-xs" />
+          <span className="w-2.5 h-2.5 rounded-full bg-teal-500 shrink-0 shadow-xs" />
           <span>{renderFormattedInlineText(line.replace("### ", ""))}</span>
         </h3>
       );
@@ -448,7 +795,7 @@ function FormattedChapterContent({
       return;
     }
 
-    // 5. Boîtes de Callout : Conseil / Alerte / Point clé
+    // 7. Boîtes de Callout : Conseil / Alerte / Point clé
     if (line.startsWith("> [!TIP]") || line.startsWith("> 💡")) {
       const tipText = line.replace(/> \[\!TIP\]|> 💡/, "").trim();
       elements.push(
@@ -518,12 +865,12 @@ function FormattedChapterContent({
       return;
     }
 
-    // 6. Listes à puces (- ou *)
+    // 8. Listes à puces (- ou *)
     if (line.trim().startsWith("- ") || line.trim().startsWith("* ")) {
       const bulletText = line.trim().replace(/^[-*]\s+/, "");
       elements.push(
         <div key={index} className="flex items-start gap-3 my-2.5 pl-2">
-          <div className="w-2 h-2 rounded-full bg-[#0066FF] mt-2 shrink-0 shadow-xs" />
+          <div className="w-2 h-2 rounded-full bg-teal-500 mt-2 shrink-0 shadow-xs" />
           <div className="leading-relaxed text-sm sm:text-base opacity-90">
             {renderFormattedInlineText(bulletText)}
           </div>
@@ -532,7 +879,7 @@ function FormattedChapterContent({
       return;
     }
 
-    // 7. Listes numérotées (1. , 2. )
+    // 9. Listes numérotées (1. , 2. )
     if (/^\d+\.\s/.test(line.trim())) {
       const match = line.trim().match(/^(\d+)\.\s(.*)/);
       if (match) {
@@ -549,7 +896,7 @@ function FormattedChapterContent({
                 : "bg-slate-50/70 border-slate-200/80 shadow-xs"
             }`}
           >
-            <span className="w-7 h-7 rounded-xl bg-[#0066FF] text-white font-black text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+            <span className="w-7 h-7 rounded-xl bg-teal-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
               {num}
             </span>
             <div className="leading-relaxed text-sm sm:text-base opacity-95">
@@ -561,7 +908,7 @@ function FormattedChapterContent({
       }
     }
 
-    // 8. Paragraphe standard
+    // 10. Paragraphe standard
     if (line.trim().length > 0) {
       elements.push(
         <p key={index} className="my-4 leading-relaxed text-sm sm:text-base opacity-90">
@@ -638,15 +985,15 @@ export default function SecureReaderClient({
 
   // Styles selon le thème choisi
   const themeClasses = {
-    light: "bg-[#F8FAFC] text-slate-800",
-    sepia: "bg-[#FBF8F1] text-[#2C241E]",
+    light: "bg-[#F4F6F9] text-slate-800",
+    sepia: "bg-[#F5EFE6] text-[#2C241E]",
     dark: "bg-[#091122] text-slate-100",
   };
 
   const contentBgClasses = {
-    light: "bg-white text-slate-800",
-    sepia: "bg-[#FAF5EC] text-[#2D241E]",
-    dark: "bg-[#0B1528] text-slate-100",
+    light: "bg-white text-slate-800 shadow-2xl border border-slate-200/80",
+    sepia: "bg-[#FAF5EC] text-[#2D241E] shadow-2xl border border-[#DFD3C1]",
+    dark: "bg-[#0B1528] text-slate-100 shadow-2xl border border-white/10",
   };
 
   const headerBgClasses = {
@@ -659,7 +1006,7 @@ export default function SecureReaderClient({
     <div
       className={`h-screen flex flex-col overflow-hidden font-sans select-text ${themeClasses[theme]}`}
     >
-      {/* 1. BARRE SUPÉRIEURE ÉLÉGANTE (Glassmorphism + Outils de lecture) */}
+      {/* 1. BARRE SUPÉRIEURE ÉLÉGANTE (Type Scribd Ebook Reader) */}
       <header
         className={`h-16 border-b px-4 sm:px-6 flex items-center justify-between z-20 shrink-0 backdrop-blur-md transition-colors ${headerBgClasses[theme]}`}
       >
@@ -667,7 +1014,7 @@ export default function SecureReaderClient({
           <Link
             href="/dashboard/ebooks"
             className="p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-slate-500 hover:text-inherit transition-colors flex items-center gap-1.5 text-xs font-semibold"
-            title="Retour à mes ebooks"
+            title="Retour à mes formations"
           >
             <ChevronLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Mes formations</span>
@@ -675,13 +1022,19 @@ export default function SecureReaderClient({
 
           <div className="h-4 w-px bg-slate-300 dark:bg-white/20 hidden sm:block" />
 
-          <div className="flex flex-col">
-            <h1 className="text-xs sm:text-sm font-bold truncate max-w-[180px] sm:max-w-md">
-              {product.title}
-            </h1>
-            <span className="text-[11px] opacity-60">
-              Module {activeChapter.order} sur {chapters.length} · {progressPercent}% terminé
+          {/* Badge format livre : [s] Page X / 10 */}
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-6 rounded-lg bg-teal-600 text-white font-mono text-[11px] font-black flex items-center justify-center shadow-xs">
+              M
             </span>
+            <div className="flex flex-col">
+              <h1 className="text-xs sm:text-sm font-bold truncate max-w-[160px] sm:max-w-xs md:max-w-md">
+                {product.title}
+              </h1>
+              <span className="text-[11px] opacity-60 font-medium">
+                Module {activeChapter.order} / {chapters.length} · {progressPercent}% terminé
+              </span>
+            </div>
           </div>
         </div>
 
@@ -693,10 +1046,10 @@ export default function SecureReaderClient({
               onClick={() => setTheme("light")}
               className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
                 theme === "light"
-                  ? "bg-white text-[#0066FF] shadow-xs"
+                  ? "bg-white text-teal-600 shadow-xs"
                   : "text-slate-400 hover:text-slate-700"
               }`}
-              title="Mode Clair"
+              title="Mode Livre Blanc"
             >
               <Sun className="w-3.5 h-3.5" />
             </button>
@@ -748,7 +1101,7 @@ export default function SecureReaderClient({
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className={`p-2 rounded-xl transition-all flex items-center gap-1.5 text-xs font-bold ${
               sidebarOpen
-                ? "bg-[#0066FF] text-white shadow-sm"
+                ? "bg-teal-600 text-white shadow-sm"
                 : "hover:bg-black/5 dark:hover:bg-white/10"
             }`}
             title="Sommaire du cours"
@@ -786,10 +1139,10 @@ export default function SecureReaderClient({
           <div>
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
               <span className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <BookOpen className="w-3.5 h-3.5 text-[#0066FF]" />
+                <BookOpen className="w-3.5 h-3.5 text-teal-400" />
                 Curriculum Officiel
               </span>
-              <span className="text-[10px] font-extrabold bg-[#0066FF]/20 text-[#0066FF] px-2.5 py-0.5 rounded-full border border-[#0066FF]/30">
+              <span className="text-[10px] font-extrabold bg-teal-500/20 text-teal-300 px-2.5 py-0.5 rounded-full border border-teal-500/30">
                 {chapters.length} Modules
               </span>
             </div>
@@ -798,11 +1151,11 @@ export default function SecureReaderClient({
             <div className="mb-4 p-3 rounded-2xl bg-white/5 border border-white/10">
               <div className="flex items-center justify-between text-xs font-semibold mb-1.5">
                 <span className="opacity-80">Avancement du cours</span>
-                <span className="text-[#0066FF] font-black">{progressPercent}%</span>
+                <span className="text-teal-400 font-black">{progressPercent}%</span>
               </div>
               <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-[#0066FF] to-cyan-400 transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-teal-500 to-cyan-400 transition-all duration-300"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -824,7 +1177,7 @@ export default function SecureReaderClient({
                     }}
                     className={`w-full text-left p-3 rounded-2xl text-xs font-medium transition-all flex items-center justify-between group ${
                       isActive
-                        ? "bg-[#0066FF] text-white font-bold shadow-md shadow-blue-500/20"
+                        ? "bg-teal-600 text-white font-bold shadow-md shadow-teal-500/20"
                         : "text-slate-300 hover:bg-white/5 hover:text-white"
                     }`}
                   >
@@ -832,7 +1185,7 @@ export default function SecureReaderClient({
                       <span
                         className={`w-6 h-6 rounded-xl flex items-center justify-center font-mono text-[11px] font-black shrink-0 ${
                           isActive
-                            ? "bg-white text-[#0066FF]"
+                            ? "bg-white text-teal-700"
                             : isPassed
                             ? "bg-emerald-500/20 text-emerald-400"
                             : "bg-white/10 text-slate-400"
@@ -862,45 +1215,52 @@ export default function SecureReaderClient({
           </div>
         </aside>
 
-        {/* 3. ZONE DE LECTURE HAUTE GAMME */}
+        {/* 3. ZONE DE LECTURE HAUTE GAMME (Mise en page "Feuille de Livre" avec Post-It rouge) */}
         <main
           id="reader-main-container"
-          className={`flex-1 relative overflow-y-auto p-5 sm:p-10 md:p-16 flex flex-col justify-between scroll-smooth transition-colors ${contentBgClasses[theme]}`}
+          className="flex-1 overflow-y-auto p-3 sm:p-6 md:p-10 flex flex-col items-center justify-between scroll-smooth transition-colors"
         >
-          {/* Filigrane discret anti-piratage ultra-subtil (non agressif) */}
-          <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden opacity-[0.015] select-none rotate-[-20deg]">
-            <div className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white whitespace-nowrap leading-loose text-center">
-              ECOM MASTERY • {user.email} • ID #{user.id.slice(0, 8)} <br />
-              LICENCE OFFICIELLE CERTIFIÉE • REVENTE INTERDITE
+          {/* Feuille de Livre A4 / Magazine */}
+          <div
+            className={`max-w-4xl w-full rounded-3xl p-6 sm:p-12 md:p-16 my-4 transition-all relative ${contentBgClasses[theme]}`}
+          >
+            {/* Filigrane discret anti-piratage ultra-subtil */}
+            <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden opacity-[0.015] select-none rotate-[-20deg]">
+              <div className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white whitespace-nowrap leading-loose text-center">
+                ECOM MASTERY • {user.email} • ID #{user.id.slice(0, 8)} <br />
+                LICENCE OFFICIELLE CERTIFIÉE • REVENTE INTERDITE
+              </div>
             </div>
-          </div>
 
-          {/* Contenu Réel du Chapitre */}
-          <div className="max-w-3xl mx-auto w-full z-10 pb-16">
+            {/* Post-it rouge coin inférieur droit façon Scribd Ebook */}
+            <div className="absolute bottom-6 right-6 w-9 h-9 rounded-lg bg-rose-500 text-white font-black text-xs flex items-center justify-center shadow-lg rotate-[-4deg] select-none z-20">
+              {activeChapter.order}
+            </div>
+
             {/* En-tête du Module */}
-            <div className="mb-10 pb-6 border-b border-black/10 dark:border-white/10">
+            <div className="relative z-10 mb-10 pb-6 border-b border-black/10 dark:border-white/10">
               <div className="flex items-center justify-between gap-3 mb-4">
-                <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#0066FF] bg-[#0066FF]/10 border border-[#0066FF]/20 px-3.5 py-1.5 rounded-full">
-                  <BookmarkCheck className="w-3.5 h-3.5" />
+                <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-teal-700 dark:text-teal-300 bg-teal-500/15 border border-teal-500/30 px-3.5 py-1.5 rounded-full">
+                  <BookmarkCheck className="w-3.5 h-3.5 text-teal-600" />
                   Module {activeChapter.order} sur {chapters.length}
                 </span>
-                <span className="text-xs opacity-60 flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5" />
-                  Temps estimé : ~10 min
+                <span className="text-xs opacity-60 flex items-center gap-1.5 font-medium">
+                  <Clock className="w-3.5 h-3.5 text-teal-500" />
+                  Temps de lecture : ~12 min
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-slate-950 dark:text-white">
                 {activeChapter.title}
-              </h2>
+              </h1>
             </div>
 
             {/* Contenu formaté avec infographies, tableaux et citations */}
-            <div className={fontSizeClasses[fontSize]}>
+            <div className={`relative z-10 ${fontSizeClasses[fontSize]}`}>
               <FormattedChapterContent content={activeChapter.content} theme={theme} />
             </div>
 
             {/* Sceau de Licence et de Fin de Module */}
-            <div className="mt-14 p-5 rounded-3xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="relative z-10 mt-14 p-5 rounded-3xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5" />
@@ -913,13 +1273,13 @@ export default function SecureReaderClient({
                 </div>
               </div>
               <span className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/10 opacity-70">
-                ID #{user.id.slice(0, 12)}
+                Licence #{user.id.slice(0, 10)}
               </span>
             </div>
           </div>
 
           {/* 4. BARRE DE NAVIGATION EN BAS (Précédent / Suivant) */}
-          <div className="max-w-3xl mx-auto w-full pt-8 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 z-10">
+          <div className="max-w-4xl w-full py-6 flex flex-col sm:flex-row items-center justify-between gap-4 z-10">
             <button
               onClick={() => {
                 setCurrentOrder(Math.max(1, currentOrder - 1));
@@ -933,8 +1293,8 @@ export default function SecureReaderClient({
               <span>Module précédent</span>
             </button>
 
-            <span className="text-xs opacity-60 font-semibold">
-              Progression : {currentOrder} / {chapters.length}
+            <span className="text-xs opacity-60 font-bold">
+              Page {currentOrder} sur {chapters.length}
             </span>
 
             {currentOrder < chapters.length ? (
@@ -944,7 +1304,7 @@ export default function SecureReaderClient({
                   const container = document.getElementById("reader-main-container");
                   if (container) container.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-black transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:scale-[1.02]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-black transition-all shadow-lg shadow-teal-500/25 hover:shadow-xl hover:scale-[1.02]"
               >
                 <span>Module suivant</span>
                 <ChevronRight className="w-4 h-4" />
