@@ -22,21 +22,39 @@ const ALL_EBOOKS: EbookItem[] = [
     id: "1",
     slug: "lancer-sa-boutique-en-ligne",
     title: "Lancer sa boutique en ligne",
-    shortDesc: "Le guide pratique pour choisir un produit, trouver ses premiers clients et développer son activité e-commerce.",
+    shortDesc: "Le guide pratique complet pour créer son e-commerce en Afrique : 25k à 100k, WhatsApp, closing et catalogue.",
     category: "E-commerce",
     price: 5000,
     badge: "Bestseller",
   },
   {
     id: "2",
-    slug: "strategies-marketing-digital",
-    title: "Stratégies Marketing Digital",
-    shortDesc: "Attirez plus de clients grâce au marketing digital, la création de contenu viral et la publicité ciblée.",
-    category: "Marketing",
+    slug: "publicite-facebook-ads-de-a-a-z",
+    title: "Publicité Facebook Ads de A à Z",
+    shortDesc: "Le guide visuel étape par étape pour maîtriser le Gestionnaire de Publicité Meta, ciblage laser, formats, Pixel et tests A/B.",
+    category: "Marketing & Ads",
     price: 5000,
+    badge: "Nouveau",
   },
   {
     id: "3",
+    slug: "formation-sourcing-alibaba-1688",
+    title: "Formation Sourcing Alibaba & 1688",
+    shortDesc: "Le guide pratique pour trouver les vrais fabricants en Chine, négocier en direct, Trade Assurance et expédier vers l'Afrique.",
+    category: "Sourcing & Import",
+    price: 5000,
+    badge: "Populaire",
+  },
+  {
+    id: "4",
+    slug: "strategies-marketing-digital",
+    title: "Stratégies Marketing Digital",
+    shortDesc: "Attirez plus de clients grâce au marketing digital, la création de contenu viral et la publicité ciblée.",
+    category: "Marketing & Ads",
+    price: 5000,
+  },
+  {
+    id: "5",
     slug: "boostez-votre-productivite",
     title: "Boostez votre productivité",
     shortDesc: "Organisez-vous, éliminez les distractions et atteignez vos objectifs entrepreneuriaux avec méthode.",
@@ -44,7 +62,7 @@ const ALL_EBOOKS: EbookItem[] = [
     price: 5000,
   },
   {
-    id: "4",
+    id: "6",
     slug: "developpeur-web-full-stack",
     title: "Développeur Web Full Stack",
     shortDesc: "Maîtrisez le développement web moderne de A à Z avec TypeScript, React, Next.js et bases de données SQL.",
@@ -53,7 +71,7 @@ const ALL_EBOOKS: EbookItem[] = [
   },
 ];
 
-const CATEGORIES = ["Tous", "E-commerce", "Marketing", "Productivité", "Développement"];
+const CATEGORIES = ["Tous", "E-commerce", "Marketing & Ads", "Sourcing & Import", "Productivité", "Développement"];
 
 export default function BoutiquePage() {
   const [selectedCategory, setSelectedCategory] = useState("Tous");

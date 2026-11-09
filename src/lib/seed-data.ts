@@ -1278,7 +1278,155 @@ Vous avez désormais toutes les clés techniques, architecturales et opérationn
   ]
 };
 
+
+export const FACEBOOK_ADS_EBOOK: EbookData = {
+  "id": "prod-fb-ads-mastery-2026",
+  "slug": "publicite-facebook-ads-de-a-a-z",
+  "title": "Publicité Facebook Ads de A à Z",
+  "subtitle": "Le guide visuel officiel pour dominer Meta Ads en Afrique",
+  "category": "Marketing & Ads",
+  "price": 5000,
+  "badge": "Nouveau",
+  "shortDesc": "Le guide visuel étape par étape pour maîtriser le Gestionnaire de Publicité Meta, le ciblage laser, les formats créatifs, le Pixel et les tests A/B en Afrique.",
+  "fullDesc": "Vous en avez assez de gaspiller de l'argent dans le bouton 'Booster la publication' sans obtenir de vrais acheteurs ? Ce livre vous dévoile les secrets des meilleurs annonceurs en Afrique de l'Ouest pour transformer 5 000 FCFA investis en dizaines de commandes confirmées chaque jour.",
+  "learnPoints": "[\"Maîtriser le Gestionnaire de Publicités Meta et fuir le bouton booster\",\"L'infographie des 3 grands piliers d'objectifs (Notoriété, Considération, Conversion)\",\"Paramétrer un ciblage laser rentable sur Dakar, Abidjan et les capitales africaines\",\"Créer des audiences personnalisées et Lookalike pour multiplier ses ventes\",\"Le script exact en 4 temps pour une vidéo virale de 30 secondes\",\"Installer et rentabiliser le Pixel Facebook et l'API de conversions\",\"Mener des tests A/B par répartition scientifiques pour baisser le coût par acquisition\"]",
+  "targetAudience": "[\"E-commerçants voulant passer de 2 à 20 commandes par jour\",\"Vendeurs WhatsApp Business souhaitant automatiser leur flux de prospects\",\"Créateurs de marques locales en Afrique de l'Ouest et Centrale\",\"Débutants voulant maîtriser les régies Meta et TikTok Ads sans perdre d'argent\"]",
+  "chapters": [
+    {
+      "id": "fb-chap-1",
+      "order": 1,
+      "title": "1. Pourquoi faire de la publicité sur Facebook ? (L'effet de levier)",
+      "content": "## I. Pourquoi faire de la publicité sur Facebook ?\n\nLorsque vous diffusez une simple publication sur votre page Facebook, seuls 2% à 5% de vos abonnés la voient. La publicité payante Facebook Ads vous permet au contraire de choisir avec une précision chirurgicale à qui vous voulez montrer vos produits.\n\n> 💬 QUOTE: DIFFUSER UN MESSAGE À UN MILLION DE PERSONNES AU HASARD OU LE DIFFUSER À MILLE PERSONNES POTENTIELLEMENT INTÉRESSÉES N'A PAS LE MÊME IMPACT... N'EST-CE PAS ?\n\nAvec Facebook, l'une des étapes les plus importantes dans la mise en place d'une campagne est le **choix de votre audience**. Vous attirez ainsi l'attention des bonnes personnes, vous leur diffusez un message sur-mesure pour votre business et surtout vous en analysez les retombées financières au centime près.\n\nLa grande variété des formats publicitaires immersifs (vidéos de démonstration, carrousels, stories, formats verticaux Reels), la possibilité d'analyser les résultats en temps réel ainsi que le coût très accessible en Afrique font de Facebook la plateforme incontournable pour votre stratégie e-commerce.\n\nFacebook vous permet également de faire du **remarketing** (retargeting) : vous pouvez réadresser des publicités exclusives aux personnes qui ont déjà visité votre boutique ou entamé une discussion WhatsApp. L'outil technique qui rend cette magie possible est le **Pixel Facebook** (et l'API de Conversions Meta)."
+    },
+    {
+      "id": "fb-chap-2",
+      "order": 2,
+      "title": "2. Le Gestionnaire de Publicité Meta & Création de Campagne",
+      "content": "## II. Facebook Ads, comment ça marche ?\n\nPour créer une campagne publicitaire professionnelle, il faut impérativement utiliser les outils dédiés de Meta plutôt que de simplement cliquer sur le bouton bleu « Booster la publication » de votre page (qui gaspille votre budget sans ciblage avancé).\n\n### 1. Le Gestionnaire de Publicité (Meta Ads Manager)\nFacebook met à votre disposition un environnement complet accessible depuis votre ordinateur à l'adresse **business.facebook.com** ou depuis l'application mobile Gestionnaire de Publicités (Android et iOS).\n\nLe nouveau Gestionnaire de publicités regroupe l'ancien Gestionnaire classique et les fonctionnalités avancées de Power Editor. Vous pouvez désormais :\n- Créer, modifier, dupliquer et gérer plusieurs campagnes et ensembles de publicités en un seul clic.\n- Contrôler vos budgets publicitaires au jour le jour (en FCFA, Euros ou Dollars).\n- Consulter vos métriques de rentabilité : coût par clic (CPC), coût par prospect WhatsApp, et retour sur dépenses publicitaires (ROAS).\n\n### 2. Création d'une campagne publicitaire\nDans le Gestionnaire de publicités, deux parcours de création s'offrent à vous :\n- **La création guidée :** Elle vous assiste pas à pas à travers toutes les étapes de création de votre campagne, du choix de l'objectif jusqu'au paramétrage des visuels. Idéale pour démarrer en toute sécurité.\n- **La création rapide :** Destinée aux annonceurs qui souhaitent structurer rapidement plusieurs ensembles de publicités et variantes créatives."
+    },
+    {
+      "id": "fb-chap-3",
+      "order": 3,
+      "title": "3. Les Objectifs Publicitaires de Meta (L'Infographie des 3 Piliers)",
+      "content": "## III. Les objectifs publicitaires de Meta\n\n> ✨ GOAL: COMME DANS TOUT PROJET, LA PREMIÈRE ÉTAPE PRIMORDIALE POUR CRÉER UNE PUBLICITÉ EST DE DÉFINIR UN OBJECTIF !\n\nLes objectifs publicitaires sont les actions précises que vous souhaitez que les personnes entreprennent lorsqu'elles découvrent vos publicités. L'algorithme de Meta optimise la diffusion en montrant votre pub en priorité aux utilisateurs les plus susceptibles de réaliser cette action précise.\n\nMeta Ads distingue **3 grands objectifs commerciaux** :\n1. **La Notoriété :** Susciter de l'intérêt pour votre marque et faire découvrir votre existence à un maximum de personnes.\n2. **La Considération :** Inciter les prospects à s'intéresser activement à vos produits, à regarder vos vidéos, à poser des questions ou à visiter votre boutique.\n3. **La Conversion :** Encourager les personnes qualifiées à acheter votre produit, à passer commande en ligne ou à valider une livraison en direct.\n\n```\nOBJECTIFS PUBLICITAIRES FACEBOOK\n```\n\n> 💡 **La recommandation pour démarrer en Afrique :**\n> - **Si vous n'avez pas encore de boutique en ligne :** Choisissez l'objectif **Messages WhatsApp** (sous Considération / Prospects). L'utilisateur clique sur votre pub vidéo et arrive directement dans votre discussion WhatsApp Business pour finaliser la commande.\n> - **Si vous avez votre boutique en ligne :** Choisissez l'objectif **Ventes / Conversions** avec l'événement « Achat » (Purchase) ou « Initialiser le paiement » (Initiate Checkout)."
+    },
+    {
+      "id": "fb-chap-4",
+      "order": 4,
+      "title": "4. Le Choix de l'Audience & Ciblage Laser (Démographie et Intérêts)",
+      "content": "## IV. Le choix de l'audience et du ciblage laser\n\nAprès avoir fixé l'objectif, vous devez définir précisément qui verra votre publicité. C'est l'étape du **ciblage**. \n\nLorsque vous créez une audience, vous disposez de 3 grandes options :\n\n### 1. Le ciblage principal (Données démographiques & Centres d'intérêt)\nVous sélectionnez les utilisateurs selon leur pays, ville, tranche d'âge, sexe, langue et habitudes de consommation :\n\n```\nCIBLAGE D'AUDIENCE FACEBOOK\n```\n\n- **Lieux géographiques :** Ciblez les zones à forte concentration d'acheteurs et facilités de livraison (ex: Dakar et sa banlieue, Thiès, Mbour pour le Sénégal ; Abidjan : Cocody, Yopougon, Marcory pour la Côte d'Ivoire).\n- **Tranche d'âge :** 22 à 48 ans (la tranche qui possède des revenus réguliers et utilise activement Wave / Orange Money).\n- **Ciblage par centres d'intérêt :** Sélectionnez des centres d'intérêt affinitaires avec votre produit (ex: Soins de la peau, Shopping en ligne, Électronique, Décoration de maison)."
+    },
+    {
+      "id": "fb-chap-5",
+      "order": 5,
+      "title": "5. Audiences Personnalisées & Audiences Similaires (Lookalike)",
+      "content": "## Audiences Personnalisées (Custom Audiences) & Lookalike\n\n```\nAUDIENCES PERSONNALISEES FACEBOOK\n```\n\nVous ciblez les personnes qui ont déjà eu un contact avec votre business :\n- **Votre liste de contacts clients existants :** Fichiers numéros de téléphone WhatsApp et adresses emails d'anciens acheteurs pour leur proposer de nouveaux produits en vente croisée.\n- **Les visiteurs de votre boutique web :** Captés par le Pixel Facebook.\n- **Les personnes ayant interagi :** Utilisateurs ayant liké, commenté ou envoyé un message sur votre page Facebook ou compte Instagram ces 90 derniers jours.\n\n### Les audiences similaires (Lookalike)\nMeta analyse le profil sociologique et comportemental de vos meilleurs clients actuels et recherche automatiquement des dizaines de milliers d'autres personnes ayant les mêmes habitudes d'achat dans votre pays. C'est l'arme secrète absolue pour multiplier son volume de vente par 5 !"
+    },
+    {
+      "id": "fb-chap-6",
+      "order": 6,
+      "title": "6. Placements Publicitaires Advantage+ vs Manuels",
+      "content": "## V. Placement publicitaire : Où diffuser vos publicités ?\n\nAprès avoir sélectionné votre audience, vous devez choisir où vos publicités apparaîtront.\n\n```\nPLACEMENTS PUBLICITAIRES FACEBOOK\n```\n\nDeux méthodes s'offrent à vous :\n- **Placements automatiques Advantage+ (Fortement recommandé) :** Facebook diffuse intelligemment votre pub là où le coût par résultat est le plus faible (Fils d'actualité, Stories, Reels, Messenger).\n- **Placements manuels :** Vous cochez vous-même les emplacements souhaités si votre créatif est au format exclusif vertical 9:16 (Stories/Reels) ou carré 1:1 (Fil)."
+    },
+    {
+      "id": "fb-chap-7",
+      "order": 7,
+      "title": "7. Budget Quotidien, Calendrier & Stratégie CBO",
+      "content": "## VI. Budget et calendrier de diffusion\n\nL'étape suivante consiste à définir le budget que vous voulez consacrer à la publicité et la période de diffusion.\n\n```\nBUDGET ET CALENDRIER FACEBOOK\n```\n\nIl existe 2 façons de configurer son budget :\n- **Le budget quotidien :** La somme moyenne investie par jour (recommandé : **5 000 FCFA / jour** pour tester un produit en Afrique).\n- **Le budget global :** La somme totale maximale allouée sur une durée fixe (ex: 35 000 FCFA sur 7 jours).\n- **Le mode CBO (Advantage Campaign Budget) :** Vous allouez le budget au niveau de la campagne, et Meta répartit automatiquement les sous sur les ensembles de publicités qui vendent le plus."
+    },
+    {
+      "id": "fb-chap-8",
+      "order": 8,
+      "title": "8. Formats Publicitaires & Script Vidéo Viral en 30 Secondes",
+      "content": "## VII. Formats publicitaires & Storytelling de vente\n\nLes formats publicitaires utilisés reflètent le storytelling que vous installez pour votre produit. Sur Meta : **Format = Image/Vidéo + Texte d'accroche (Copywriting)**.\n\n```\nFORMATS PUBLICITAIRES FACEBOOK\n```\n\n### L'anatomie d'une vidéo virale de vente en 30 secondes :\n1. **[00s - 03s] Le Hook (L'accroche visuelle & sonore) :** Stoppez immédiatement le scroll avec un mouvement rapide, un avant/après frappant ou une question percutante (*« Si vous en avez marre de perdre du temps à... »*).\n2. **[04s - 10s] La douleur réelle :** Montrez concrètement le problème quotidien vécu par votre client cible.\n3. **[11s - 22s] La solution magique :** Démonstration éclatante du produit en train de résoudre le problème en situation réelle.\n4. **[23s - 30s] L'offre irrésistible & Appel à l'action (CTA) :** Annoncez le prix promotionnel (ex: 12 500 FCFA), précisez la livraison rapide et le paiement à la réception (Wave ou Cash) et invitez à commander immédiatement."
+    },
+    {
+      "id": "fb-chap-9",
+      "order": 9,
+      "title": "9. Analyser les Résultats & Tests A/B par Répartition",
+      "content": "## VIII. Analyser les résultats & Tests A/B (Split Testing)\n\nPour maximiser sa rentabilité et arrêter de gaspiller de l'argent, un e-commerçant professionnel ne devine jamais : il teste scientifiquement.\n\n```\nTESTS AB FACEBOOK\n```\n\n### Comparaison des Performances & Décision de Scaling :\n\n```\nTESTS AB RESULTATS FACEBOOK\n```\n\n### Le principe fondamental du Split Testing :\nLes tests par répartition consistent à diffuser au moins deux versions d'une publicité à deux groupes d'audience similaires en changeant **une seule variable à la fois** :\n- **Test de Créatif :** Même audience, mais Vidéo A (problème/solution) contre Vidéo B (témoignage déballage).\n- **Test d'Audience :** Même vidéo, mais Audience 1 (Dakar 20-35 ans) contre Audience 2 (Dakar 35-50 ans).\n\nVous coupez immédiatement la variante perdante et allouez 100% du budget sur la variante victorieuse !"
+    },
+    {
+      "id": "fb-chap-10",
+      "order": 10,
+      "title": "10. Le Pixel Facebook & l'API de Conversions",
+      "content": "## IX. Le Pixel Facebook & l'API de Conversions : La machine à traquer les ventes\n\n```\nPIXEL FACEBOOK ARCHITECTURE\n```\n\n« Le Pixel Facebook est un outil d'analyse indispensable qui mesure l'efficacité de vos campagnes en suivant les actions entreprises par les visiteurs sur votre site web. »\n\n### Pourquoi le Pixel est indispensable pour votre boutique en ligne :\n1. **S'assurer que vos publicités sont montrées aux acheteurs réels :** L'algorithme apprend le profil précis de ceux qui sortent leur carte ou leur téléphone Wave pour payer.\n2. **Créer des audiences personnalisées ultra-rentables :** Retargeting automatique des paniers abandonnés avec une offre de livraison gratuite.\n3. **Générer des ventes automatiques en continu :** L'algorithme affine ses enchères jour après jour pour faire baisser votre coût par achat."
+    },
+    {
+      "id": "fb-chap-11",
+      "order": 11,
+      "title": "11. TikTok Ads en Afrique : La Pépite Sous-Exploitée",
+      "content": "## X. TikTok Ads : La pépite sous-exploitée en Afrique\n\nTikTok offre aujourd'hui un coût par vue (CPM) jusqu'à **3 fois inférieur à celui de Facebook**.\n- **La règle d'or sur TikTok :** *« Don't make ads, make TikToks »*. N'utilisez jamais d'affiches publicitaires rigides. Tournez des vidéos authentiques au smartphone, en lumière naturelle, avec une voix-off dynamique en français ou en langue locale (Wolof, Baoulé, Bambara).\n- Les vidéos courtes de 15 à 25 secondes montrant l'utilisation du produit génèrent un taux de conversion record auprès des jeunes actifs."
+    }
+  ]
+};
+export const ALIBABA_EBOOK: EbookData = {
+  "id": "prod-alibaba-sourcing-2026",
+  "slug": "formation-sourcing-alibaba-1688",
+  "title": "Formation Sourcing Alibaba & 1688",
+  "subtitle": "Importer de Chine vers l'Afrique en toute sécurité",
+  "category": "Sourcing & Import",
+  "price": 5000,
+  "badge": "Bestseller",
+  "shortDesc": "Le guide pratique pour trouver les vrais fabricants en Chine, négocier en direct, sécuriser vos paiements et expédier vers l'Afrique (Avion au kg & Bateau au CBM).",
+  "fullDesc": "Arrêtez d'acheter chez des grossistes locaux qui prennent 300% de marge ! Ce livre vous apprend pas à pas à commander directement dans les usines chinoises sur Alibaba et 1688, à négocier les prix et quantités minimales, à déjouer les arnaques et à faire livrer vos colis directement chez vous à Dakar, Abidjan, Douala ou Bamako.",
+  "learnPoints": "[\"Différences cruciales entre Alibaba (Export) et 1688 (Prix usine 50% moins chers)\",\"Les 4 filtres indispensables pour repérer un vrai fabricant certifié\",\"Scripts de négociation en anglais/chinois pour obtenir des MOQ de 10 à 50 unités\",\"Sécuriser ses paiements sans risque via Alibaba Trade Assurance\",\"Fret Aérien (7-10j au kg) vs Fret Maritime (35-45j au CBM) : quel mode choisir\",\"Coordonnées des entrepôts transitaires à Guangzhou et Yiwu\",\"Calcul du prix de revient complet et de la marge nette au franc près\",\"Éviter les saisies douanières et les pièges classiques des débutants\"]",
+  "targetAudience": "[\"Commerçants et boutiquiers voulant s'approvisionner directement à la source\",\"Débutants en e-commerce voulant maximiser leurs marges\",\"Entrepreneurs souhaitant créer leur propre marque de produits en Afrique\",\"Vendeurs locaux fatigués de dépendre des grossistes de Sandaga ou Adjamé\"]",
+  "chapters": [
+    {
+      "id": "ali-chap-1",
+      "order": 1,
+      "title": "1. Alibaba vs 1688 : Comprendre l'écosystème du sourcing chinois",
+      "content": "## Comprendre les plateformes chinoises de sourcing\n\nPour réussir son import en Afrique, il est indispensable de faire la différence entre les deux géants du groupe Alibaba :\n\n```\n┌────────────────────────────────────────────────────────────────────────┐\n│                   ALIBABA VS 1688 : LE COMPARATIF CASH                 │\n│                                                                        │\n│ • ALIBABA.COM :                                                        │\n│   - Interface en français & anglais                                    │\n│   - Tarifs affichés en Dollars US ($)                                  │\n│   - Conçu pour l'export international                                  │\n│   - Paiement direct par Carte Bancaire ou Trade Assurance              │\n│                                                                        │\n│ • 1688.COM :                                                           │\n│   - Interface 100% en Chinois (marché intérieur)                       │\n│   - Tarifs affichés en Yuan (RMB ¥)                                    │\n│   - PRIX 30% À 50% MOINS CHERS QU'ALIBABA !                            │\n│   - Nécessite un agent d'achat ou transitaire local                    │\n└────────────────────────────────────────────────────────────────────────┘\n```\n\n### Pourquoi 1688 est le paradis des marges élevées :\nSur Alibaba, une montre connectée est vendue par exemple à **$6 (3 700 FCFA)** avec une commission pour les commerciaux anglophones.\nSur 1688, la même montre issue de la même usine de Shenzhen est vendue à **24 RMB (2 050 FCFA)** !\nEn commandant sur 1688, vous économisez immédiatement 1 650 FCFA par unité sur votre stock."
+    },
+    {
+      "id": "ali-chap-2",
+      "order": 2,
+      "title": "2. Identifier les VRAIS fabricants (et fuir les revendeurs)",
+      "content": "## Comment démasquer les revendeurs (Trading Companies)\n\nEn Chine, des milliers de personnes louent un petit bureau avec 2 ordinateurs et se font passer pour des fabricants alors qu'ils ne possèdent aucune usine. Ils achètent sur 1688 et revendent sur Alibaba avec une marge inutile.\n\n### Les 4 filtres indispensables à cocher sur Alibaba :\n1. **Trade Assurance :** Protection financière en cas de non-respect du contrat.\n2. **Verified Supplier :** L'usine a été inspectée physiquement par un organisme international indépendant (SGS, Bureau Veritas ou TÜV Rheinland).\n3. **Ancienneté (Gold Supplier) :** Choisissez impérativement un fournisseur présent depuis **au moins 3 ans** (idéalement 5+ ans).\n4. **Indice d'évaluation :** Note supérieure à 4.7/5 avec au moins 30 avis d'acheteurs.\n\n> 💡 **Le test secret pour démasquer un faux fabricant :**\n> Demandez : *\"Pouvez-vous imprimer mon logo sur le produit pour 50 unités et changer la couleur de l'emballage en bleu ?\"*\n> - Le **revendeur** va refuser ou demander un MOQ géant de 2 000 pièces car il n'a pas les machines.\n> - Le **vrai fabricant** vous donnera immédiatement le coût du moule ou de l'impression sérigraphique."
+    },
+    {
+      "id": "ali-chap-3",
+      "order": 3,
+      "title": "3. Négociation & Scripts WhatsApp / WeChat avec les Fournisseurs",
+      "content": "## Communiquer comme un acheteur professionnel\n\nLes commerciaux chinois détestent les débutants qui posent 50 questions sans passer commande. Vous devez projeter l'image d'un distributeur en pleine expansion en Afrique de l'Ouest.\n\n### Script d'approche professionnel (en anglais) :\n```\nHello, my name is [Votre Prénom], Purchasing Manager at [Nom de votre boutique/marque].\nWe distribute consumer electronics in West Africa (Senegal & Ivory Coast).\nWe are interested in your product [Lien du produit ou référence].\n\nCould you please provide:\n1. Best EXW / FOB price for a test order of 20 - 50 units?\n2. Production lead time?\n3. Package weight and dimensions (CBM) for shipping?\n\nWe are looking for a reliable long-term partner for monthly reorders.\nLet's connect on WhatsApp: +221 [Votre Numéro].\nThank you!\n```\n\n> 📌 **Astuce négociation :** Ne dites jamais que c'est votre première commande. Parlez toujours de *\"Test Order\"* (commande test) pour valider la qualité avant une grosse commande de 500 unités."
+    },
+    {
+      "id": "ali-chap-4",
+      "order": 4,
+      "title": "4. Sécurisation des Paiements & Trade Assurance",
+      "content": "## Ne jamais se faire arnaquer : Les règles de paiement\n\nL'une des plus grandes angoisses des débutants est d'envoyer de l'argent en Chine et de ne jamais recevoir la marchandise.\n\n### Les modes de paiement stricts à respecter :\n- ✅ **Alibaba Trade Assurance (Recommandé) :** Votre argent est séquestré sur un compte bloqué d'Alibaba. Le fournisseur n'est payé que lorsque vous confirmez que les colis sont arrivés et conformes.\n- ✅ **Virement bancaire T/T vers le compte officiel de l'entreprise :** Le nom du compte bancaire doit correspondre EXACTEMENT au nom de la société sur Alibaba (jamais de compte personnel).\n- ❌ **Western Union / MoneyGram / virement sur compte personnel :** À PROSCRIRE STRICTEMENT ! C'est le mode opératoire des arnaqueurs."
+    },
+    {
+      "id": "ali-chap-5",
+      "order": 5,
+      "title": "5. Transit vers l'Afrique : Fret Aérien (Avion) vs Fret Maritime (Bateau)",
+      "content": "## Acheminer ses colis de Chine vers l'Afrique\n\nVous ne devez JAMAIS demander au fournisseur d'expédier par DHL ou FedEx classique (qui vous coûterait 5 fois trop cher et bloquerait vos colis en douane locale). Vous devez passer par un **transitaire de groupage Chine-Afrique**.\n\n| Critère | Fret Aérien Express (Avion) | Fret Maritime (Bateau au CBM) |\n|---|---|---|\n| **Délai de livraison** | **7 à 12 jours** | **35 à 55 jours** |\n| **Tarif moyen** | **7 500 à 9 500 FCFA / kg** | **180 000 à 250 000 FCFA / m³ (CBM)** |\n| **Dédouanement** | Inclus dans le prix au kg | Inclus dans le prix au m³ |\n| **Idéal pour** | Petits gadgets, cosmétiques, bijoux, montres | Sacs, chaussures, meubles, cartons volumineux |\n| **Recommandation** | 🚀 Parfait pour tester vite | 🚢 Parfait pour maximiser la marge sur stock lourd |\n\n### La formule du Poids Volumétrique :\nPour l'avion, si votre produit est très léger mais prend beaucoup de place (ex: un coussin ou un chapeau), les compagnies aériennes appliquent la formule :\n```\nPoids Volumétrique (kg) = (Longueur x Largeur x Hauteur en cm) / 5000\n```\nVous paierez le montant le plus élevé entre le poids réel sur la balance et le poids volumétrique. Demandez toujours à votre usine de compresser les emballages au maximum !"
+    },
+    {
+      "id": "ali-chap-6",
+      "order": 6,
+      "title": "6. Adresses d'Entrepôts & Déroulement du Shipping (Guangzhou & Yiwu)",
+      "content": "## Comment faire livrer son transitaire à Guangzhou ou Yiwu\n\nLa quasi-totalité des transitaires Chine-Afrique possèdent des entrepôts à **Guangzhou (Canton)** ou **Yiwu**.\n\n### La procédure exacte :\n1. Vous contactez l'agence de transit locale à Dakar (ex: vers Ouest-Foire/Yoff), Abidjan (Treichville/Marcory) ou Douala.\n2. Ils vous remettent leur adresse d'entrepôt en chinois avec votre code client unique :\n   ```\n   收件人 (Destinataire) : [Votre Nom] - [Votre Code Client]\n   电话 (Téléphone) : +86 138 XXXX XXXX\n   地址 (Adresse) : 广东省 广州市 白云区... (Adresse de l'entrepôt)\n   Mark : [VOTRE CODE EXPÉDITION]\n   ```\n3. Vous donnez cette adresse à votre usine Alibaba / 1688. L'usine expédie le colis par transporteur intérieur chinois (SF Express ou ZTO) pour seulement 1 000 à 2 000 FCFA.\n4. Dès réception à Guangzhou, le transitaire pèse votre colis, le charge dans le conteneur ou l'avion, et vous envoie le numéro de suivi WhatsApp.\n5. À l'arrivée à Dakar ou Abidjan, vous recevez un SMS ou un message WhatsApp : vous vous rendez à l'agence, vous payez le fret en FCFA et vous récupérez votre stock !"
+    },
+    {
+      "id": "ali-chap-7",
+      "order": 7,
+      "title": "7. Calcul du Prix de Revient et Marge Nette au Franc Près",
+      "content": "## La formule de rentabilité exacte d'un import\n\nNe calculez jamais votre bénéfice sur le seul prix d'achat en Chine !\n\n### Exemple concret d'un produit importé :\n- Prix d'achat usine : 1 800 FCFA ($3)\n- Poids de l'article avec boîte : 200 grammes (0,2 kg)\n- Fret aérien avion (8 500 FCFA/kg x 0,2) : 1 700 FCFA\n- Frais livraison coursier local au client : 1 500 FCFA\n- Coût d'acquisition pub Meta estimé : 1 500 FCFA\n- **PRIX DE REVIENT TOTAL :** 1 800 + 1 700 + 1 500 + 1 500 = **6 500 FCFA**\n- **Prix de vente au client final :** **15 000 FCFA**\n- **BÉNÉFICE NET PAR VENTE :** 15 000 - 6 500 = **8 500 FCFA de profit pur !**\n\nEn vendant seulement 5 pièces par jour, vous dégagez **42 500 FCFA de bénéfice net par jour (1 275 000 FCFA par mois)**."
+    },
+    {
+      "id": "ali-chap-8",
+      "order": 8,
+      "title": "8. Les 10 Pièges Classiques du Débutant et Comment les Éviter",
+      "content": "## Les erreurs qui coûtent cher en import\n\n1. **Vouloir importer des contrefaçons de marques :** Nike, Apple, Louis Vuitton... C'est la garantie absolue de voir son colis saisi et détruit par la douane avec une amende en prime. Vendez des produits sans marque ou créez votre propre marque !\n2. **Ne pas commander d'échantillon (sample) :** Pour une première grosse commande, faites toujours venir 1 ou 2 unités par avion pour tester les finitions, la solidité et l'emballage.\n3. **Ignorer les liquides et batteries :** Les batteries lithium et les liquides nécessitent des autorisations MSDS spécifiques pour l'avion. Prévenez toujours votre transitaire avant d'acheter.\n4. **Ne pas compter la livraison locale dans son prix :** En Afrique, le client s'attend souvent à ce que la livraison soit incluse ou peu chère. Intégrez-la directement dans votre prix affiché !"
+    }
+  ]
+};
+
 export const OTHER_EBOOKS: EbookData[] = [
+  FACEBOOK_ADS_EBOOK,
+  ALIBABA_EBOOK,
   MARKETING_EBOOK,
   PRODUCTIVITY_EBOOK,
   DEV_EBOOK,

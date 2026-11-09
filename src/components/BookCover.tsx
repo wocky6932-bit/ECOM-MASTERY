@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ShoppingCart, Megaphone, TrendingUp, Code2, BookOpen } from "lucide-react";
+import { ShoppingCart, Megaphone, TrendingUp, Code2, BookOpen, Package } from "lucide-react";
 
 export interface BookCoverProps {
   title: string;
@@ -8,7 +8,7 @@ export interface BookCoverProps {
   category?: string;
   className?: string;
   size?: "sm" | "md" | "lg" | "hero";
-  theme?: "ecommerce" | "marketing" | "productivity" | "development" | "auto";
+  theme?: "ecommerce" | "marketing" | "productivity" | "development" | "sourcing" | "auto";
 }
 
 // Thèmes visuels des livres adaptés à la maquette
@@ -26,6 +26,13 @@ const themes = {
     glow: "rgba(168, 85, 247, 0.25)",
     icon: Megaphone,
     subColor: "text-purple-300",
+  },
+  sourcing: {
+    bg: "linear-gradient(145deg, #2D1402 0%, #78350F 50%, #1C0A02 100%)",
+    accent: "#F59E0B",
+    glow: "rgba(245, 158, 11, 0.25)",
+    icon: Package,
+    subColor: "text-amber-300",
   },
   productivity: {
     bg: "linear-gradient(145deg, #04241B 0%, #06543F 50%, #021B14 100%)",
@@ -57,7 +64,9 @@ export const BookCover: React.FC<BookCoverProps> = ({
     activeThemeKey = theme;
   } else {
     const text = (title + " " + category).toLowerCase();
-    if (text.includes("market") || text.includes("vente") || text.includes("copywriting")) {
+    if (text.includes("sourcing") || text.includes("alibaba") || text.includes("1688") || text.includes("import")) {
+      activeThemeKey = "sourcing";
+    } else if (text.includes("market") || text.includes("ads") || text.includes("facebook") || text.includes("vente")) {
       activeThemeKey = "marketing";
     } else if (text.includes("productiv") || text.includes("organis") || text.includes("succes")) {
       activeThemeKey = "productivity";

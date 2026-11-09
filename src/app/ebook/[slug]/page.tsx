@@ -40,9 +40,12 @@ export default async function EbookDetailPage({ params }: PageProps) {
 
   // Thème de couleur selon la catégorie
   let badgeColor = "bg-blue-50 text-[#0066FF] border-blue-100";
-  let theme: "ecommerce" | "marketing" | "productivity" | "development" = "ecommerce";
+  let theme: "ecommerce" | "marketing" | "productivity" | "development" | "sourcing" = "ecommerce";
   const catLower = ebook.category.toLowerCase();
-  if (catLower.includes("market")) {
+  if (catLower.includes("sourc") || catLower.includes("alibaba") || catLower.includes("import")) {
+    badgeColor = "bg-amber-50 text-amber-700 border-amber-200";
+    theme = "sourcing";
+  } else if (catLower.includes("market") || catLower.includes("ads") || catLower.includes("facebook")) {
     badgeColor = "bg-purple-50 text-purple-600 border-purple-100";
     theme = "marketing";
   } else if (catLower.includes("productiv")) {
