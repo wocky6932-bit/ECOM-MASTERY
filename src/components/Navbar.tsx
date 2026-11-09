@@ -36,8 +36,8 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
           <Link href="/" className="hover:text-[#0066FF] transition-colors">
             Accueil
           </Link>
-          <Link href="/boutique" className="hover:text-[#0066FF] transition-colors">
-            Boutique
+          <Link href="/#ebooks" className="hover:text-[#0066FF] transition-colors">
+            Nos Livres
           </Link>
           <Link href="/#a-propos" className="hover:text-[#0066FF] transition-colors">
             À propos
@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
         {/* Boutons d'action Desktop */}
         <div className="hidden sm:flex items-center space-x-4">
           <Link
-            href="/boutique"
+            href="/#ebooks"
             className="p-2 text-slate-500 hover:text-slate-800 transition-colors"
             aria-label="Rechercher"
           >
@@ -81,10 +81,10 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
                 Connexion
               </Link>
               <Link
-                href="/boutique"
+                href="/#ebooks"
                 className="bg-[#0066FF] hover:bg-[#0052CC] text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm transition-all duration-200 inline-flex items-center gap-1.5"
               >
-                <span>Explorer les ebooks</span>
+                <span>Explorer les livres</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </>
@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
         {/* Bouton Hamburger Mobile */}
         <div className="flex items-center gap-2 md:hidden">
           <Link
-            href="/boutique"
+            href="/#ebooks"
             className="p-2 text-slate-600 hover:text-slate-900"
             aria-label="Recherche"
           >
@@ -124,12 +124,12 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
               Accueil
             </Link>
             <Link
-              href="/boutique"
+              href="/#ebooks"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-3 px-3 py-3 rounded-xl text-base font-semibold text-slate-800 hover:bg-blue-50 hover:text-[#0066FF] transition-all"
             >
               <ShoppingBag className="w-4 h-4 text-[#0066FF]" />
-              Boutique complète
+              Nos Livres
             </Link>
             <Link
               href="/#a-propos"

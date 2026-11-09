@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BookCover } from "@/components/BookCover";
+import { HomeCatalog } from "@/components/HomeCatalog";
 import {
   ShieldCheck,
   Zap,
@@ -22,65 +23,6 @@ import {
 } from "lucide-react";
 
 export default function HomePage() {
-  const popularEbooks = [
-    {
-      id: "lancer-sa-boutique",
-      slug: "lancer-sa-boutique-en-ligne",
-      title: "Lancer sa boutique en ligne",
-      subtitle: "Le guide pratique e-commerce",
-      category: "E-commerce",
-      theme: "ecommerce" as const,
-      badgeColor: "bg-blue-600 text-white",
-      rating: "4.8",
-      reviews: "1,2k avis",
-      price: 5000,
-      description:
-        "Le guide pratique pour choisir un produit gagnant, trouver ses premiers clients et développer son activité e-commerce.",
-    },
-    {
-      id: "marketing-digital",
-      slug: "strategies-marketing-digital",
-      title: "Stratégies Marketing Digital",
-      subtitle: "Acquisition & Ventes directes",
-      category: "Marketing",
-      theme: "marketing" as const,
-      badgeColor: "bg-purple-600 text-white",
-      rating: "4.8",
-      reviews: "856 avis",
-      price: 5000,
-      description:
-        "Attirez plus de clients qualifiés grâce aux meilleures techniques de copywriting, contenu viral et Meta Ads ciblées.",
-    },
-    {
-      id: "boostez-productivite",
-      slug: "boostez-votre-productivite",
-      title: "Boostez votre productivité",
-      subtitle: "Organisation & Focus absolu",
-      category: "Productivité",
-      theme: "productivity" as const,
-      badgeColor: "bg-emerald-600 text-white",
-      rating: "4.8",
-      reviews: "723 avis",
-      price: 5000,
-      description:
-        "Organisez vos journées, éliminez définitivement la procrastination et atteignez vos objectifs professionnels rapidement.",
-    },
-    {
-      id: "developpeur-fullstack",
-      slug: "developpeur-web-full-stack",
-      title: "Développeur Web Full Stack",
-      subtitle: "Applications modernes de A à Z",
-      category: "Développement",
-      theme: "development" as const,
-      badgeColor: "bg-orange-600 text-white",
-      rating: "4.8",
-      reviews: "942 avis",
-      price: 5000,
-      description:
-        "Maîtrisez le développement web de A à Z : Next.js, API sécurisées, PostgreSQL et déploiement cloud professionnel.",
-    },
-  ];
-
   const faqItems = [
     {
       q: "Comment acheter un ebook sur Ecom Mastery ?",
@@ -135,11 +77,11 @@ export default function HomePage() {
               {/* Boutons d'action */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
-                  href="/boutique"
+                  href="#ebooks"
                   className="inline-flex items-center gap-2.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-7 py-3.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
                 >
                   <ShoppingCart className="w-4 h-4" />
-                  <span>Découvrir les ebooks</span>
+                  <span>Explorer tous les livres</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
 
@@ -264,99 +206,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===================== SECTION LIVRES POPULAIRES ===================== */}
-      <section className="py-16 md:py-24 bg-slate-50/60 border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header section */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <div className="inline-block bg-blue-100/80 text-[#0066FF] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                Nos ebooks populaires
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B1528]">
-                Des livres pratiques pour passer à l&apos;action
-              </h2>
-            </div>
-            <Link
-              href="/boutique"
-              className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-sm font-bold text-[#0066FF] hover:text-[#0052CC] group"
-            >
-              <span>Voir toute la boutique</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Grille des 4 livres avec identités distinctes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularEbooks.map((book) => (
-              <div
-                key={book.id}
-                className="bg-white rounded-3xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col justify-between group"
-              >
-                {/* Couverture avec badge de catégorie positionné en haut */}
-                <div className="relative mb-5 flex justify-center pt-2">
-                  <span
-                    className={`absolute -top-2 right-2 z-20 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm ${book.badgeColor}`}
-                  >
-                    {book.category}
-                  </span>
-                  <BookCover
-                    title={book.title}
-                    subtitle={book.subtitle}
-                    theme={book.theme}
-                    size="md"
-                  />
-                </div>
-
-                {/* Métadonnées & Description */}
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-base leading-snug group-hover:text-[#0066FF] transition-colors">
-                      {book.title}
-                    </h3>
-                    <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
-                      {book.description}
-                    </p>
-                  </div>
-
-                  {/* Avis & Étoiles */}
-                  <div className="mt-4 pt-3 border-t border-slate-50 flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-amber-500">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                      ))}
-                      <span className="text-xs font-bold text-slate-700 ml-1">
-                        {book.rating}
-                      </span>
-                      <span className="text-[11px] text-slate-400">
-                        ({book.reviews})
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Prix & Bouton Acheter */}
-                  <div className="mt-3 flex items-center justify-between">
-                    <div>
-                      <p className="text-base font-black text-[#0B1528]">
-                        {book.price.toLocaleString("fr-FR")} FCFA
-                      </p>
-                    </div>
-                    <Link
-                      href={`/paiement?ebook=${book.slug}`}
-                      className="inline-flex items-center gap-1.5 bg-[#0066FF] hover:bg-[#0052CC] text-white px-4 py-2 rounded-full text-xs font-bold shadow-sm transition-all"
-                    >
-                      <span>Acheter</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      {/* ===================== CATALOGUE COMPLET DE TOUS LES LIVRES ===================== */}
+      <HomeCatalog />
 
       {/* ===================== SECTION AVANTAGES ===================== */}
       <section id="a-propos" className="py-16 md:py-24 bg-white">
