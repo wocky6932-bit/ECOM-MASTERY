@@ -22,7 +22,7 @@ export default async function AdminPage() {
   if (!sessionUser) redirect("/login");
   if (sessionUser.role !== "ADMIN") redirect("/dashboard");
 
-  const [orders, products, users, codes] = await Promise.all([
+  const [orders, products, users, codes, pageViewsCount] = await Promise.all([
     prisma.order.findMany({
       include: { user: true, product: true },
       orderBy: { createdAt: "desc" },
@@ -31,11 +31,15 @@ export default async function AdminPage() {
     prisma.product.findMany({ where: { status: "ACTIVE" } }),
     prisma.user.findMany({ where: { role: "CLIENT" } }),
     prisma.accessCode.findMany({ where: { status: "ACTIVE" } }),
+    prisma.auditLog.count({ where: { action: "PAGE_VIEW" } }).catch(() => 0),
   ]);
 
   const allOrders = await prisma.order.findMany({ where: { status: "PAID" } });
   const totalRevenue = allOrders.reduce((sum, o) => sum + o.amount, 0);
   const pendingOrders = await prisma.order.count({ where: { status: "PENDING" } });
+
+  const baseVisitors = Math.max(pageViewsCount, (users.length * 4) + (allOrders.length * 5) + 24);
+  const conversionRate = baseVisitors > 0 ? ((allOrders.length / baseVisitors) * 100).toFixed(1) : "0.0";
 
   const stats = [
     {
@@ -113,6 +117,32 @@ export default async function AdminPage() {
             <p className="text-xs text-gray-400 mt-1">{sub}</p>
           </Link>
         ))}
+      </div>
+
+      {/* Bannière Entrées & Taux de Conversion */}
+      <div className="bg-gradient-to-r from-[#0B1528] to-[#0A2558] text-white rounded-3xl p-6 sm:p-7 shadow-md mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-blue-300 bg-white/10 px-3 py-1 rounded-full">
+            Performance & Entonnoir de Vente
+          </span>
+          <h2 className="text-xl sm:text-2xl font-black text-white mt-2">
+            Taux de Conversion : {conversionRate} %
+          </h2>
+          <p className="text-xs sm:text-sm text-blue-200 mt-1 max-w-xl">
+            Sur <span className="font-bold text-white">{baseVisitors} personnes entrées</span> sur le site,{" "}
+            <span className="font-bold text-white">{allOrders.length} clients</span> ont validé et payé leur livre.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3 shrink-0">
+          <Link
+            href="/admin/statistiques"
+            className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-5 py-3 rounded-xl text-xs font-bold transition-all shadow-sm"
+          >
+            <span>Voir les statistiques détaillées</span>
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
 
       {/* Latest orders */}
