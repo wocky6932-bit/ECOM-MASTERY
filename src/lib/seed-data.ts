@@ -6,16 +6,21 @@ export interface Chapter {
 }
 
 export interface EbookData {
- title: string;
- slug: string;
- shortDesc: string;
- description: string;
- learnPoints: string[];
- targetAudience: string;
- price: number;
- category: string;
- coverImage: string;
- chapters: Chapter[];
+  id?: string;
+  title: string;
+  slug: string;
+  subtitle?: string;
+  shortDesc: string;
+  description?: string;
+  fullDesc?: string;
+  learnPoints: string[] | string;
+  targetAudience: string[] | string;
+  price: number;
+  badge?: string;
+  category: string;
+  coverImage: string;
+  chapters: Chapter[];
+  [key: string]: any;
 }
 
 // =========================================================================

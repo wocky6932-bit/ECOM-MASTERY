@@ -563,7 +563,7 @@ function FacebookFormatsInfographic({ theme }: { theme: "light" | "sepia" | "dar
   );
 }
 
-// 10. Mockup : Tests A/B
+// 10. Mockup : Tests A/B par répartition (Split Testing)
 function FacebookABTestMockup({ theme }: { theme: "light" | "sepia" | "dark" }) {
   return (
     <div
@@ -575,33 +575,60 @@ function FacebookABTestMockup({ theme }: { theme: "light" | "sepia" | "dark" }) 
           : "bg-slate-50 border-slate-200 text-slate-800"
       }`}
     >
-      <div className="mb-4">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-          Optimisation Continue
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-200/80 dark:border-slate-800 pb-3 mb-4">
+        <div>
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            Gestionnaire de Publicités Meta • Test par répartition
+          </span>
+          <h4 className="text-base font-bold text-slate-900 dark:text-white">
+            Exemple de configuration : Variable « Audience (Âge) »
+          </h4>
+        </div>
+        <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 w-fit">
+          ID Campagne : 6097994191172
         </span>
-        <h4 className="text-base font-bold text-slate-900 dark:text-white mt-1">
-          Le Test A/B par Répartition
-        </h4>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs sm:text-sm">
         <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-          <span className="text-[10px] font-bold uppercase text-slate-400 block mb-1">Variante A</span>
-          <div className="font-semibold text-slate-900 dark:text-white mb-1">Audience 22 - 35 ans (Dakar)</div>
-          <p className="text-xs text-slate-500">Coût par message moyen mesuré : 0,45 € (300 FCFA)</p>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+              Ensemble de publicités A
+            </span>
+            <span className="text-[11px] font-mono text-slate-500">Budget 25,00 €</span>
+          </div>
+          <div className="font-semibold text-slate-900 dark:text-white mb-1">
+            Audience : 18 - 24 ans
+          </div>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Diffusion équitable sur le même créatif visuel. Aucune interférence avec l'autre groupe.
+          </p>
         </div>
 
         <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-          <span className="text-[10px] font-bold uppercase text-slate-400 block mb-1">Variante B (Gagnante)</span>
-          <div className="font-semibold text-slate-900 dark:text-white mb-1">Audience 36 - 50 ans (Dakar)</div>
-          <p className="text-xs text-slate-500">Coût par message moyen mesuré : 0,22 € (145 FCFA) — 2x plus rentable</p>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+              Ensemble de publicités B
+            </span>
+            <span className="text-[11px] font-mono text-slate-500">Budget 25,00 €</span>
+          </div>
+          <div className="font-semibold text-slate-900 dark:text-white mb-1">
+            Audience : 25 - 50 ans
+          </div>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Deuxième groupe d'âge testé en simultané pour identifier l'audience la plus réactive.
+          </p>
         </div>
+      </div>
+
+      <div className="mt-3.5 p-3 rounded-xl bg-slate-100/70 dark:bg-slate-800/40 text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+        <span className="font-semibold text-slate-900 dark:text-white">Règle de fiabilité :</span> Aucun chevauchement d'audiences — votre portée potentielle est répartie de manière aléatoire et équitable entre les deux ensembles pour garantir l'exactitude des résultats.
       </div>
     </div>
   );
 }
 
-// 11. Résultats Tests A/B
+// 11. Résultats Tests A/B : Coût par résultat & Portée
 function FacebookABTestResultsChart({ theme }: { theme: "light" | "sepia" | "dark" }) {
   return (
     <div
@@ -615,31 +642,100 @@ function FacebookABTestResultsChart({ theme }: { theme: "light" | "sepia" | "dar
     >
       <div className="mb-4">
         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-          Rapport de Performance
+          Rapport d'analyse comparative
         </span>
         <h4 className="text-base font-bold text-slate-900 dark:text-white mt-1">
-          Comparaison du Coût par Résultat
+          Résultats du test par répartition sur deux audiences différentes
         </h4>
       </div>
 
-      <div className="space-y-3 text-xs sm:text-sm">
-        <div>
-          <div className="flex justify-between font-medium mb-1">
-            <span>Ensemble A (Publicité Vidéo Démo)</span>
-            <span className="font-bold text-slate-900 dark:text-white">0,22 € / lead</span>
-          </div>
-          <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-            <div className="h-full bg-slate-900 dark:bg-white w-[35%]" />
-          </div>
+      {/* Section 1 : Coût par résultat */}
+      <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 mb-3.5">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs font-bold uppercase text-slate-500">
+            Métrique 1 : Afficher par Coût par résultat
+          </span>
+          <span className="text-[11px] font-semibold text-slate-900 dark:text-white">
+            Ensemble B gagnant (95% de certitude statistique)
+          </span>
         </div>
 
-        <div>
-          <div className="flex justify-between font-medium mb-1">
-            <span>Ensemble B (Photo Simple Catalogue)</span>
-            <span className="font-bold text-slate-900 dark:text-white">0,51 € / lead</span>
+        <div className="space-y-3">
+          <div>
+            <div className="flex justify-between text-xs font-medium mb-1">
+              <span className="text-slate-600 dark:text-slate-300">Ensemble A (18 - 24 ans)</span>
+              <span className="font-semibold text-slate-900 dark:text-white">0,62 € / résultat</span>
+            </div>
+            <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+              <div className="h-full bg-slate-400 dark:bg-slate-600 w-[90%]" />
+            </div>
           </div>
-          <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-            <div className="h-full bg-slate-400 dark:bg-slate-600 w-[80%]" />
+
+          <div>
+            <div className="flex justify-between text-xs font-medium mb-1">
+              <span className="text-slate-900 dark:text-white font-semibold">Ensemble B (25 - 50 ans) — Gagnant</span>
+              <span className="font-bold text-slate-900 dark:text-white">0,33 € / résultat (-47% de coût)</span>
+            </div>
+            <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+              <div className="h-full bg-slate-900 dark:bg-white w-[48%]" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 2 : Portée (Personnes atteintes) */}
+      <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 mb-3.5">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs font-bold uppercase text-slate-500">
+            Métrique 2 : Afficher par Portée (Personnes atteintes)
+          </span>
+          <span className="text-[11px] font-mono text-slate-500">Budget égal 25,00 €</span>
+        </div>
+
+        <div className="space-y-3">
+          <div>
+            <div className="flex justify-between text-xs font-medium mb-1">
+              <span className="text-slate-600 dark:text-slate-300">Ensemble A (18 - 24 ans)</span>
+              <span className="font-semibold text-slate-900 dark:text-white">2 110 personnes</span>
+            </div>
+            <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+              <div className="h-full bg-slate-400 dark:bg-slate-600 w-[30%]" />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex justify-between text-xs font-medium mb-1">
+              <span className="text-slate-900 dark:text-white font-semibold">Ensemble B (25 - 50 ans)</span>
+              <span className="font-bold text-slate-900 dark:text-white">7 140 personnes (3,4x plus de portée)</span>
+            </div>
+            <div className="h-2.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+              <div className="h-full bg-slate-900 dark:bg-white w-[100%]" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 3 : Placements de diffusion */}
+      <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div className="text-xs font-bold uppercase text-slate-500 mb-2">
+          Métrique 3 : Répartition par Placements (Ordinateur vs Mobile)
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+          <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <div className="text-slate-500 text-[10px] uppercase">Facebook Fil</div>
+            <div className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">58%</div>
+          </div>
+          <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <div className="text-slate-500 text-[10px] uppercase">Instagram</div>
+            <div className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">31%</div>
+          </div>
+          <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <div className="text-slate-500 text-[10px] uppercase">Audience Net.</div>
+            <div className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">8%</div>
+          </div>
+          <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <div className="text-slate-500 text-[10px] uppercase">Messenger</div>
+            <div className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">3%</div>
           </div>
         </div>
       </div>
@@ -647,7 +743,7 @@ function FacebookABTestResultsChart({ theme }: { theme: "light" | "sepia" | "dar
   );
 }
 
-// 12. Pixel Facebook Architecture
+// 12. Pixel Facebook Architecture & Rôle
 function FacebookPixelArchitectureCard({ theme }: { theme: "light" | "sepia" | "dark" }) {
   return (
     <div
@@ -659,28 +755,45 @@ function FacebookPixelArchitectureCard({ theme }: { theme: "light" | "sepia" | "
           : "bg-slate-50 border-slate-200 text-slate-800"
       }`}
     >
-      <div className="mb-3">
+      <div className="mb-4">
         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-          Suivi des Données
+          Outil d'analyse Meta • Suivi des Conversions
         </span>
         <h4 className="text-base font-bold text-slate-900 dark:text-white mt-1">
-          Architecture Pixel & Conversions API
+          Le Pixel Facebook & l'API de Conversions
         </h4>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm mt-3">
+      <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 mb-3.5">
+        <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 italic leading-relaxed">
+          « Le pixel Facebook est un outil d'analyse qui vous permet de mesurer l'efficacité de votre publicité en suivant les actions entreprises par les personnes sur votre site web. »
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-3.5">
         <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-          <div className="font-semibold text-slate-900 dark:text-white mb-0.5">1. Visite Boutique</div>
-          <p className="text-xs text-slate-500">Le prospect consulte une fiche produit.</p>
+          <div className="font-semibold text-slate-900 dark:text-white mb-1">1. Diffusion ultra-précise</div>
+          <p className="text-slate-500 leading-relaxed">S'assurer que les publicités sont diffusées auprès des personnes les plus enclines à acheter.</p>
         </div>
         <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-          <div className="font-semibold text-slate-900 dark:text-white mb-0.5">2. Événement Achat</div>
-          <p className="text-xs text-slate-500">Validation de commande ou clic Wave.</p>
+          <div className="font-semibold text-slate-900 dark:text-white mb-1">2. Audiences de reciblage</div>
+          <p className="text-slate-500 leading-relaxed">Créer des audiences personnalisées pour recontacter les visiteurs ayant abandonné leur panier.</p>
         </div>
         <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-          <div className="font-semibold text-slate-900 dark:text-white mb-0.5">3. Optimisation IA</div>
-          <p className="text-xs text-slate-500">Facebook trouve d'autres acheteurs similaires.</p>
+          <div className="font-semibold text-slate-900 dark:text-white mb-1">3. Outils publicitaires Meta</div>
+          <p className="text-slate-500 leading-relaxed">Débloquer les campagnes d'optimisation d'achats et le catalogue dynamique automatisé.</p>
         </div>
+        <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+          <div className="font-semibold text-slate-900 dark:text-white mb-1">4. Mesure exacte du ROI</div>
+          <p className="text-slate-500 leading-relaxed">Savoir avec certitude combien chaque franc investi génère en chiffre d'affaires réel.</p>
+        </div>
+      </div>
+
+      <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div className="font-semibold text-slate-900 dark:text-white text-xs mb-1">Comment ça marche ?</div>
+        <p className="text-xs text-slate-500 leading-relaxed">
+          Pour configurer le pixel Facebook, ajoutez le code dans l'en-tête (balise &lt;head&gt;) de votre site web. Lorsqu'une personne consulte votre boutique et effectue une action (consultation de produit, ajout au panier, achat validé), le pixel transmet instantanément l'information à Meta pour affiner vos futures publicités.
+        </p>
       </div>
     </div>
   );

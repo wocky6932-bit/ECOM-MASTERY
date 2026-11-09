@@ -44,6 +44,7 @@ async function main() {
         learnPoints: typeof book.learnPoints === 'string' ? book.learnPoints : JSON.stringify(book.learnPoints),
         targetAudience: typeof book.targetAudience === 'string' ? book.targetAudience : JSON.stringify(book.targetAudience),
         price: book.price,
+        coverImage: book.coverImage,
         category: book.category,
         chapters: JSON.stringify(book.chapters),
         status: "ACTIVE",
