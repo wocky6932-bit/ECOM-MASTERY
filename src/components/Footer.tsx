@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
               </h4>
               <div className="flex items-center gap-2.5 text-slate-300">
                 <a
-                  href="https://wa.me/221770000000"
+                  href="https://wa.me/221761343904"
                   target="_blank"
                   rel="noreferrer"
                   className="w-8 h-8 rounded-full bg-white/10 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all"

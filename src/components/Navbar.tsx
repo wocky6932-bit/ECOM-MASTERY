@@ -195,7 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
               Wave Checkout 100% sécurisé
             </span>
             <a
-              href="https://wa.me/221770000000"
+              href="https://wa.me/221761343904"
               target="_blank"
               rel="noreferrer"
               className="text-[#0066FF] font-bold hover:underline flex items-center gap-1"
