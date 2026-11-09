@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export interface BookCoverProps {
   title: string;
@@ -14,6 +15,7 @@ export const BookCover: React.FC<BookCoverProps> = ({
   title,
   subtitle,
   category = "",
+  coverImage,
   className = "",
   size = "md",
   theme = "auto",
@@ -29,7 +31,40 @@ export const BookCover: React.FC<BookCoverProps> = ({
   // Par défaut : Lancer sa boutique en ligne (E-commerce Bestseller)
   const isEcommerce = !isFacebook && !isAlibaba && !isMarketing && !isProductivity && !isDev;
 
+  // Résolution automatique de la couverture 3D haute définition
+  let resolvedCover = coverImage;
+  if (!resolvedCover || resolvedCover.includes("mockups-reference") || resolvedCover.includes("-cover.png")) {
+    if (isEcommerce) resolvedCover = "/images/cover-boutique-en-ligne.jpg";
+    else if (isFacebook) resolvedCover = "/images/cover-facebook-ads.jpg";
+    else if (isAlibaba) resolvedCover = "/images/cover-alibaba-sourcing.jpg";
+  }
+
   // Tailles proportionnées aux standards de l'édition de luxe (ratio livre ~1:1.43)
+  const sizeClasses = {
+    sm: "w-32 h-46",
+    md: "w-52 h-74 sm:w-56 sm:h-78",
+    lg: "w-64 h-90 sm:w-72 sm:h-98",
+    hero: "w-72 h-100 sm:w-82 sm:h-112",
+  };
+
+  // Si une couverture graphique 3D réaliste est disponible, on l'affiche avec relief studio
+  if (resolvedCover) {
+    return (
+      <div
+        className={`relative rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.18)] hover:shadow-[0_22px_48px_rgba(0,0,0,0.28)] transition-all duration-300 transform group-hover:-translate-y-2 select-none border border-slate-200/80 dark:border-slate-800 ${sizeClasses[size]} ${className}`}
+      >
+        <Image
+          src={resolvedCover}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 320px"
+          priority
+        />
+      </div>
+    );
+  }
+
   const sizeConfig = {
     sm: {
       box: "w-32 h-46",

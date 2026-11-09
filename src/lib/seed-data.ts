@@ -41,7 +41,7 @@ export const INITIAL_EBOOK: EbookData = {
  targetAudience: "Entrepreneurs, commerçants, créateurs de contenu et toute personne souhaitant lancer un business e-commerce rentable au Sénégal et en Afrique francophone.",
  price: 5000,
  category: "E-commerce",
- coverImage: "/images/mockups-reference.jpg",
+ coverImage: "/images/cover-boutique-en-ligne.jpg",
  chapters: [
  {
  id: "chapitre-1",
@@ -1285,6 +1285,7 @@ export const FACEBOOK_ADS_EBOOK: EbookData = {
  "title": "Publicité Facebook Ads de A à Z",
  "subtitle": "Le guide visuel officiel pour dominer Meta Ads en Afrique",
  "category": "Marketing & Ads",
+ "coverImage": "/images/cover-facebook-ads.jpg",
  "price": 5000,
  "badge": "Nouveau",
  "shortDesc": "Le guide visuel étape par étape pour maîtriser le Gestionnaire de Publicité Meta, le ciblage laser, les formats créatifs, le Pixel et les tests A/B en Afrique.",
@@ -1366,6 +1367,7 @@ export const ALIBABA_EBOOK: EbookData = {
  "title": "Formation Alibaba — Trouver des fournisseurs, négocier et importer",
  "subtitle": "Par Cheikh Akhmad • Guide pratique, exemples & exercices pour le Sénégal et l'Afrique",
  "category": "Sourcing & Import",
+ "coverImage": "/images/cover-alibaba-sourcing.jpg",
  "price": 5000,
  "badge": "Bestseller",
  "shortDesc": "Le guide pratique officiel de Cheikh Akhmad pour trouver des fabricants fiables, négocier en anglais, sécuriser vos paiements et importer avec succès vers le Sénégal.",
