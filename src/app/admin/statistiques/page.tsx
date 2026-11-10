@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { BookCover } from "@/components/BookCover";
+import { AdminConversionCurves } from "@/components/AdminConversionCurves";
 import {
   TrendingUp,
   Users,
@@ -119,14 +120,14 @@ export default async function AdminStatistiquesPage() {
     };
   }).sort((a, b) => b.revenue - a.revenue || b.purchases - a.purchases);
 
-  // Daily timeline (last 7 days)
-  const last7Days = Array.from({ length: 7 }, (_, i) => {
+  // Daily timeline (last 30 days for rich curves)
+  const last30Days = Array.from({ length: 30 }, (_, i) => {
     const d = new Date();
-    d.setDate(d.getDate() - (6 - i));
+    d.setDate(d.getDate() - (29 - i));
     return d;
   });
 
-  const dailyStats = last7Days.map((day) => {
+  const dailyStats = last30Days.map((day) => {
     const dayStr = day.toISOString().slice(0, 10);
     const dayPaid = paidOrders.filter(
       (o) => o.createdAt.toISOString().slice(0, 10) === dayStr
@@ -136,14 +137,14 @@ export default async function AdminStatistiquesPage() {
     ).length;
 
     return {
+      date: dayStr,
       label: day.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric" }),
+      fullDate: day.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }),
       visitors: Math.max(dayViews, dayPaid.length * 4 + 3),
       sales: dayPaid.length,
       revenue: dayPaid.reduce((sum, o) => sum + o.amount, 0),
     };
   });
-
-  const maxVisitorsDaily = Math.max(...dailyStats.map((d) => d.visitors), 1);
 
   return (
     <div className="space-y-8 pb-12">
@@ -449,64 +450,8 @@ export default async function AdminStatistiquesPage() {
         </div>
       </div>
 
-      {/* ===================== HISTORIQUE SUR 7 JOURS ===================== */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-xl bg-slate-100 text-slate-700">
-            <CalendarDays className="w-5 h-5" />
-          </div>
-          <div>
-            <h2 className="text-base font-bold text-slate-900">
-              Flux des Visites et Ventes sur les 7 derniers jours
-            </h2>
-            <p className="text-xs text-slate-500">
-              Activité quotidienne enregistrée sur la plateforme.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-7 gap-2 sm:gap-3 items-end h-44 pt-4 border-b border-slate-100 pb-2">
-          {dailyStats.map((d) => (
-            <div key={d.label} className="flex flex-col items-center gap-2 h-full justify-end">
-              <div className="text-[10px] font-bold text-slate-600 hidden sm:block">
-                {d.sales > 0 ? `${d.sales} vente${d.sales > 1 ? "s" : ""}` : "-"}
-              </div>
-              <div className="w-full flex items-end justify-center gap-1 h-28">
-                {/* Colonne Visites */}
-                <div
-                  className="w-3 sm:w-5 bg-blue-200 dark:bg-blue-800 rounded-t-md transition-all duration-300"
-                  style={{
-                    height: `${Math.max(12, (d.visitors / maxVisitorsDaily) * 100)}%`,
-                  }}
-                  title={`${d.visitors} visiteurs`}
-                />
-                {/* Colonne Ventes */}
-                <div
-                  className="w-3 sm:w-5 bg-emerald-500 rounded-t-md transition-all duration-300"
-                  style={{
-                    height: `${d.sales > 0 ? Math.max(15, (d.sales / Math.max(d.sales, 1)) * 60) : 4}%`,
-                  }}
-                  title={`${d.sales} ventes (${d.revenue} FCFA)`}
-                />
-              </div>
-              <span className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase">
-                {d.label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-center gap-6 mt-4 text-xs font-medium text-slate-600">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-blue-200 rounded-sm" />
-            <span>Visiteurs entrés</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-emerald-500 rounded-sm" />
-            <span>Livres achetés</span>
-          </div>
-        </div>
-      </div>
+      {/* ===================== GRAPHIQUE DES COURBES D'ÉVOLUTION ===================== */}
+      <AdminConversionCurves data={dailyStats} />
     </div>
   );
 }
