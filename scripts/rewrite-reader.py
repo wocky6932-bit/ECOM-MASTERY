@@ -63,8 +63,8 @@ interface SecureReaderClientProps {
 // Fonction utilitaire pour parser le gras **texte** dans n'importe quelle chaîne
 function renderFormattedInlineText(text: string) {
   if (!text) return null;
-  // Nettoyage de tout emoji résiduel
-  const clean = text.replace(/[\\U00010000-\\U0010ffff\\u2600-\\u26ff\\u2700-\\u27bf\\ufe0f\\u200d]/g, "").trim();
+  // Nettoyage sécurisé des emojis sans altérer le texte ou les lettres de l'alphabet
+  const clean = text.replace(/\\p{Extended_Pictographic}/gu, "").trim();
   const parts = clean.split(/\\*\\*(.*?)\\*\\*/g);
   return parts.map((part, i) =>
     i % 2 === 1 ? (
