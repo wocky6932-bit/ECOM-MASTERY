@@ -23,10 +23,12 @@ export const Logo: React.FC<LogoProps> = ({
   className = "",
 }) => {
   const s = sizeMap[size];
+  const isLight = variant === "light";
+
   return (
     <Link href="/" className={`inline-flex items-center gap-3 group select-none ${className}`}>
       <Image
-        src="/images/logo.png"
+        src={isLight ? "/images/logo-white.png" : "/images/logo.png"}
         alt="Ecom Mastery"
         width={s.width}
         height={s.height}
@@ -37,7 +39,7 @@ export const Logo: React.FC<LogoProps> = ({
       {showSlogan && (
         <span
           className={`text-[11px] uppercase tracking-widest font-semibold ${
-            variant === "light" ? "text-slate-400" : "text-slate-500"
+            isLight ? "text-slate-300" : "text-slate-500"
           }`}
         >
           Learn. Grow. Succeed.

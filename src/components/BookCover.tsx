@@ -37,6 +37,10 @@ export const BookCover: React.FC<BookCoverProps> = ({
     if (isEcommerce) resolvedCover = "/images/cover-boutique-en-ligne.jpg";
     else if (isFacebook) resolvedCover = "/images/cover-facebook-ads.jpg";
     else if (isAlibaba) resolvedCover = "/images/cover-alibaba-sourcing.jpg";
+    else if (isMarketing) resolvedCover = "/images/cover-marketing-digital.jpg";
+    else if (isProductivity) resolvedCover = "/images/cover-productivite.jpg";
+    else if (isDev) resolvedCover = "/images/cover-developpeur-web.jpg";
+    else resolvedCover = "/images/cover-boutique-en-ligne.jpg";
   }
 
   // Tailles proportionnées aux standards de l'édition de luxe (ratio livre ~1:1.43)

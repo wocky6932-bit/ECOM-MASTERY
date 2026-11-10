@@ -768,7 +768,7 @@ const MARKETING_EBOOK: EbookData = {
  targetAudience: "Commerçants, créateurs, community managers et agences digitales souhaitant générer des prospects et des ventes en continu.",
  price: 5000,
  category: "Marketing",
- coverImage: "/images/mockups-reference.jpg",
+ coverImage: "/images/cover-marketing-digital.jpg",
  chapters: [
  {
  id: "mkt-1",
@@ -947,7 +947,7 @@ const PRODUCTIVITY_EBOOK: EbookData = {
  targetAudience: "Entrepreneurs, freelances, étudiants ambitieux et managers submergés par le travail.",
  price: 5000,
  category: "Productivité",
- coverImage: "/images/mockups-reference.jpg",
+ coverImage: "/images/cover-productivite.jpg",
  chapters: [
  {
  id: "prod-1",
@@ -1113,7 +1113,7 @@ const DEV_EBOOK: EbookData = {
  targetAudience: "Développeurs débutants et intermédiaires, étudiants en informatique et concepteurs d'applications web.",
  price: 5000,
  category: "Développement",
- coverImage: "/images/mockups-reference.jpg",
+ coverImage: "/images/cover-developpeur-web.jpg",
  chapters: [
  {
  id: "dev-1",

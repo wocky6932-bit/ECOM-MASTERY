@@ -10,9 +10,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14">
           {/* Col 1: Marque & Présentation */}
           <div className="md:col-span-4 space-y-4">
-            <div className="bg-white/10 p-2 rounded-xl inline-block backdrop-blur-sm border border-white/10">
-              <Logo showSlogan={false} size="sm" variant="light" />
-            </div>
+            <Logo showSlogan={false} size="sm" variant="light" />
             <p className="text-xs tracking-widest uppercase font-semibold text-slate-300">
               Learn. Grow. Succeed.
             </p>

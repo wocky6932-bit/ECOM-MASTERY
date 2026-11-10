@@ -80,6 +80,7 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
     rating: "4.8",
     reviews: "856 avis",
     price: 5000,
+    coverImage: "/images/cover-marketing-digital.jpg",
   },
   {
     id: "boostez-productivite",
@@ -93,6 +94,7 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
     rating: "4.8",
     reviews: "723 avis",
     price: 5000,
+    coverImage: "/images/cover-productivite.jpg",
   },
   {
     id: "developpeur-fullstack",
@@ -106,6 +108,7 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
     rating: "4.8",
     reviews: "942 avis",
     price: 5000,
+    coverImage: "/images/cover-developpeur-web.jpg",
   },
 ];
 
