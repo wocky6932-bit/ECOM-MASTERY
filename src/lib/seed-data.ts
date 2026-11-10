@@ -1295,8 +1295,21 @@ export const FACEBOOK_ADS_EBOOK: EbookData = {
  "badge": "Nouveau",
  "shortDesc": "Le guide visuel étape par étape pour maîtriser le Gestionnaire de Publicité Meta, le ciblage laser, les formats créatifs, le Pixel et les tests A/B en Afrique.",
  "fullDesc": "Vous en avez assez de gaspiller de l'argent dans le bouton 'Booster la publication' sans obtenir de vrais acheteurs ? Ce livre vous dévoile les secrets des meilleurs annonceurs en Afrique de l'Ouest pour transformer 5 000 FCFA investis en dizaines de commandes confirmées chaque jour.",
- "learnPoints": "[\"Maîtriser le Gestionnaire de Publicités Meta et fuir le bouton booster\",\"L'infographie des 3 grands piliers d'objectifs (Notoriété, Considération, Conversion)\",\"Paramétrer un ciblage laser rentable sur Dakar, Abidjan et les capitales africaines\",\"Créer des audiences personnalisées et Lookalike pour multiplier ses ventes\",\"Le script exact en 4 temps pour une vidéo virale de 30 secondes\",\"Installer et rentabiliser le Pixel Facebook et l'API de conversions\",\"Mener des tests A/B par répartition scientifiques pour baisser le coût par acquisition\"]",
- "targetAudience": "[\"E-commerçants voulant passer de 2 à 20 commandes par jour\",\"Vendeurs WhatsApp Business souhaitant automatiser leur flux de prospects\",\"Créateurs de marques locales en Afrique de l'Ouest et Centrale\",\"Débutants voulant maîtriser les régies Meta et TikTok Ads sans perdre d'argent\"]",
+ "learnPoints": [
+  "Maîtriser le Gestionnaire de Publicités Meta et fuir le bouton booster",
+  "L'infographie des 3 grands piliers d'objectifs (Notoriété, Considération, Conversion)",
+  "Paramétrer un ciblage laser rentable sur Dakar, Abidjan et les capitales africaines",
+  "Créer des audiences personnalisées et Lookalike pour multiplier ses ventes",
+  "Le script exact en 4 temps pour une vidéo virale de 30 secondes",
+  "Installer et rentabiliser le Pixel Facebook et l'API de conversions",
+  "Mener des tests A/B par répartition scientifiques pour baisser le coût par acquisition"
+ ],
+ "targetAudience": [
+  "E-commerçants voulant passer de 2 à 20 commandes par jour",
+  "Vendeurs WhatsApp Business souhaitant automatiser leur flux de prospects",
+  "Créateurs de marques locales en Afrique de l'Ouest et Centrale",
+  "Débutants voulant maîtriser les régies Meta et TikTok Ads sans perdre d'argent"
+ ],
  "chapters": [
  {
  "id": "fb-chap-1",
@@ -1377,7 +1390,7 @@ export const ALIBABA_EBOOK: EbookData = {
  "badge": "Bestseller",
  "shortDesc": "Le guide pratique officiel de Cheikh Akhmad pour trouver des fabricants fiables, négocier en anglais, sécuriser vos paiements et importer avec succès vers le Sénégal.",
  "fullDesc": "Apprenez pas à pas avec Cheikh Akhmad à trouver les vraies usines sur Alibaba, négocier des MOQ accessibles, utiliser Trade Assurance, maîtriser le transport maritime/aérien vers Dakar et calculer votre coût de revient au franc près.",
- "learnPoints": JSON.stringify([
+ "learnPoints": [
  "Comprendre Alibaba et préparer un budget d'importation réaliste",
  "Recherches ciblées en anglais et filtres indispensables (Verified, Trade Assurance)",
  "Vérifier le profil d'un fournisseur et repérer les signaux d'alerte",
@@ -1386,13 +1399,13 @@ export const ALIBABA_EBOOK: EbookData = {
  "Fret Aérien (au kg) vs Maritime (au m³) vers Dakar et calcul du poids volumétrique",
  "Calcul du coût rendu unitaire et de la rentabilité nette avant de vendre",
  "Plan d'action concret sur 7 jours pour lancer sa première commande"
- ]),
- "targetAudience": JSON.stringify([
+ ],
+ "targetAudience": [
  "Commerçants et boutiquiers voulant s'approvisionner directement à la source en Chine",
  "Débutants en e-commerce souhaitant maximiser leurs marges bénéficiaires",
  "Entrepreneurs voulant créer leur propre marque au Sénégal ou en Afrique de l'Ouest",
  "Revendeurs locaux désireux de s'émanciper des intermédiaires"
- ]),
+ ],
  "chapters": [
  {
  "id": "ali-chap-1",

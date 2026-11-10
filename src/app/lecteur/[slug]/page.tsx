@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { verifyToken } from "@/lib/auth";
+import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
 import SecureReaderClient from "./SecureReaderClient";
 
 interface ReaderProps {
@@ -16,43 +17,70 @@ export default async function LecteurPage({ params }: ReaderProps) {
 
   let sessionUser = token ? verifyToken(token) : null;
 
-  // En dev local, si session non existante, utiliser Makhou par défaut
+  // En dev local ou sans cookie, tenter de récupérer l'utilisateur Makhou
   if (!sessionUser) {
-    const userMakhou = await prisma.user.findUnique({
-      where: { email: "makhou@example.sn" },
-    });
-    if (userMakhou) {
-      sessionUser = {
-        userId: userMakhou.id,
-        name: userMakhou.name,
-        email: userMakhou.email,
-        role: userMakhou.role,
-      };
-    } else {
+    try {
+      const userMakhou = await prisma.user.findUnique({
+        where: { email: "makhou@example.sn" },
+      });
+      if (userMakhou) {
+        sessionUser = {
+          userId: userMakhou.id,
+          name: userMakhou.name,
+          email: userMakhou.email,
+          role: userMakhou.role,
+        };
+      }
+    } catch {
+      // Ignorer l'erreur réseau éventuelle
+    }
+
+    if (!sessionUser) {
       redirect(`/login?redirect=/lecteur/${slug}`);
     }
   }
 
-  // 1. Récupérer le produit
-  const product = await prisma.product.findUnique({
-    where: { slug },
-  });
-
-  if (!product) {
-    notFound();
+  // 1. Récupérer le produit (depuis la base avec fallback mémoire)
+  let product: { id: string; title: string; slug: string; chapters: any } | null = null;
+  try {
+    product = await prisma.product.findUnique({
+      where: { slug },
+    });
+  } catch {
+    // Si la base est inaccessible, fallback sur les données mémoire
+    product = null;
   }
 
-  // 2. CONTRÔLE D'ACCÈS STRICT CÔTÉ SERVEUR :
-  // L'utilisateur DOIT posséder une commande "PAID" ou être ADMIN
-  const hasAccess =
-    sessionUser.role === "ADMIN" ||
-    (await prisma.order.findFirst({
-      where: {
-        userId: sessionUser.userId,
-        productId: product.id,
-        status: "PAID",
-      },
-    }));
+  if (!product) {
+    const allBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+    const fallback = allBooks.find((b) => b.slug === slug);
+    if (!fallback) {
+      notFound();
+    }
+    product = {
+      id: fallback.id || `prod-${fallback.slug}`,
+      title: fallback.title,
+      slug: fallback.slug,
+      chapters: JSON.stringify(fallback.chapters),
+    };
+  }
+
+  // 2. CONTRÔLE D'ACCÈS : L'utilisateur DOIT posséder une commande "PAID" ou être ADMIN
+  let hasAccess = sessionUser.role === "ADMIN";
+  if (!hasAccess) {
+    try {
+      const order = await prisma.order.findFirst({
+        where: {
+          userId: sessionUser.userId,
+          productId: product.id,
+          status: "PAID",
+        },
+      });
+      hasAccess = Boolean(order);
+    } catch {
+      hasAccess = false;
+    }
+  }
 
   if (!hasAccess) {
     return (
@@ -77,16 +105,29 @@ export default async function LecteurPage({ params }: ReaderProps) {
   }
 
   // 3. Récupérer la progression de lecture existante
-  const progress = await prisma.readingProgress.findUnique({
-    where: {
-      userId_productId: {
-        userId: sessionUser.userId,
-        productId: product.id,
+  let progress: { lastPosition: number; progressPct: number } | null = null;
+  try {
+    progress = await prisma.readingProgress.findUnique({
+      where: {
+        userId_productId: {
+          userId: sessionUser.userId,
+          productId: product.id,
+        },
       },
-    },
-  });
+    });
+  } catch {
+    progress = null;
+  }
 
-  const parsedChapters = JSON.parse(product.chapters || "[]");
+  // 4. Parser les chapitres en toute sécurité
+  let parsedChapters: any[] = [];
+  try {
+    parsedChapters = typeof product.chapters === "string" ? JSON.parse(product.chapters || "[]") : product.chapters || [];
+  } catch {
+    const allBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+    const fallback = allBooks.find((b) => b.slug === slug);
+    parsedChapters = fallback?.chapters || [];
+  }
 
   return (
     <SecureReaderClient

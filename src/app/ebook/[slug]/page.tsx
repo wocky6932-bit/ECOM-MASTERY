@@ -38,6 +38,20 @@ export default async function EbookDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  // Normalisation sécurisée de learnPoints (supporte string, JSON stringifié et tableau)
+  const safeLearnPoints: string[] = Array.isArray(ebook.learnPoints)
+    ? ebook.learnPoints
+    : typeof ebook.learnPoints === "string"
+    ? (() => {
+        try {
+          const parsed = JSON.parse(ebook.learnPoints);
+          return Array.isArray(parsed) ? parsed : [ebook.learnPoints];
+        } catch {
+          return [ebook.learnPoints];
+        }
+      })()
+    : [];
+
   // Thème de couleur selon la catégorie
   let badgeColor = "bg-blue-50 text-[#0066FF] border-blue-100";
   let theme: "ecommerce" | "marketing" | "productivity" | "development" | "sourcing" = "ecommerce";
@@ -64,14 +78,18 @@ export default async function EbookDetailPage({ params }: PageProps) {
 
   let hasAccess = isAdmin;
   if (!hasAccess && sessionUser) {
-    const paidOrder = await prisma.order.findFirst({
-      where: {
-        userId: sessionUser.userId,
-        product: { slug },
-        status: "PAID",
-      },
-    });
-    hasAccess = Boolean(paidOrder);
+    try {
+      const paidOrder = await prisma.order.findFirst({
+        where: {
+          userId: sessionUser.userId,
+          product: { slug },
+          status: "PAID",
+        },
+      });
+      hasAccess = Boolean(paidOrder);
+    } catch {
+      hasAccess = false;
+    }
   }
 
   return (
@@ -230,7 +248,7 @@ export default async function EbookDetailPage({ params }: PageProps) {
               </h3>
 
               <div className="grid grid-cols-1 gap-3.5">
-                {ebook.learnPoints.map((point, idx) => (
+                {safeLearnPoints.map((point, idx) => (
                   <div
                     key={idx}
                     className="flex items-start gap-3.5 p-3 rounded-xl bg-slate-50/80 hover:bg-slate-50 transition-colors"
