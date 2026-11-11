@@ -33,6 +33,10 @@ import {
   Video,
   Settings,
   Info,
+  Headphones,
+  AlertCircle,
+  CheckSquare,
+  Square,
 } from "lucide-react";
 
 interface Chapter {
@@ -799,6 +803,463 @@ function FacebookPixelArchitectureCard({ theme }: { theme: "light" | "sepia" | "
   );
 }
 
+// ============================================================================
+// SCHÉMAS VISUELS : GUIDE FACEBOOK ADS PAS À PAS (ÉCOUTEURS SANS FIL DAKAR)
+// ============================================================================
+
+function FbWindowFrame({
+  title,
+  caption,
+  theme,
+  children,
+}: {
+  title: string;
+  caption?: string;
+  theme: "light" | "sepia" | "dark";
+  children: React.ReactNode;
+}) {
+  const frameBg =
+    theme === "dark"
+      ? "bg-slate-900/80 border-slate-700 text-slate-100"
+      : theme === "sepia"
+      ? "bg-[#FAF5EC] border-[#D8CBB8] text-[#2C241E]"
+      : "bg-[#FBF9F5] border-slate-300 text-slate-800";
+
+  const barBg =
+    theme === "dark"
+      ? "bg-slate-900 border-slate-800 text-slate-400"
+      : theme === "sepia"
+      ? "bg-[#F1E8DA] border-[#DFD3C1] text-[#6B5B4D]"
+      : "bg-[#F3F0EA] border-slate-200 text-slate-500";
+
+  return (
+    <figure className="my-7">
+      <div className={`rounded-2xl border overflow-hidden shadow-xs ${frameBg}`}>
+        <div className={`px-4 py-2.5 border-b flex items-center gap-3 ${barBg}`}>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
+          </div>
+          <span className="text-xs font-medium truncate">{title}</span>
+        </div>
+        <div className="p-4 sm:p-5">{children}</div>
+      </div>
+      {caption && (
+        <figcaption className="mt-2.5 text-xs text-slate-500 dark:text-slate-400 italic">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+function StepBadge({ num }: { num: number }) {
+  return (
+    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#DC2626] text-white text-[11px] font-bold shrink-0">
+      {num}
+    </span>
+  );
+}
+
+// Schéma 1 — Liste de vérification des prérequis
+function FbStep1ChecklistSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const items = [
+    { checked: true, text: "Une page Facebook professionnelle (nom de la boutique, logo, coordonnées)" },
+    { checked: true, text: "Un compte publicitaire Meta rattaché à cette page" },
+    { checked: true, text: "Un moyen de paiement accepté par Meta" },
+    { checked: false, text: "Un compte Instagram professionnel (facultatif, pour Instagram)" },
+    { checked: true, text: "Un lien de commande : fiche produit Shopify ou lien WhatsApp" },
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Ce qu'il faut avoir avant de commencer"
+      caption="Schéma 1 — Liste de vérification. Testez votre lien depuis un téléphone avant de continuer."
+      theme={theme}
+    >
+      <ul className="divide-y divide-slate-200/70 dark:divide-slate-800 text-xs sm:text-sm">
+        {items.map((item, idx) => (
+          <li key={idx} className="py-2.5 first:pt-0 last:pb-0 flex items-start gap-2.5">
+            {item.checked ? (
+              <CheckSquare className="w-4 h-4 text-[#0066FF] shrink-0 mt-0.5" />
+            ) : (
+              <Square className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+            )}
+            <span className="leading-snug">{item.text}</span>
+          </li>
+        ))}
+      </ul>
+    </FbWindowFrame>
+  );
+}
+
+// Schéma 2 — Interface simplifiée : bouton Créer, objectif Ventes, nom de campagne
+function FbStep2CampaignSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/80 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  const otherObjectives = [
+    { name: "Notoriété", desc: "Se faire connaître" },
+    { name: "Trafic", desc: "Visites sur le site" },
+    { name: "Engagement", desc: "Messages, interactions" },
+    { name: "Prospects", desc: "Collecter des contacts" },
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Ads Manager › Créer une campagne › Objectif"
+      caption="Schéma 2 — Interface simplifiée : bouton Créer, objectif Ventes, nom de campagne."
+      theme={theme}
+    >
+      <div className="space-y-4">
+        <div>
+          <span className="inline-flex items-center gap-2 bg-[#1877F2] text-white px-3.5 py-2 rounded-lg text-xs font-bold ring-2 ring-amber-400 ring-offset-2 ring-offset-transparent">
+            <StepBadge num={1} />
+            <span>Créer</span>
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          {otherObjectives.map((obj, idx) => (
+            <div key={idx} className={`p-3 rounded-xl border ${cardBg}`}>
+              <div className="text-xs font-bold text-slate-900 dark:text-white">{obj.name}</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">{obj.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="max-w-xs">
+          <div className="p-3 rounded-xl border-2 border-[#1877F2] bg-blue-50/70 dark:bg-blue-950/40 ring-2 ring-amber-400">
+            <div className="flex items-center gap-2">
+              <StepBadge num={2} />
+              <span className="text-xs font-bold text-slate-900 dark:text-white">Ventes</span>
+            </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-1 pl-7">
+              Achats et commandes
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="text-[11px] font-semibold text-slate-500 mb-1.5">
+            Nom de la campagne
+          </div>
+          <div className={`p-2.5 rounded-xl border-2 border-amber-400 flex items-center gap-2.5 ${cardBg}`}>
+            <StepBadge num={3} />
+            <span className="text-xs sm:text-sm font-bold tracking-wide text-slate-900 dark:text-white">
+              ECOUTEURS - VENTES DAKAR
+            </span>
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// Schéma 3 — Destination, budget quotidien et durée
+function FbStep3BudgetSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/80 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  return (
+    <FbWindowFrame
+      title="Ensemble de publicités › Destination et budget"
+      caption="Schéma 3 — Destination, budget quotidien et durée."
+      theme={theme}
+    >
+      <div className="space-y-4">
+        <div>
+          <div className="flex items-center gap-2 mb-2.5">
+            <StepBadge num={1} />
+            <span className="text-xs font-medium text-slate-600 dark:text-slate-300">
+              Où voulez-vous obtenir des ventes ?
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div className="p-3 rounded-xl border-2 border-[#1877F2] bg-blue-50/70 dark:bg-blue-950/40 ring-2 ring-amber-400">
+              <div className="text-xs font-bold text-slate-900 dark:text-white">Site web</div>
+              <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">Boutique Shopify</div>
+            </div>
+            <div className={`p-3 rounded-xl border ${cardBg}`}>
+              <div className="text-xs font-bold text-slate-900 dark:text-white">Messagerie</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">Messenger, Instagram</div>
+            </div>
+            <div className={`p-3 rounded-xl border ${cardBg}`}>
+              <div className="text-xs font-bold text-slate-900 dark:text-white">WhatsApp</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">Si proposé</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <div className="flex items-center gap-2 mb-1.5">
+              <StepBadge num={2} />
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-300">
+                Budget quotidien
+              </span>
+            </div>
+            <div className={`px-3.5 py-2.5 rounded-xl border-2 border-amber-400 text-xs sm:text-sm font-bold text-slate-900 dark:text-white ${cardBg}`}>
+              2 000 FCFA
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2 mb-1.5">
+              <StepBadge num={3} />
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-300">
+                Dates
+              </span>
+            </div>
+            <div className={`px-3.5 py-2.5 rounded-xl border-2 border-amber-400 text-xs sm:text-sm font-medium text-slate-900 dark:text-white ${cardBg}`}>
+              Début : demain · Fin : +5 jours
+            </div>
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// Schéma 4 — Audience de départ et emplacements
+function FbStep4AudienceSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/80 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  return (
+    <FbWindowFrame
+      title="Ensemble de publicités › Audience"
+      caption="Schéma 4 — Audience de départ et emplacements."
+      theme={theme}
+    >
+      <div className="space-y-4">
+        <div className="flex flex-wrap gap-3">
+          <div>
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <StepBadge num={1} />
+              <span className="text-xs font-medium text-slate-500">Lieu</span>
+            </div>
+            <div className={`px-3.5 py-2 rounded-xl border-2 border-amber-400 text-xs sm:text-sm font-semibold text-slate-900 dark:text-white ${cardBg}`}>
+              Dakar, Sénégal
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <StepBadge num={2} />
+              <span className="text-xs font-medium text-slate-500">Âge</span>
+            </div>
+            <div className={`px-3.5 py-2 rounded-xl border-2 border-amber-400 text-xs sm:text-sm font-semibold text-slate-900 dark:text-white ${cardBg}`}>
+              18 - 35 ans
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-1.5 mb-1.5 h-5">
+              <span className="text-xs font-medium text-slate-500">Genre</span>
+            </div>
+            <div className={`px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 ${cardBg}`}>
+              Tous
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex items-center gap-1.5 mb-2">
+            <StepBadge num={3} />
+            <span className="text-xs font-medium text-slate-500">Ciblage</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="p-3 rounded-xl border-2 border-[#1877F2] bg-blue-50/70 dark:bg-blue-950/40 ring-2 ring-amber-400">
+              <div className="text-xs font-bold text-slate-900 dark:text-white">Large (Advantage+)</div>
+              <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">
+                L'algorithme cherche les acheteurs
+              </div>
+            </div>
+            <div className={`p-3 rounded-xl border ${cardBg}`}>
+              <div className="text-xs font-bold text-slate-900 dark:text-white">Centres d'intérêt</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">
+                Technologie, smartphones, accessoires
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex items-center gap-1.5 mb-2">
+            <StepBadge num={4} />
+            <span className="text-xs font-medium text-slate-500">Emplacements</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {["Facebook Feed", "Instagram Feed", "Stories", "Reels"].map((pl) => (
+              <span
+                key={pl}
+                className={`px-3 py-1.5 rounded-xl border-2 border-amber-400 text-xs font-semibold text-slate-900 dark:text-white ${cardBg}`}
+              >
+                {pl}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// Schéma 5 — Réglages de l'annonce et aperçu sur mobile
+function FbStep5AdPreviewSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  const fields = [
+    { num: 1, label: "Identité", val: "Page : Ma Boutique · Instagram : @maboutique" },
+    { num: 2, label: "Format et média", val: "Vidéo 9:16 (ou image 1:1)" },
+    { num: 3, label: "Texte principal", val: "Écouteurs sans fil · Bluetooth · livraison à Dakar" },
+    { num: 4, label: "Titre", val: "Écouteurs sans fil à 10 000 FCFA" },
+    { num: 5, label: "Bouton", val: "Acheter / Commander / Envoyer un message" },
+    { num: 6, label: "Lien du site ou de WhatsApp", val: "https://ma-boutique.com/ecouteurs" },
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Annonce › Identité, contenu et aperçu"
+      caption="Schéma 5 — Réglages de l'annonce et aperçu sur mobile (illustration)."
+      theme={theme}
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div className="lg:col-span-7 space-y-2.5">
+          {fields.map((f) => (
+            <div key={f.num}>
+              <div className="flex items-center gap-1.5 mb-1">
+                <StepBadge num={f.num} />
+                <span className="text-[11px] font-medium text-slate-500">{f.label}</span>
+              </div>
+              <div className={`px-3 py-2 rounded-xl border-2 border-amber-400 text-xs font-medium text-slate-900 dark:text-white break-all ${cardBg}`}>
+                {f.val}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="lg:col-span-5">
+          <div className={`rounded-2xl border overflow-hidden shadow-xs ${cardBg}`}>
+            <div className="p-3.5 space-y-1">
+              <div className="text-xs font-bold text-slate-900 dark:text-white">
+                Ma Boutique · <span className="font-normal text-slate-500">Sponsorisé</span>
+              </div>
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-snug">
+                Écouteurs sans fil Bluetooth livrés à Dakar.
+              </p>
+            </div>
+            <div className="h-36 bg-slate-200/70 dark:bg-slate-800/80 flex flex-col items-center justify-center gap-2 border-y border-slate-200/80 dark:border-slate-700">
+              <Headphones className="w-11 h-11 text-slate-500 dark:text-slate-300" />
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Aperçu Vidéo / Visuel
+              </span>
+            </div>
+            <div className="p-3 flex items-center justify-between gap-2">
+              <span className="text-xs font-bold text-slate-900 dark:text-white">10 000 FCFA</span>
+              <span className="px-3 py-1.5 rounded-lg bg-[#1877F2] text-white text-xs font-semibold">
+                Commander
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// Schéma 6 — Dernière vérification avant de cliquer sur Publier
+function FbStep6PublishSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const checks = [
+    "Le prix de l'annonce est le même que sur la page",
+    "Le lien s'ouvre vite sur téléphone",
+    "Une commande test a été faite",
+    "Le produit est présenté sous son vrai nom, sans marque usurpée",
+    "Je peux répondre aux messages dans l'heure",
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Avant de cliquer sur Publier"
+      caption="Schéma 6 — Dernière vérification."
+      theme={theme}
+    >
+      <div className="space-y-4">
+        <ul className="divide-y divide-slate-200/70 dark:divide-slate-800 text-xs sm:text-sm">
+          {checks.map((c, idx) => (
+            <li key={idx} className="py-2.5 first:pt-0 last:pb-0 flex items-start gap-2.5">
+              <CheckSquare className="w-4 h-4 text-[#0066FF] shrink-0 mt-0.5" />
+              <span>{c}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="pt-1">
+          <span className="inline-flex items-center gap-2 bg-[#1877F2] text-white px-4 py-2 rounded-lg text-xs font-bold ring-2 ring-amber-400 ring-offset-2 ring-offset-transparent">
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#DC2626] text-white text-[10px] font-black">
+              !
+            </span>
+            <span>Publier</span>
+          </span>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// Checklist de lancement finale
+function FbStepLaunchChecklistSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const items = [
+    "CPA maximal et budget de test calculés",
+    "Produit présenté sous son vrai nom, source et garantie vérifiées",
+    "Photos, vidéo et texte prêts",
+    "Page, compte publicitaire et paiement configurés",
+    "Campagne Ventes, budget et audience réglés",
+    "Aperçu vérifié, commande test réussie",
+    "Date du bilan fixée (3 à 5 jours)",
+  ];
+
+  return (
+    <div
+      className={`my-7 rounded-2xl border p-5 sm:p-6 ${
+        theme === "dark"
+          ? "bg-slate-900/60 border-slate-700 text-slate-100"
+          : theme === "sepia"
+          ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+          : "bg-slate-50/70 border-slate-200 text-slate-800"
+      }`}
+    >
+      <ul className="space-y-3 text-xs sm:text-sm">
+        {items.map((item, idx) => (
+          <li key={idx} className="flex items-start gap-2.5">
+            <Square className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+            <span className="leading-snug">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 // Bloc de code moderne et sobre avec bouton de copie
 function ModernCodeBlock({
   code,
@@ -867,6 +1328,29 @@ function ModernCodeBlock({
   // 8. Mockup : Tests A/B Facebook
   if (code.includes("TESTS AB FACEBOOK")) {
     return <FacebookABTestMockup theme={theme} />;
+  }
+
+  // 11. Nouveaux Schémas du Guide Facebook Ads Pas à Pas (Écouteurs Dakar)
+  if (code.includes("FB_PAS_A_PAS_SCHEMA_1")) {
+    return <FbStep1ChecklistSchema theme={theme} />;
+  }
+  if (code.includes("FB_PAS_A_PAS_SCHEMA_2")) {
+    return <FbStep2CampaignSchema theme={theme} />;
+  }
+  if (code.includes("FB_PAS_A_PAS_SCHEMA_3")) {
+    return <FbStep3BudgetSchema theme={theme} />;
+  }
+  if (code.includes("FB_PAS_A_PAS_SCHEMA_4")) {
+    return <FbStep4AudienceSchema theme={theme} />;
+  }
+  if (code.includes("FB_PAS_A_PAS_SCHEMA_5")) {
+    return <FbStep5AdPreviewSchema theme={theme} />;
+  }
+  if (code.includes("FB_PAS_A_PAS_SCHEMA_6")) {
+    return <FbStep6PublishSchema theme={theme} />;
+  }
+  if (code.includes("FB_PAS_A_PAS_CHECKLIST")) {
+    return <FbStepLaunchChecklistSchema theme={theme} />;
   }
 
   return (
@@ -1177,9 +1661,53 @@ function FormattedChapterContent({
       return;
     }
 
-    // 9. Listes à puces (- ou *)
+    // 8b. Citations / Encadrés génériques (> ...)
+    if (line.trim().startsWith("> ")) {
+      const bqText = line.trim().replace(/^>\s*/, "");
+      const isAlert = bqText.includes("À lire avant tout") || bqText.includes("contrefaçon");
+      const isGreen = bqText.includes("WhatsApp") || bqText.includes("rassurer l’acheteur") || bqText.includes("rassurer l'acheteur");
+      elements.push(
+        <div
+          key={index}
+          className={`my-6 pl-4 border-l-4 p-4 rounded-r-xl ${
+            isAlert
+              ? "border-red-700 bg-red-50/50 dark:bg-red-950/20"
+              : isGreen
+              ? "border-emerald-700 bg-emerald-50/50 dark:bg-emerald-950/20"
+              : "border-slate-400 bg-slate-50/70 dark:bg-slate-900/40"
+          }`}
+        >
+          <div className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed">
+            {renderFormattedInlineText(bqText)}
+          </div>
+        </div>
+      );
+      return;
+    }
+
+    // 9. Listes à puces (- ou *) et cases à cocher (- [x] ou - [ ])
     if (line.trim().startsWith("- ") || line.trim().startsWith("* ")) {
       const bulletText = line.trim().replace(/^[-*]\s+/, "");
+      if (bulletText.startsWith("[x] ") || bulletText.startsWith("[X] ")) {
+        return elements.push(
+          <div key={index} className="flex items-start gap-2.5 my-2 pl-1">
+            <CheckSquare className="w-4 h-4 text-[#0066FF] mt-1 shrink-0" />
+            <div className="leading-relaxed text-sm sm:text-base text-slate-700 dark:text-slate-300">
+              {renderFormattedInlineText(bulletText.slice(4))}
+            </div>
+          </div>
+        );
+      }
+      if (bulletText.startsWith("[ ] ")) {
+        return elements.push(
+          <div key={index} className="flex items-start gap-2.5 my-2 pl-1">
+            <Square className="w-4 h-4 text-slate-400 mt-1 shrink-0" />
+            <div className="leading-relaxed text-sm sm:text-base text-slate-700 dark:text-slate-300">
+              {renderFormattedInlineText(bulletText.slice(4))}
+            </div>
+          </div>
+        );
+      }
       elements.push(
         <div key={index} className="flex items-start gap-3 my-2 pl-1">
           <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 shrink-0" />

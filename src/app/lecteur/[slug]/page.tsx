@@ -138,7 +138,7 @@ export default async function LecteurPage({ params }: ReaderProps) {
     <SecureReaderClient
       product={{
         id: product.id,
-        title: product.title,
+        title: officialBook?.title || product.title,
         slug: product.slug,
         chapters: parsedChapters,
       }}
@@ -147,7 +147,7 @@ export default async function LecteurPage({ params }: ReaderProps) {
         name: sessionUser.name,
         email: sessionUser.email,
       }}
-      initialChapterOrder={progress?.lastPosition || 1}
+      initialChapterOrder={Math.min(progress?.lastPosition || 1, Math.max(1, parsedChapters.length))}
       initialProgress={progress?.progressPct || 20}
     />
   );

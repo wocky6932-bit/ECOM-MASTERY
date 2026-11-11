@@ -40,9 +40,9 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
   {
     id: "facebook-ads-mastery",
     slug: "publicite-facebook-ads-de-a-a-z",
-    title: "Publicité Facebook Ads de A à Z",
-    subtitle: "Le guide visuel officiel",
-    shortDesc: "Le guide visuel étape par étape pour maîtriser le Gestionnaire de Publicité Meta, ciblage laser, formats, Pixel et tests A/B.",
+    title: "Lancer sa campagne Facebook Ads, pas à pas",
+    subtitle: "Exemple complet à Dakar avec Meta Ads Manager",
+    shortDesc: "Méthode pas à pas illustrée pour lancer votre campagne Meta Ads à Dakar : calcul du CPA maximal, prérequis, création, budget, ciblage Advantage+, annonce et analyse.",
     category: "Marketing & Ads",
     theme: "marketing",
     badge: "Nouveau",

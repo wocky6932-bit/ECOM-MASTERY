@@ -917,7 +917,7 @@ Quand une campagne publicitaire fonctionne, comment augmenter votre budget sans 
 
 ### La règle mathématique du ROAS (Return On Ad Spend) :
 Si vous dépensez 10 000 FCFA en publicité et générez 5 ventes à 10 000 FCFA de marge brute (soit 50 000 FCFA), votre ROAS est de :
-$$\text{ROAS} = \frac{50\,000}{10\,000} = 5.0$$
+**ROAS = 50 000 FCFA ÷ 10 000 FCFA = 5,0**
 Tout ROAS supérieur à 2.5 en e-commerce de détail vous permet de réinvestir massivement vos bénéfices dans la croissance.
 
 ### Plan de déploiement immédiat :
@@ -1285,99 +1285,88 @@ Vous avez désormais toutes les clés techniques, architecturales et opérationn
 
 
 export const FACEBOOK_ADS_EBOOK: EbookData = {
- "id": "prod-fb-ads-mastery-2026",
- "slug": "publicite-facebook-ads-de-a-a-z",
- "title": "Publicité Facebook Ads de A à Z",
- "subtitle": "Le guide visuel officiel pour dominer Meta Ads en Afrique",
- "category": "Marketing & Ads",
- "coverImage": "/images/cover-facebook-ads.jpg",
- "price": 5000,
- "badge": "Nouveau",
- "shortDesc": "Le guide visuel étape par étape pour maîtriser le Gestionnaire de Publicité Meta, le ciblage laser, les formats créatifs, le Pixel et les tests A/B en Afrique.",
- "fullDesc": "Vous en avez assez de gaspiller de l'argent dans le bouton 'Booster la publication' sans obtenir de vrais acheteurs ? Ce livre vous dévoile les secrets des meilleurs annonceurs en Afrique de l'Ouest pour transformer 5 000 FCFA investis en dizaines de commandes confirmées chaque jour.",
- "learnPoints": [
-  "Maîtriser le Gestionnaire de Publicités Meta et fuir le bouton booster",
-  "L'infographie des 3 grands piliers d'objectifs (Notoriété, Considération, Conversion)",
-  "Paramétrer un ciblage laser rentable sur Dakar, Abidjan et les capitales africaines",
-  "Créer des audiences personnalisées et Lookalike pour multiplier ses ventes",
-  "Le script exact en 4 temps pour une vidéo virale de 30 secondes",
-  "Installer et rentabiliser le Pixel Facebook et l'API de conversions",
-  "Mener des tests A/B par répartition scientifiques pour baisser le coût par acquisition"
- ],
- "targetAudience": [
-  "E-commerçants voulant passer de 2 à 20 commandes par jour",
-  "Vendeurs WhatsApp Business souhaitant automatiser leur flux de prospects",
-  "Créateurs de marques locales en Afrique de l'Ouest et Centrale",
-  "Débutants voulant maîtriser les régies Meta et TikTok Ads sans perdre d'argent"
- ],
- "chapters": [
- {
- "id": "fb-chap-1",
- "order": 1,
- "title": "1. Pourquoi faire de la publicité sur Facebook ? (L'effet de levier)",
- "content": "## I. Pourquoi faire de la publicité sur Facebook ?\n\nLorsque vous diffusez une simple publication sur votre page Facebook, seuls 2% à 5% de vos abonnés la voient. La publicité payante Facebook Ads vous permet au contraire de choisir avec une précision chirurgicale à qui vous voulez montrer vos produits.\n\n> QUOTE: DIFFUSER UN MESSAGE À UN MILLION DE PERSONNES AU HASARD OU LE DIFFUSER À MILLE PERSONNES POTENTIELLEMENT INTÉRESSÉES N'A PAS LE MÊME IMPACT... N'EST-CE PAS ?\n\nAvec Facebook, l'une des étapes les plus importantes dans la mise en place d'une campagne est le **choix de votre audience**. Vous attirez ainsi l'attention des bonnes personnes, vous leur diffusez un message sur-mesure pour votre business et surtout vous en analysez les retombées financières au centime près.\n\nLa grande variété des formats publicitaires immersifs (vidéos de démonstration, carrousels, stories, formats verticaux Reels), la possibilité d'analyser les résultats en temps réel ainsi que le coût très accessible en Afrique font de Facebook la plateforme incontournable pour votre stratégie e-commerce.\n\nFacebook vous permet également de faire du **remarketing** (retargeting) : vous pouvez réadresser des publicités exclusives aux personnes qui ont déjà visité votre boutique ou entamé une discussion WhatsApp. L'outil technique qui rend cette magie possible est le **Pixel Facebook** (et l'API de Conversions Meta)."
- },
- {
- "id": "fb-chap-2",
- "order": 2,
- "title": "2. Le Gestionnaire de Publicité Meta & Création de Campagne",
- "content": "## II. Facebook Ads, comment ça marche ?\n\nPour créer une campagne publicitaire professionnelle, il faut impérativement utiliser les outils dédiés de Meta plutôt que de simplement cliquer sur le bouton bleu « Booster la publication » de votre page (qui gaspille votre budget sans ciblage avancé).\n\n### 1. Le Gestionnaire de Publicité (Meta Ads Manager)\nFacebook met à votre disposition un environnement complet accessible depuis votre ordinateur à l'adresse **business.facebook.com** ou depuis l'application mobile Gestionnaire de Publicités (Android et iOS).\n\nLe nouveau Gestionnaire de publicités regroupe l'ancien Gestionnaire classique et les fonctionnalités avancées de Power Editor. Vous pouvez désormais :\n- Créer, modifier, dupliquer et gérer plusieurs campagnes et ensembles de publicités en un seul clic.\n- Contrôler vos budgets publicitaires au jour le jour (en FCFA, Euros ou Dollars).\n- Consulter vos métriques de rentabilité : coût par clic (CPC), coût par prospect WhatsApp, et retour sur dépenses publicitaires (ROAS).\n\n### 2. Création d'une campagne publicitaire\nDans le Gestionnaire de publicités, deux parcours de création s'offrent à vous :\n- **La création guidée :** Elle vous assiste pas à pas à travers toutes les étapes de création de votre campagne, du choix de l'objectif jusqu'au paramétrage des visuels. Idéale pour démarrer en toute sécurité.\n- **La création rapide :** Destinée aux annonceurs qui souhaitent structurer rapidement plusieurs ensembles de publicités et variantes créatives."
- },
- {
- "id": "fb-chap-3",
- "order": 3,
- "title": "3. Les Objectifs Publicitaires de Meta (L'Infographie des 3 Piliers)",
- "content": "## III. Les objectifs publicitaires de Meta\n\n> GOAL: COMME DANS TOUT PROJET, LA PREMIÈRE ÉTAPE PRIMORDIALE POUR CRÉER UNE PUBLICITÉ EST DE DÉFINIR UN OBJECTIF !\n\nLes objectifs publicitaires sont les actions précises que vous souhaitez que les personnes entreprennent lorsqu'elles découvrent vos publicités. L'algorithme de Meta optimise la diffusion en montrant votre pub en priorité aux utilisateurs les plus susceptibles de réaliser cette action précise.\n\nMeta Ads distingue **3 grands objectifs commerciaux** :\n1. **La Notoriété :** Susciter de l'intérêt pour votre marque et faire découvrir votre existence à un maximum de personnes.\n2. **La Considération :** Inciter les prospects à s'intéresser activement à vos produits, à regarder vos vidéos, à poser des questions ou à visiter votre boutique.\n3. **La Conversion :** Encourager les personnes qualifiées à acheter votre produit, à passer commande en ligne ou à valider une livraison en direct.\n\n```\nOBJECTIFS PUBLICITAIRES FACEBOOK\n```\n\n> **Conseil : La recommandation pour démarrer en Afrique :**\n> - **Si vous n'avez pas encore de boutique en ligne :** Choisissez l'objectif **Messages WhatsApp** (sous Considération / Prospects). L'utilisateur clique sur votre pub vidéo et arrive directement dans votre discussion WhatsApp Business pour finaliser la commande.\n> - **Si vous avez votre boutique en ligne :** Choisissez l'objectif **Ventes / Conversions** avec l'événement « Achat » (Purchase) ou « Initialiser le paiement » (Initiate Checkout)."
- },
- {
- "id": "fb-chap-4",
- "order": 4,
- "title": "4. Le Choix de l'Audience & Ciblage Laser (Démographie et Intérêts)",
- "content": "## IV. Le choix de l'audience et du ciblage laser\n\nAprès avoir fixé l'objectif, vous devez définir précisément qui verra votre publicité. C'est l'étape du **ciblage**. \n\nLorsque vous créez une audience, vous disposez de 3 grandes options :\n\n### 1. Le ciblage principal (Données démographiques & Centres d'intérêt)\nVous sélectionnez les utilisateurs selon leur pays, ville, tranche d'âge, sexe, langue et habitudes de consommation :\n\n```\nCIBLAGE D'AUDIENCE FACEBOOK\n```\n\n- **Lieux géographiques :** Ciblez les zones à forte concentration d'acheteurs et facilités de livraison (ex: Dakar et sa banlieue, Thiès, Mbour pour le Sénégal ; Abidjan : Cocody, Yopougon, Marcory pour la Côte d'Ivoire).\n- **Tranche d'âge :** 22 à 48 ans (la tranche qui possède des revenus réguliers et utilise activement Wave / Orange Money).\n- **Ciblage par centres d'intérêt :** Sélectionnez des centres d'intérêt affinitaires avec votre produit (ex: Soins de la peau, Shopping en ligne, Électronique, Décoration de maison)."
- },
- {
- "id": "fb-chap-5",
- "order": 5,
- "title": "5. Audiences Personnalisées & Audiences Similaires (Lookalike)",
- "content": "## Audiences Personnalisées (Custom Audiences) & Lookalike\n\n```\nAUDIENCES PERSONNALISEES FACEBOOK\n```\n\nVous ciblez les personnes qui ont déjà eu un contact avec votre business :\n- **Votre liste de contacts clients existants :** Fichiers numéros de téléphone WhatsApp et adresses emails d'anciens acheteurs pour leur proposer de nouveaux produits en vente croisée.\n- **Les visiteurs de votre boutique web :** Captés par le Pixel Facebook.\n- **Les personnes ayant interagi :** Utilisateurs ayant liké, commenté ou envoyé un message sur votre page Facebook ou compte Instagram ces 90 derniers jours.\n\n### Les audiences similaires (Lookalike)\nMeta analyse le profil sociologique et comportemental de vos meilleurs clients actuels et recherche automatiquement des dizaines de milliers d'autres personnes ayant les mêmes habitudes d'achat dans votre pays. C'est l'arme secrète absolue pour multiplier son volume de vente par 5 !"
- },
- {
- "id": "fb-chap-6",
- "order": 6,
- "title": "6. Placements Publicitaires Advantage+ vs Manuels",
- "content": "## V. Placement publicitaire : Où diffuser vos publicités ?\n\nAprès avoir sélectionné votre audience, vous devez choisir où vos publicités apparaîtront.\n\n```\nPLACEMENTS PUBLICITAIRES FACEBOOK\n```\n\nDeux méthodes s'offrent à vous :\n- **Placements automatiques Advantage+ (Fortement recommandé) :** Facebook diffuse intelligemment votre pub là où le coût par résultat est le plus faible (Fils d'actualité, Stories, Reels, Messenger).\n- **Placements manuels :** Vous cochez vous-même les emplacements souhaités si votre créatif est au format exclusif vertical 9:16 (Stories/Reels) ou carré 1:1 (Fil)."
- },
- {
- "id": "fb-chap-7",
- "order": 7,
- "title": "7. Budget Quotidien, Calendrier & Stratégie CBO",
- "content": "## VI. Budget et calendrier de diffusion\n\nL'étape suivante consiste à définir le budget que vous voulez consacrer à la publicité et la période de diffusion.\n\n```\nBUDGET ET CALENDRIER FACEBOOK\n```\n\nIl existe 2 façons de configurer son budget :\n- **Le budget quotidien :** La somme moyenne investie par jour (recommandé : **5 000 FCFA / jour** pour tester un produit en Afrique).\n- **Le budget global :** La somme totale maximale allouée sur une durée fixe (ex: 35 000 FCFA sur 7 jours).\n- **Le mode CBO (Advantage Campaign Budget) :** Vous allouez le budget au niveau de la campagne, et Meta répartit automatiquement les sous sur les ensembles de publicités qui vendent le plus."
- },
- {
- "id": "fb-chap-8",
- "order": 8,
- "title": "8. Formats Publicitaires & Script Vidéo Viral en 30 Secondes",
- "content": "## VII. Formats publicitaires & Storytelling de vente\n\nLes formats publicitaires utilisés reflètent le storytelling que vous installez pour votre produit. Sur Meta : **Format = Image/Vidéo + Texte d'accroche (Copywriting)**.\n\n```\nFORMATS PUBLICITAIRES FACEBOOK\n```\n\n### L'anatomie d'une vidéo virale de vente en 30 secondes :\n1. **[00s - 03s] Le Hook (L'accroche visuelle & sonore) :** Stoppez immédiatement le scroll avec un mouvement rapide, un avant/après frappant ou une question percutante (*« Si vous en avez marre de perdre du temps à... »*).\n2. **[04s - 10s] La douleur réelle :** Montrez concrètement le problème quotidien vécu par votre client cible.\n3. **[11s - 22s] La solution magique :** Démonstration éclatante du produit en train de résoudre le problème en situation réelle.\n4. **[23s - 30s] L'offre irrésistible & Appel à l'action (CTA) :** Annoncez le prix promotionnel (ex: 12 500 FCFA), précisez la livraison rapide et le paiement à la réception (Wave ou Cash) et invitez à commander immédiatement."
- },
- {
- "id": "fb-chap-9",
- "order": 9,
- "title": "9. Analyser les Résultats & Tests A/B par Répartition",
- "content": "## VIII. Analyser les résultats & Tests A/B (Split Testing)\n\nPour maximiser sa rentabilité et arrêter de gaspiller de l'argent, un e-commerçant professionnel ne devine jamais : il teste scientifiquement.\n\n```\nTESTS AB FACEBOOK\n```\n\n### Comparaison des Performances & Décision de Scaling :\n\n```\nTESTS AB RESULTATS FACEBOOK\n```\n\n### Le principe fondamental du Split Testing :\nLes tests par répartition consistent à diffuser au moins deux versions d'une publicité à deux groupes d'audience similaires en changeant **une seule variable à la fois** :\n- **Test de Créatif :** Même audience, mais Vidéo A (problème/solution) contre Vidéo B (témoignage déballage).\n- **Test d'Audience :** Même vidéo, mais Audience 1 (Dakar 20-35 ans) contre Audience 2 (Dakar 35-50 ans).\n\nVous coupez immédiatement la variante perdante et allouez 100% du budget sur la variante victorieuse !"
- },
- {
- "id": "fb-chap-10",
- "order": 10,
- "title": "10. Le Pixel Facebook & l'API de Conversions",
- "content": "## IX. Le Pixel Facebook & l'API de Conversions : La machine à traquer les ventes\n\n```\nPIXEL FACEBOOK ARCHITECTURE\n```\n\n« Le Pixel Facebook est un outil d'analyse indispensable qui mesure l'efficacité de vos campagnes en suivant les actions entreprises par les visiteurs sur votre site web. »\n\n### Pourquoi le Pixel est indispensable pour votre boutique en ligne :\n1. **S'assurer que vos publicités sont montrées aux acheteurs réels :** L'algorithme apprend le profil précis de ceux qui sortent leur carte ou leur téléphone Wave pour payer.\n2. **Créer des audiences personnalisées ultra-rentables :** Retargeting automatique des paniers abandonnés avec une offre de livraison gratuite.\n3. **Générer des ventes automatiques en continu :** L'algorithme affine ses enchères jour après jour pour faire baisser votre coût par achat."
- },
- {
- "id": "fb-chap-11",
- "order": 11,
- "title": "11. TikTok Ads en Afrique : La Pépite Sous-Exploitée",
- "content": "## X. TikTok Ads : La pépite sous-exploitée en Afrique\n\nTikTok offre aujourd'hui un coût par vue (CPM) jusqu'à **3 fois inférieur à celui de Facebook**.\n- **La règle d'or sur TikTok :** *« Don't make ads, make TikToks »*. N'utilisez jamais d'affiches publicitaires rigides. Tournez des vidéos authentiques au smartphone, en lumière naturelle, avec une voix-off dynamique en français ou en langue locale (Wolof, Baoulé, Bambara).\n- Les vidéos courtes de 15 à 25 secondes montrant l'utilisation du produit génèrent un taux de conversion record auprès des jeunes actifs."
- }
- ]
+  "id": "prod-fb-ads-mastery-2026",
+  "slug": "publicite-facebook-ads-de-a-a-z",
+  "title": "Lancer sa campagne Facebook Ads, pas à pas",
+  "subtitle": "Exemple complet : vendre des écouteurs sans fil à Dakar avec Meta Ads Manager",
+  "category": "Marketing & Ads",
+  "coverImage": "/images/cover-facebook-ads.jpg",
+  "price": 5000,
+  "badge": "Nouveau",
+  "shortDesc": "Méthode pas à pas illustrée pour lancer votre campagne Meta Ads à Dakar : calcul du CPA maximal, prérequis, création, budget, ciblage Advantage+, annonce, publication et analyse des résultats.",
+  "fullDesc": "Un guide pratique et clair qui vous accompagne de zéro jusqu'à la publication et l'analyse de votre première campagne rentable avec Meta Ads Manager. À travers un exemple concret — vendre des écouteurs sans fil à Dakar — vous apprendrez à calculer votre marge et votre CPA maximal, préparer vos prérequis, configurer votre campagne Ventes, choisir entre site web et WhatsApp, paramétrer l'audience, rédiger une annonce conforme et analyser vos indicateurs (CTR, CPC, CPA, ROAS) sans perdre d'argent.",
+  "learnPoints": [
+    "Calculer sa marge disponible, son CPA maximal et son ROAS minimal avant de dépenser un franc",
+    "Vérifier tous les prérequis techniques (page pro, compte pub, moyen de paiement, lien de commande)",
+    "Configurer la campagne Meta Ads avec l'objectif Ventes et une nomenclature claire",
+    "Choisir entre Site web (Shopify) et WhatsApp / Messagerie et planifier un budget de test réaliste",
+    "Paramétrer le ciblage géographique à Dakar, l'audience large Advantage+ et les emplacements",
+    "Rédiger et structurer une annonce vidéo/image percutante et conforme aux règles Meta",
+    "Appliquer la dernière vérification avant de publier et éviter de casser la phase d'apprentissage",
+    "Analyser les résultats après 3 à 5 jours avec cas pratique chiffré, diagnostic et checklist finale"
+  ],
+  "targetAudience": [
+    "E-commerçants au Sénégal et en Afrique de l'Ouest voulant lancer des campagnes Meta Ads rentables",
+    "Vendeurs sur Shopify ou WhatsApp souhaitant maîtriser le Gestionnaire de Publicités étape par étape",
+    "Débutants cherchant une méthode concrète, chiffrée et sans jargon inutile",
+    "Commerçants voulant éviter les refus publicitaires et le gaspillage de budget"
+  ],
+  "chapters": [
+    {
+      "id": "fb-chap-1",
+      "order": 1,
+      "title": "Introduction — Lancer sa campagne Facebook Ads, pas à pas",
+      "content": "## Lancer sa campagne Facebook Ads, pas à pas\n\n**Exemple complet : vendre des écouteurs sans fil à Dakar avec Meta Ads Manager.**\n\nLes schémas de ce livre sont des illustrations simplifiées de l'interface, pas des captures officielles : Meta modifie souvent ses menus. Si un libellé diffère, choisissez l'option qui a le même rôle. Tous les chiffres sont fictifs.\n\n> **À lire avant tout.** Présentez toujours votre produit sous sa **vraie identité**. Des écouteurs « compatibles » ou d'une autre marque ne doivent jamais être vendus sous le nom d'une marque connue (comme AirPods) : c'est une contrefaçon, Meta refuse ces annonces et peut suspendre votre compte publicitaire. Les chiffres de ce livre (achat 5 000 F, vente 10 000 F) sont fictifs et servent à l'exercice."
+    },
+    {
+      "id": "fb-chap-2",
+      "order": 2,
+      "title": "1. Préparer l'offre et les chiffres",
+      "content": "## 1. Préparer l'offre et les chiffres\n\nAvant d'ouvrir Ads Manager, calculez ce que vous pouvez dépenser pour obtenir une vente sans perdre d'argent.\n\n| Élément | Exemple (FCFA) |\n|---|---|\n| Prix de vente | 10 000 |\n| Prix d'achat | - 5 000 |\n| Livraison à votre charge | - 1 000 |\n| **Marge disponible pour la publicité (CPA maximal)** | **4 000** |\n\nSi une vente vous coûte plus de 4 000 FCFA en publicité, vous perdez de l'argent. Le **ROAS minimal** pour être à l'équilibre est donc **10 000 ÷ 4 000 = 2,5**.\n\n### Ce qu'il faut préparer avant de lancer\n- **4 à 6 photos nettes** du produit\n- **Une vidéo de 15 à 30 secondes** (déballage, connexion Bluetooth, utilisation)\n- **Un prix clair** et des **conditions de garantie** explicites\n- **Un moyen de commander** fonctionnel (boutique Shopify ou WhatsApp)"
+    },
+    {
+      "id": "fb-chap-3",
+      "order": 3,
+      "title": "2. Vérifier les prérequis",
+      "content": "## 2. Vérifier les prérequis\n\nAvant de créer votre première publicité dans Meta Ads Manager, assurez-vous de disposer de tous les éléments indispensables ci-dessous.\n\n```\nFB_PAS_A_PAS_SCHEMA_1\n```\n\n> **À retenir :** Testez toujours votre lien de commande (fiche produit Shopify ou lien WhatsApp) depuis un téléphone avant de continuer."
+    },
+    {
+      "id": "fb-chap-4",
+      "order": 4,
+      "title": "3. Créer la campagne",
+      "content": "## 3. Créer la campagne\n\nOuvrez Meta Ads Manager, cliquez sur « **Créer** », puis choisissez l'objectif.\n\n```\nFB_PAS_A_PAS_SCHEMA_2\n```\n\n### Étapes à suivre\n1. Cliquez sur **Créer**.\n2. Choisissez l'objectif **Ventes**.\n3. Nommez clairement la campagne.\n\nLe nom vous servira à retrouver vos tests. Ajoutez la date ou la version, par exemple : **`ECOUTEURS - VENTES DAKAR - V1`**."
+    },
+    {
+      "id": "fb-chap-5",
+      "order": 5,
+      "title": "4. Régler l'ensemble de publicités : destination et budget",
+      "content": "## 4. Régler l'ensemble de publicités : destination et budget\n\n```\nFB_PAS_A_PAS_SCHEMA_3\n```\n\n### Projection du budget de test\n\n| Budget quotidien | 3 jours | 5 jours | 7 jours |\n|---|---|---|---|\n| 2 000 F | 6 000 F | 10 000 F | 14 000 F |\n| 3 000 F | 9 000 F | 15 000 F | 21 000 F |\n| 1 000 F | 3 000 F | 5 000 F | 7 000 F |\n\n### Quel canal choisir ?\n- **Site web :** suivi précis des ventes et du pixel, idéal avec Shopify.\n- **WhatsApp ou messagerie :** contact direct qui rassure sur un produit à prix élevé, mais il faut répondre en quelques minutes.\n\n> Un échange WhatsApp rapide avec photos et vidéo aide souvent à rassurer l’acheteur. Choisissez le canal que vous pouvez réellement suivre.\n\nLe budget est un montant à risque : prenez une somme que vous pouvez vous permettre de perdre. Le dépensé réel dépend de la diffusion."
+    },
+    {
+      "id": "fb-chap-6",
+      "order": 6,
+      "title": "5. Définir l'audience et les emplacements",
+      "content": "## 5. Définir l'audience et les emplacements\n\n```\nFB_PAS_A_PAS_SCHEMA_4\n```\n\nCe ciblage est un point de départ, pas une promesse de ventes. Testez d'abord une **audience large (Advantage+)** : aujourd'hui, le visuel et l'accroche pèsent souvent plus que 15 centres d'intérêt.\n\nGardez les **emplacements automatiques** si vous débutez, pour laisser Meta répartir le budget là où les résultats sont les meilleurs."
+    },
+    {
+      "id": "fb-chap-7",
+      "order": 7,
+      "title": "6. Créer l'annonce",
+      "content": "## 6. Créer l'annonce\n\nC'est l'étape qui décide si les gens s'arrêtent ou continuent de défiler.\n\n```\nFB_PAS_A_PAS_SCHEMA_5\n```\n\n### Exemple de texte\n\n```\nDécouvrez une nouvelle expérience sonore !\nVous cherchez des écouteurs élégants et pratiques au quotidien ? Profitez de l'offre à 10 000 FCFA.\n\n- Design moderne\n- Connexion Bluetooth\n- Format compact\n- Livraison disponible à Dakar\n\nCommandez maintenant !\n```\n\n### Règles essentielles pour votre annonce\n- **N'écrivez que ce que vous pouvez prouver :** pas de fausse promotion ni de « stock presque épuisé » inventé. Indiquez la vraie marque et la vraie nature du produit.\n- **Montrez le produit en situation**, filmé au téléphone dans une bonne lumière.\n- **Les trois premières secondes de la vidéo décident de tout :** montrez tout de suite le produit ou la connexion Bluetooth.\n- **Préparez deux ou trois variantes de visuel** pour comparer."
+    },
+    {
+      "id": "fb-chap-8",
+      "order": 8,
+      "title": "7. Vérifier et publier",
+      "content": "## 7. Vérifier et publier\n\nPassez en revue chaque élément de sécurité et d'expérience client avant de lancer la diffusion.\n\n```\nFB_PAS_A_PAS_SCHEMA_6\n```\n\nAprès le clic sur **Publier**, Meta examine l'annonce, ce qui prend de quelques minutes à quelques heures.\n\n- Si elle est refusée, **lisez le motif et corrigez avant de relancer**.\n- **Ne modifiez pas la campagne toutes les heures :** chaque grosse modification relance la phase d'apprentissage."
+    },
+    {
+      "id": "fb-chap-9",
+      "order": 9,
+      "title": "8. Analyser les résultats, cas pratique et checklist",
+      "content": "## 8. Analyser les résultats\n\nAttendez **3 à 5 jours** avant de décider, sauf anomalie évidente.\n\n| Indicateur | Signification | À surveiller |\n|---|---|---|\n| **Impressions · Portée** | Affichages · personnes touchées | La diffusion démarre-t-elle ? |\n| **CTR** | Taux de clics | Visuel et accroche |\n| **CPC** | Coût par clic | Prix d'un visiteur |\n| **CPA** | Coût par vente | **À garder sous 4 000 F** |\n| **ROAS** | Chiffre d'affaires ÷ dépense pub | **À garder au-dessus de 2,5** |\n\n---\n\n### Cas pratique (chiffres fictifs)\n\n| Poste | FCFA |\n|---|---|\n| Budget dépensé (2 000 F × 7 jours) | 14 000 |\n| Ventes : 3 × 10 000 | 30 000 |\n| Achat des produits : 3 × 5 000 | - 15 000 |\n| Publicité | - 14 000 |\n| Solde avant livraison | 1 000 |\n| Livraison : 3 × 1 000 | - 3 000 |\n| **Résultat réel** | **- 2 000** |\n\n**Lecture :** le solde de 1 000 F semble positif, mais il est calculé avant la livraison. Une fois la livraison payée, la campagne perd 2 000 F. Les indicateurs le montraient : **CPA = 14 000 ÷ 3 ≈ 4 667 F** (au-dessus du plafond de 4 000 F) et **ROAS = 30 000 ÷ 14 000 ≈ 2,14** (sous le seuil de 2,5). Ce n'est pas un échec : le test montre qu'il faut améliorer le visuel, la page ou la marge (lot, accessoire, prix) avant d'augmenter le budget.\n\n---\n\n### Que faire selon les résultats ?\n\n| Constat | Action |\n|---|---|\n| **Beaucoup d'impressions, peu de clics** | Changer visuel et accroche |\n| **Beaucoup de clics, peu de ventes** | Améliorer la page ou la conversation WhatsApp : preuves d'authenticité, garantie, réponses rapides |\n| **Des ventes mais CPA trop haut** | Améliorer la marge (offre avec accessoire, prix) ou le visuel |\n| **CPA sous le plafond** | Augmenter le budget doucement (environ 20 % à la fois) |\n\n---\n\n### Les erreurs à éviter\n- Lancer sans connaître sa marge et son CPA maximal.\n- Utiliser le nom d'une marque pour un produit qui n'en est pas.\n- Photo sombre, floue ou trouvée en ligne sans droits.\n- Cacher le prix ou les frais de livraison.\n- Modifier sans cesse la campagne.\n- Répondre trop tard aux messages.\n- Confondre clics et ventes.\n\n---\n\n### Checklist de lancement\n\n```\nFB_PAS_A_PAS_CHECKLIST\n```\n\nPour approfondir, la formation gratuite officielle **Meta Blueprint** détaille les fonctions avancées (pixel, audiences personnalisées, tests A/B)."
+    }
+  ]
 };
 export const ALIBABA_EBOOK: EbookData = {
  "id": "prod-alibaba-sourcing-2026",
@@ -1447,7 +1436,7 @@ export const ALIBABA_EBOOK: EbookData = {
  "id": "ali-chap-7",
  "order": 7,
  "title": "7. Transport, douane et réception au Sénégal",
- "content": "## Acheminer sa marchandise vers le Sénégal\n\n### Fret Aérien vs Fret Maritime : Le grand comparatif\n\n| Critère | Fret Aérien Express (Avion) | Fret Maritime (Bateau au CBM) |\n|---|---|---|\n| **Délai moyen** | **7 à 12 jours** | **35 à 55 jours** |\n| **Facturation** | Au kilogramme (**7 500 à 9 500 FCFA / kg**) | Au mètre cube (**180 000 à 250 000 FCFA / m³**) |\n| **Dédouanement** | Inclus dans le tarif au kg chez le transitaire | Inclus dans le tarif au m³ chez le transitaire |\n| **Produits adaptés** | Montres, écouteurs, bijoux, vêtements légers | Chaussures, sacs volumineux, électroménager, meubles |\n| **Recommandation** | Idéal pour tester rapidement sans attendre | Idéal pour maximiser les profits sur gros volumes |\n\n---\n\n### La formule du Poids Volumétrique (Avion)\nEn avion, les compagnies aériennes facturent l'espace occupé si le colis est léger mais volumineux :\n\n$\\text{Poids Volumétrique (kg)} = \\frac{\\text{Longueur (cm)} \\times \\text{Largeur (cm)} \\times \\text{Hauteur (cm)}}{5000}$\n\n*Le tarif appliqué sera toujours le montant le plus élevé entre le poids réel sur la balance et le poids volumétrique. Demandez toujours à votre usine de compacter les emballages au maximum !*\n\n---\n\n### Anticiper le dédouanement avec un transitaire de groupage\nPour éviter de gérer vous-même les déclarations de douane complexes au port ou à l'aéroport de Dakar :\n- Passez par un **transitaire de groupage Chine-Sénégal**.\n- Le transitaire réceptionne votre marchandise dans son entrepôt à **Guangzhou** ou **Yiwu**.\n- Il regroupe vos colis avec ceux d'autres commerçants et s'occupe de toutes les formalités douanières.\n- Vous payez le fret et le dédouanement directement en FCFA lors du retrait du colis à Dakar.\n\n---\n\n### Procédure de contrôle à la réception\nLe jour où votre transitaire vous appelle pour récupérer votre marchandise :\n1. Examinez l'état extérieur des cartons (absence de déchirures ou de traces d'humidité).\n2. Vérifiez le poids total sur la balance du transitaire avant de signer le bon de retrait.\n3. Ouvrez un carton sur place et testez quelques pièces.\n4. Photographiez immédiatement tout carton endommagé ou produit manquant pour faire jouer l'assurance.\n\n> **À retenir :** Ne fixez jamais votre prix de revente avant d’avoir estimé l’intégralité des coûts réels d’importation."
+ "content": "## Acheminer sa marchandise vers le Sénégal\n\n### Fret Aérien vs Fret Maritime : Le grand comparatif\n\n| Critère | Fret Aérien Express (Avion) | Fret Maritime (Bateau au CBM) |\n|---|---|---|\n| **Délai moyen** | **7 à 12 jours** | **35 à 55 jours** |\n| **Facturation** | Au kilogramme (**7 500 à 9 500 FCFA / kg**) | Au mètre cube (**180 000 à 250 000 FCFA / m³**) |\n| **Dédouanement** | Inclus dans le tarif au kg chez le transitaire | Inclus dans le tarif au m³ chez le transitaire |\n| **Produits adaptés** | Montres, écouteurs, bijoux, vêtements légers | Chaussures, sacs volumineux, électroménager, meubles |\n| **Recommandation** | Idéal pour tester rapidement sans attendre | Idéal pour maximiser les profits sur gros volumes |\n\n---\n\n### La formule du Poids Volumétrique (Avion)\nEn avion, les compagnies aériennes facturent l'espace occupé si le colis est léger mais volumineux :\n\n**Poids Volumétrique (kg) = (Longueur (cm) × Largeur (cm) × Hauteur (cm)) ÷ 5 000**\n\n*Le tarif appliqué sera toujours le montant le plus élevé entre le poids réel sur la balance et le poids volumétrique. Demandez toujours à votre usine de compacter les emballages au maximum !*\n\n---\n\n### Anticiper le dédouanement avec un transitaire de groupage\nPour éviter de gérer vous-même les déclarations de douane complexes au port ou à l'aéroport de Dakar :\n- Passez par un **transitaire de groupage Chine-Sénégal**.\n- Le transitaire réceptionne votre marchandise dans son entrepôt à **Guangzhou** ou **Yiwu**.\n- Il regroupe vos colis avec ceux d'autres commerçants et s'occupe de toutes les formalités douanières.\n- Vous payez le fret et le dédouanement directement en FCFA lors du retrait du colis à Dakar.\n\n---\n\n### Procédure de contrôle à la réception\nLe jour où votre transitaire vous appelle pour récupérer votre marchandise :\n1. Examinez l'état extérieur des cartons (absence de déchirures ou de traces d'humidité).\n2. Vérifiez le poids total sur la balance du transitaire avant de signer le bon de retrait.\n3. Ouvrez un carton sur place et testez quelques pièces.\n4. Photographiez immédiatement tout carton endommagé ou produit manquant pour faire jouer l'assurance.\n\n> **À retenir :** Ne fixez jamais votre prix de revente avant d’avoir estimé l’intégralité des coûts réels d’importation."
  },
  {
  "id": "ali-chap-8",
