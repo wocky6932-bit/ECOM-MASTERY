@@ -154,10 +154,11 @@ export default function HomePage() {
                 {/* Le Grand Livre 3D incliné */}
                 <div className="relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                   <BookCover
-                    title="Lancer sa boutique en ligne"
-                    subtitle="Le guide pratique e-commerce"
+                    title="Le Closing : transformer vos prospects en clients"
+                    subtitle="Scripts WhatsApp & Méthode"
                     size="hero"
                     theme="ecommerce"
+                    coverImage="/images/cover-closing-pro.jpg"
                   />
                 </div>
 
@@ -183,9 +184,9 @@ export default function HomePage() {
 
                     <div className="py-2">
                       <h4 className="text-[11px] font-black uppercase leading-tight">
-                        LANCER SA BOUTIQUE EN LIGNE
+                        LE CLOSING : PROSPECTS EN CLIENTS
                       </h4>
-                      <p className="text-[9px] text-blue-200 mt-1 italic">Le guide pratique</p>
+                      <p className="text-[9px] text-blue-200 mt-1 italic">Guide pratique & scripts</p>
                     </div>
 
                     <div className="pb-2">
@@ -318,7 +319,7 @@ export default function HomePage() {
                   href="/paiement?ebook=lancer-sa-boutique-en-ligne"
                   className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg transition-all"
                 >
-                  <span>Commencer avec le guide e-commerce (5 000 FCFA)</span>
+                  <span>Commencer avec le guide Closing (5 000 FCFA)</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

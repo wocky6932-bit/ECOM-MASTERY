@@ -1819,6 +1819,140 @@ function AlibabaForwarderSchema({ theme }: { theme: "light" | "sepia" | "dark" }
   );
 }
 
+// =========================================================================
+// SCHÉMAS INTERACTIFS : GUIDE LE CLOSING (PROSPECTS -> CLIENTS)
+// =========================================================================
+function Closing7StepsSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const steps = [
+    { num: 1, title: "Accueillir", sub: "répondre vite" },
+    { num: 2, title: "Qualifier", sub: "poser les bonnes questions" },
+    { num: 3, title: "Présenter", sub: "bénéfices et preuves" },
+    { num: 4, title: "Objections", sub: "écouter, rassurer" },
+    { num: 5, title: "Conclure", sub: "proposer la prochaine étape" },
+    { num: 6, title: "Encaisser", sub: "paiement simple" },
+    { num: 7, title: "Suivre", sub: "livraison, avis, réachat" },
+  ];
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-900 border-slate-700"
+      : theme === "sepia"
+      ? "bg-[#FAF5EC] border-[#DFD3C1]"
+      : "bg-slate-50 border-slate-200";
+  return (
+    <div className={`my-6 rounded-2xl border p-4 sm:p-5 ${cardBg}`}>
+      <div className="text-[11px] font-extrabold uppercase tracking-wider text-rose-800 dark:text-rose-400 mb-3">
+        Le parcours complet en 7 étapes
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
+        {steps.map((s) => (
+          <div
+            key={s.num}
+            className={`rounded-xl border p-2.5 text-center ${
+              theme === "dark"
+                ? "bg-slate-950/60 border-slate-800"
+                : theme === "sepia"
+                ? "bg-[#FDFBF7] border-[#E8DCC8]"
+                : "bg-white border-slate-200"
+            }`}
+          >
+            <div className="w-7 h-7 mx-auto mb-1.5 rounded-full bg-[#9F1239] text-white text-xs font-extrabold flex items-center justify-center">
+              {s.num}
+            </div>
+            <div className="text-xs font-bold text-slate-900 dark:text-white leading-tight">{s.title}</div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">{s.sub}</div>
+          </div>
+        ))}
+      </div>
+      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-3 italic text-center">
+        Chaque étape prépare la suivante. Une vente se perd rarement à la dernière : elle se perd souvent à la deuxième ou à la quatrième.
+      </p>
+    </div>
+  );
+}
+
+function ClosingObjectionLoopSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const steps = [
+    { num: "1.", title: "Écouter", sub: "sans couper", highlight: false },
+    { num: "2.", title: "Reformuler", sub: "« Si je comprends bien… »", highlight: false },
+    { num: "3.", title: "Répondre", sub: "avec une preuve", highlight: false },
+    { num: "4.", title: "Vérifier", sub: "« Ça répond ? »", highlight: true },
+  ];
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-900 border-slate-700"
+      : theme === "sepia"
+      ? "bg-[#FAF5EC] border-[#DFD3C1]"
+      : "bg-slate-50 border-slate-200";
+  return (
+    <div className={`my-6 rounded-2xl border p-4 sm:p-5 ${cardBg}`}>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {steps.map((s) => (
+          <div
+            key={s.num}
+            className={`rounded-xl p-3 text-center ${
+              s.highlight
+                ? "border-2 border-[#9F1239] bg-rose-50/60 dark:bg-rose-950/20"
+                : theme === "dark"
+                ? "border border-slate-800 bg-slate-950/60"
+                : theme === "sepia"
+                ? "border border-[#E8DCC8] bg-[#FDFBF7]"
+                : "border border-slate-200 bg-white"
+            }`}
+          >
+            <div className="text-xs font-extrabold text-slate-900 dark:text-white">
+              {s.num} {s.title}
+            </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-1">{s.sub}</div>
+          </div>
+        ))}
+      </div>
+      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-3 italic text-center">
+        Si le doute revient, retournez à l&apos;étape 1 : posez une question pour trouver la vraie raison.
+      </p>
+    </div>
+  );
+}
+
+function ClosingRelanceTimelineSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const milestones = [
+    { day: "J0", title: "Offre", sub: "envoyée" },
+    { day: "J+1", title: "Rappel utile", sub: "vidéo, réponse à une question" },
+    { day: "J+3", title: "Preuve", sub: "avis client, photo livraison" },
+    { day: "J+7", title: "Dernier message", sub: "« je clôture le dossier ? »" },
+    { day: "J+14", title: "Porte ouverte", sub: "nouveauté ou offre utile" },
+  ];
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-900 border-slate-700"
+      : theme === "sepia"
+      ? "bg-[#FAF5EC] border-[#DFD3C1]"
+      : "bg-slate-50 border-slate-200";
+  return (
+    <div className={`my-6 rounded-2xl border p-4 sm:p-5 ${cardBg}`}>
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+        {milestones.map((m) => (
+          <div
+            key={m.day}
+            className={`rounded-xl border p-3 text-center ${
+              theme === "dark"
+                ? "bg-slate-950/60 border-slate-800"
+                : theme === "sepia"
+                ? "bg-[#FDFBF7] border-[#E8DCC8]"
+                : "bg-white border-slate-200"
+            }`}
+          >
+            <span className="inline-flex px-2.5 py-0.5 rounded-full bg-[#9F1239] text-white text-[11px] font-bold mb-1.5">
+              {m.day}
+            </span>
+            <div className="text-xs font-bold text-slate-900 dark:text-white">{m.title}</div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">{m.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // Bloc de code moderne et sobre avec bouton de copie
 function ModernCodeBlock({
   code,
@@ -1936,6 +2070,17 @@ function ModernCodeBlock({
   }
   if (code.includes("ALIBABA_RASOIRS_TRANSITAIRE")) {
     return <AlibabaForwarderSchema theme={theme} />;
+  }
+
+  // 13. Schémas du Guide Le Closing (Prospects -> Clients)
+  if (code.includes("CLOSING_7_ETAPES")) {
+    return <Closing7StepsSchema theme={theme} />;
+  }
+  if (code.includes("CLOSING_OBJECTION_4_ETAPES")) {
+    return <ClosingObjectionLoopSchema theme={theme} />;
+  }
+  if (code.includes("CLOSING_RELANCE_TIMELINE")) {
+    return <ClosingRelanceTimelineSchema theme={theme} />;
   }
 
   return (

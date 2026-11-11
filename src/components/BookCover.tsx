@@ -23,22 +23,26 @@ export const BookCover: React.FC<BookCoverProps> = ({
   const text = (title + " " + category).toLowerCase();
 
   // Détection du livre pour appliquer le design sur-mesure digne des plus grands éditeurs
+  const isClosing =
+    text.includes("closing") ||
+    text.includes("prospects en clients");
   const isDropshippingProduits =
     text.includes("produits à tester") ||
     text.includes("dropshipping depuis le sénégal") ||
     text.includes("50 produits");
   const isFacebook = text.includes("facebook") || text.includes("meta ads");
   const isAlibaba = !isDropshippingProduits && (text.includes("alibaba") || text.includes("1688") || text.includes("sourcing"));
-  const isMarketing = !isFacebook && !isDropshippingProduits && (text.includes("marketing") || text.includes("stratégies"));
+  const isMarketing = !isFacebook && !isDropshippingProduits && !isClosing && (text.includes("marketing") || text.includes("stratégies"));
   const isProductivity = text.includes("productiv") || text.includes("organis") || text.includes("succes");
   const isDev = text.includes("dev") || text.includes("code") || text.includes("full stack") || text.includes("web");
-  // Par défaut : Lancer sa boutique en ligne (E-commerce Bestseller)
-  const isEcommerce = !isDropshippingProduits && !isFacebook && !isAlibaba && !isMarketing && !isProductivity && !isDev;
+  // Par défaut : Le Closing (ou E-commerce Bestseller)
+  const isEcommerce = !isClosing && !isDropshippingProduits && !isFacebook && !isAlibaba && !isMarketing && !isProductivity && !isDev;
 
   // Résolution automatique de la couverture 3D haute définition
   let resolvedCover = coverImage;
   if (!resolvedCover || resolvedCover.includes("mockups-reference") || resolvedCover.includes("-cover.png")) {
-    if (isDropshippingProduits) resolvedCover = "/images/cover-produits-senegal-alibaba.jpg";
+    if (isClosing) resolvedCover = "/images/cover-closing-pro.jpg";
+    else if (isDropshippingProduits) resolvedCover = "/images/cover-produits-senegal-alibaba.jpg";
     else if (isEcommerce) resolvedCover = "/images/cover-boutique-en-ligne.jpg";
     else if (isFacebook) resolvedCover = "/images/cover-facebook-ads.jpg";
     else if (isAlibaba) resolvedCover = "/images/cover-alibaba-sourcing.jpg";
