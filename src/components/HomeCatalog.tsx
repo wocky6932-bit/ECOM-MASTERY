@@ -55,9 +55,9 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
   {
     id: "alibaba-sourcing-cheikh-akhmad",
     slug: "formation-sourcing-alibaba-1688",
-    title: "Formation Alibaba & Import",
-    subtitle: "Par Cheikh Akhmad • Édition Sénégal",
-    shortDesc: "Le guide officiel de Cheikh Akhmad pour trouver des fabricants fiables, négocier en direct, Trade Assurance et expédier vers le Sénégal.",
+    title: "Commander des rasoirs électriques sur Alibaba",
+    subtitle: "Guide pas à pas, avec schémas • Sénégal",
+    shortDesc: "Guide pratique avec 8 schémas illustrés pour commander sur Alibaba vers le Sénégal : compte acheteur, recherche, fiche produit, négociation, Trade Assurance et transitaire.",
     category: "Sourcing & Import",
     theme: "sourcing",
     badge: "Bestseller",

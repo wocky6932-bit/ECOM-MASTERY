@@ -1260,6 +1260,565 @@ function FbStepLaunchChecklistSchema({ theme }: { theme: "light" | "sepia" | "da
   );
 }
 
+// ============================================================================
+// SCHÉMAS VISUELS : GUIDE ALIBABA RASOIRS ÉLECTRIQUES (SÉNÉGAL)
+// ============================================================================
+
+function AlibabaBadge({ num }: { num: number }) {
+  return (
+    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#EA580C] text-white text-[11px] font-bold shrink-0">
+      {num}
+    </span>
+  );
+}
+
+function ShaverOutlineIcon({ className = "w-8 h-8" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 64" fill="none" className={className} aria-hidden="true">
+      <rect x="8" y="4" width="24" height="56" rx="12" fill="currentColor" fillOpacity="0.14" stroke="currentColor" strokeOpacity="0.35" strokeWidth="2" />
+      <circle cx="20" cy="18" r="6" fill="currentColor" fillOpacity="0.45" />
+    </svg>
+  );
+}
+
+// 1. Vue d'ensemble (10 étapes)
+function AlibabaOverviewSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const steps = [
+    { num: 1, label: "Créer le compte acheteur" },
+    { num: 2, label: "Rechercher et filtrer" },
+    { num: 3, label: "Comparer les fournisseurs" },
+    { num: 4, label: "Poser ses questions" },
+    { num: 5, label: "Demander un échantillon" },
+    { num: 6, label: "Valider le devis" },
+    { num: 7, label: "Payer avec Trade Assurance" },
+    { num: 8, label: "Contacter le transitaire" },
+    { num: 9, label: "Suivre l'expédition" },
+    { num: 10, label: "Contrôler et confirmer" },
+  ];
+
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-900/70 border-slate-800 text-slate-100"
+      : theme === "sepia"
+      ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#2C241E]"
+      : "bg-slate-50/70 border-slate-200 text-slate-800";
+
+  return (
+    <div className="my-7 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      {steps.map((s) => (
+        <div key={s.num} className={`p-3 rounded-xl border flex flex-col gap-1.5 ${cardBg}`}>
+          <div className="flex items-start gap-2">
+            <AlibabaBadge num={s.num} />
+            <span className="text-xs font-semibold leading-snug">{s.label}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// 2. Création du compte Alibaba (3 écrans)
+function AlibabaAccountSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const panelBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+  const inputBg =
+    theme === "dark"
+      ? "bg-slate-900 border-slate-700 text-slate-300"
+      : theme === "sepia"
+      ? "bg-[#FAF5EC] border-[#DFD3C1] text-[#4B3E33]"
+      : "bg-slate-50 border-slate-200 text-slate-600";
+
+  return (
+    <FbWindowFrame
+      title="Création du compte acheteur Alibaba.com"
+      caption="1. Cliquer sur « S'inscrire » · 2. Remplir le formulaire · 3. Valider le code reçu par e-mail, puis compléter le profil."
+      theme={theme}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
+        {/* Écran 1 */}
+        <div className={`rounded-xl border p-3.5 space-y-3 ${panelBg}`}>
+          <div className="text-[11px] font-mono text-slate-400 border-b border-slate-200/70 dark:border-slate-800 pb-1.5">
+            alibaba.com
+          </div>
+          <div className="font-bold text-sm text-slate-900 dark:text-white">Alibaba.com</div>
+          <div className={`px-2.5 py-1.5 rounded-lg border text-[11px] ${inputBg}`}>
+            Rechercher des produits...
+          </div>
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <span className="text-[11px] text-slate-500">Connexion</span>
+            <span className="inline-flex items-center gap-1.5 bg-[#EA580C] text-white px-2.5 py-1.5 rounded-lg text-[11px] font-bold">
+              <AlibabaBadge num={1} />
+              <span>S&apos;inscrire</span>
+            </span>
+          </div>
+          <p className="text-[11px] text-slate-500 pt-1 leading-snug">
+            Page d&apos;accueil : le bouton se trouve en haut à droite de l&apos;écran.
+          </p>
+        </div>
+
+        {/* Écran 2 */}
+        <div className={`rounded-xl border p-3.5 space-y-2.5 ${panelBg}`}>
+          <div className="text-[11px] font-mono text-slate-400 border-b border-slate-200/70 dark:border-slate-800 pb-1.5">
+            alibaba.com/inscription
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="font-bold text-slate-900 dark:text-white">Créer un compte</span>
+            <AlibabaBadge num={2} />
+          </div>
+          <div className={`px-2.5 py-1.5 rounded-lg border text-[11px] ${inputBg}`}>Adresse e-mail</div>
+          <div className={`px-2.5 py-1.5 rounded-lg border text-[11px] ${inputBg}`}>Mot de passe</div>
+          <div className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-semibold ${inputBg}`}>Pays : Sénégal</div>
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
+            <Square className="w-3.5 h-3.5 shrink-0" />
+            <span>J&apos;accepte les conditions</span>
+          </div>
+          <div className="bg-[#EA580C] text-white text-center py-1.5 rounded-lg font-bold text-[11px]">
+            Créer mon compte
+          </div>
+          <p className="text-[10px] text-slate-500">Choisissez le profil « acheteur ».</p>
+        </div>
+
+        {/* Écran 3 */}
+        <div className={`rounded-xl border p-3.5 space-y-2.5 ${panelBg}`}>
+          <div className="text-[11px] font-mono text-slate-400 border-b border-slate-200/70 dark:border-slate-800 pb-1.5">
+            Vérification
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="font-bold text-slate-900 dark:text-white">Vérifiez votre e-mail</span>
+            <AlibabaBadge num={3} />
+          </div>
+          <p className="text-[11px] text-slate-500">Entrez le code reçu par message</p>
+          <div className="grid grid-cols-6 gap-1">
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <div key={n} className={`h-7 rounded border ${inputBg}`} />
+            ))}
+          </div>
+          <div className="bg-[#EA580C] text-white text-center py-1.5 rounded-lg font-bold text-[11px]">
+            Valider
+          </div>
+          <div className="pt-1 border-t border-slate-200/70 dark:border-slate-800 text-[11px] space-y-0.5 text-slate-600 dark:text-slate-300">
+            <div className="font-bold text-slate-900 dark:text-white">Complétez le profil</div>
+            <div>Nom complet</div>
+            <div>Téléphone</div>
+            <div>Adresse de livraison</div>
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// 3. Recherche & Filtres sur Alibaba
+function AlibabaSearchSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  const products = [
+    { name: "Rotary shaver USB", price: "$6.40 - $8.50", moq: "Min. 50 pièces", badge: "Vérifié · Trade Assurance" },
+    { name: "Foil shaver IPX7", price: "$9.10 - $12.00", moq: "Min. 100 pièces", badge: "" },
+    { name: "Trimmer + shaver", price: "$5.20 - $7.80", moq: "Min. 200 pièces", badge: "" },
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Recherche et filtres sur Alibaba.com"
+      caption="1. Barre de recherche · 2. Filtres (vérifié, Trade Assurance, quantité minimale) · 3. Cartes produit : prix, quantité minimale (MOQ), badges."
+      theme={theme}
+    >
+      <div className="space-y-4 text-xs">
+        <div className="flex flex-wrap items-center gap-2">
+          <div className={`flex-1 min-w-[200px] px-3.5 py-2 rounded-full border text-slate-700 dark:text-slate-200 font-medium ${cardBg}`}>
+            electric shaver rechargeable
+          </div>
+          <div className="inline-flex items-center gap-1.5 bg-[#EA580C] text-white px-4 py-2 rounded-full font-bold">
+            <AlibabaBadge num={1} />
+            <span>Rechercher</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+          <div className="md:col-span-4 space-y-2">
+            <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
+              <AlibabaBadge num={2} />
+              <span>Filtres</span>
+            </div>
+            {[
+              "Fournisseur vérifié",
+              "Trade Assurance",
+              "Quantité min. ≤ 100",
+              "Personnalisable (logo)",
+            ].map((f, i) => (
+              <div key={i} className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <Square className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span>{f}</span>
+              </div>
+            ))}
+            <div className={`px-2.5 py-1.5 rounded-lg border text-[11px] text-slate-500 ${cardBg}`}>
+              Prix min - max (US$)
+            </div>
+            <div className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-medium text-slate-700 dark:text-slate-200 ${cardBg}`}>
+              Livraison vers : Sénégal
+            </div>
+          </div>
+
+          <div className="md:col-span-8">
+            <div className="flex items-center gap-2 mb-2">
+              <AlibabaBadge num={3} />
+              <span className="font-semibold text-slate-500">Résultats comparables</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              {products.map((p, i) => (
+                <div key={i} className={`rounded-xl border p-2.5 space-y-2 ${cardBg}`}>
+                  <div className="h-20 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-300">
+                    <ShaverOutlineIcon className="w-10 h-14" />
+                  </div>
+                  <div className="font-semibold text-slate-900 dark:text-white leading-tight">{p.name}</div>
+                  <div className="font-bold text-slate-900 dark:text-white">{p.price}</div>
+                  <div className="text-[11px] text-slate-500">{p.moq}</div>
+                  {p.badge && (
+                    <div className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-400">
+                      {p.badge}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// 4. Lire une fiche produit
+function AlibabaProductSheetSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  return (
+    <FbWindowFrame
+      title="Anatomie d'une fiche produit Alibaba"
+      caption="1. Titre et profil du fournisseur · 2. Prix dégressifs selon la quantité · 3. Variantes (couleur, chargeur) · 4. Protections de l'acheteur · 5. Actions."
+      theme={theme}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start text-xs">
+        <div className="md:col-span-4 space-y-2">
+          <div className={`h-44 rounded-xl border flex items-center justify-center text-slate-600 dark:text-slate-300 ${cardBg}`}>
+            <ShaverOutlineIcon className="w-20 h-28" />
+          </div>
+          <div className="grid grid-cols-4 gap-1.5">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className={`h-9 rounded-lg border ${cardBg}`} />
+            ))}
+          </div>
+        </div>
+
+        <div className="md:col-span-8 space-y-3">
+          <div>
+            <div className="flex items-start gap-2">
+              <AlibabaBadge num={1} />
+              <div>
+                <div className="font-bold text-sm text-slate-900 dark:text-white">
+                  Rechargeable Rotary Electric Shaver, IPX7
+                </div>
+                <div className="text-[11px] text-slate-500 mt-0.5">
+                  Shenzhen ... Co., Ltd. · Vérifié · 6 ans sur Alibaba
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={`p-3 rounded-xl border flex items-start gap-2 ${cardBg}`}>
+            <AlibabaBadge num={2} />
+            <div className="grid grid-cols-3 gap-2 flex-1">
+              <div>
+                <div className="text-[10px] text-slate-500">1 - 99 pcs</div>
+                <div className="font-bold text-sm text-slate-900 dark:text-white">$8.50</div>
+              </div>
+              <div>
+                <div className="text-[10px] text-slate-500">100 - 499 pcs</div>
+                <div className="font-bold text-sm text-slate-900 dark:text-white">$7.20</div>
+              </div>
+              <div>
+                <div className="text-[10px] text-slate-500">≥ 500 pcs</div>
+                <div className="font-bold text-sm text-slate-900 dark:text-white">$6.40</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2">
+              <AlibabaBadge num={3} />
+              <span className="font-medium text-slate-600 dark:text-slate-300">Couleur :</span>
+              <span className="w-4 h-4 rounded-full bg-slate-900 border border-slate-300" />
+              <span className="w-4 h-4 rounded-full bg-slate-400 border border-slate-300" />
+              <span className="w-4 h-4 rounded-full bg-amber-800 border border-slate-300" />
+            </div>
+            <div className="pl-7 flex flex-wrap items-center gap-2">
+              <span className="text-slate-500">Prise / chargeur :</span>
+              <span className={`px-2 py-0.5 rounded border font-semibold ${cardBg}`}>USB-C</span>
+              <span className={`px-2 py-0.5 rounded border text-slate-500 ${cardBg}`}>Micro-USB</span>
+            </div>
+            <div className="pl-7 text-slate-600 dark:text-slate-300">
+              Logo / emballage : personnalisable (OEM)
+            </div>
+          </div>
+
+          <div className={`p-2.5 rounded-xl border flex items-start gap-2 ${cardBg}`}>
+            <AlibabaBadge num={4} />
+            <div className="text-[11px] text-slate-600 dark:text-slate-300 space-y-0.5">
+              <div><strong>Protection :</strong> Trade Assurance · Livraison à date</div>
+              <div><strong>Paiement :</strong> carte, virement, autres selon pays</div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            <AlibabaBadge num={5} />
+            <span className="px-3.5 py-2 rounded-full bg-[#EA580C] text-white font-bold text-[11px]">
+              Commencer la commande
+            </span>
+            <span className="px-3.5 py-2 rounded-full border border-[#EA580C] text-[#EA580C] font-bold text-[11px]">
+              Contacter le fournisseur
+            </span>
+          </div>
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// 5. Messagerie Alibaba & Bonnes pratiques
+function AlibabaChatSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  const practices = [
+    "Activez la traduction si elle est proposée.",
+    "Phrases courtes, un sujet par message.",
+    "Exigez un devis écrit avec prix et délai.",
+    "Restez dans le chat Alibaba : c'est la preuve.",
+    "Commandez ensuite via « Commencer la commande ».",
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Messagerie Alibaba & Bonnes pratiques"
+      caption="Exemple de conversation avec un fournisseur chinois : demande de prix, certificats, échantillon, puis devis écrit. Les messages sont fictifs."
+      theme={theme}
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 text-xs">
+        <div className={`lg:col-span-7 rounded-xl border overflow-hidden ${cardBg}`}>
+          <div className="px-3.5 py-2 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-900">
+            <span className="font-bold text-slate-900 dark:text-white">Chat · Shenzhen ... Co., Ltd.</span>
+            <span className="text-[11px] text-slate-500">Traduction : activée</span>
+          </div>
+          <div className="p-3.5 space-y-2.5">
+            <div className="ml-auto max-w-[85%] rounded-xl border border-[#EA580C]/40 bg-orange-50/70 dark:bg-orange-950/30 p-2.5 text-slate-800 dark:text-slate-100">
+              Hello, I need 100 pcs of this shaver, delivered to Dakar, Senegal.
+            </div>
+            <div className="mr-auto max-w-[85%] rounded-xl bg-slate-100 dark:bg-slate-800 p-2.5 text-slate-800 dark:text-slate-200">
+              Hello! $7.20 per piece for 100 pcs, FOB Shenzhen. Production: 15 days.
+            </div>
+            <div className="ml-auto max-w-[85%] rounded-xl border border-[#EA580C]/40 bg-orange-50/70 dark:bg-orange-950/30 p-2.5 text-slate-800 dark:text-slate-100">
+              Please send CE/RoHS certificates and a sample price with shipping to Dakar.
+            </div>
+            <div className="mr-auto max-w-[85%] rounded-xl bg-slate-100 dark:bg-slate-800 p-2.5 text-slate-800 dark:text-slate-200">
+              Sample $12 + shipping. I send you the quotation now.
+            </div>
+            <div className="p-2.5 rounded-xl border-2 border-[#EA580C] bg-white dark:bg-slate-900">
+              <div className="font-bold text-slate-900 dark:text-white">Devis / Proforma Invoice</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">100 pcs · $720 · FOB · PDF</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-5 space-y-2.5">
+          <div className="font-bold text-slate-900 dark:text-white text-sm">Bonnes pratiques</div>
+          {practices.map((txt, idx) => (
+            <div key={idx} className="flex items-start gap-2.5">
+              <AlibabaBadge num={idx + 1} />
+              <span className="text-slate-700 dark:text-slate-300 leading-snug">{txt}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// 6. Cinq écrans du processus de commande
+function AlibabaOrderFlowSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  const cols = [
+    {
+      num: 1,
+      title: "Produit",
+      lines: ["Quantité", "Couleur", "Chargeur", "Logo", "Emballage", "Prix total hors transport"],
+    },
+    {
+      num: 2,
+      title: "Adresse",
+      lines: ["Nom", "Téléphone", "Pays : Sénégal", "Ville : Dakar", "Adresse du transitaire ou la vôtre"],
+    },
+    {
+      num: 3,
+      title: "Livraison",
+      lines: ["Transitaire Chine - Dakar", "Devis transport", "76 134 39 04"],
+    },
+    {
+      num: 4,
+      title: "Paiement",
+      lines: ["Trade Assurance", "Carte ou virement", "Facture pro forma"],
+    },
+    {
+      num: 5,
+      title: "Suivi",
+      lines: ["Production", "Expédié", "En transit", "Livré", "N° de suivi dans « Mes commandes »"],
+    },
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Processus de commande sur Alibaba (5 écrans)"
+      caption="Les cinq écrans du processus de commande, du choix des options au suivi."
+      theme={theme}
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
+        {cols.map((col) => (
+          <div key={col.num} className={`rounded-xl border p-3 flex flex-col gap-2 ${cardBg}`}>
+            <div className="flex items-center gap-2 pb-1.5 border-b border-slate-200/70 dark:border-slate-800">
+              <AlibabaBadge num={col.num} />
+              <span className="font-bold text-slate-900 dark:text-white">{col.title}</span>
+            </div>
+            <ul className="space-y-1 text-[11px] text-slate-600 dark:text-slate-300">
+              {col.lines.map((l, idx) => (
+                <li key={idx} className={l.includes("76 134") ? "font-bold text-emerald-700 dark:text-emerald-400" : ""}>
+                  {l}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// 7. Paiement protégé Trade Assurance
+function AlibabaTradeAssuranceSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  const steps = [
+    { num: 1, title: "Vous payez", desc: "sur Alibaba, pas en dehors" },
+    { num: 2, title: "Paiement", desc: "protégé selon les conditions Trade Assurance" },
+    { num: 3, title: "Production", desc: "le fournisseur fabrique et expédie" },
+    { num: 4, title: "Réception", desc: "vous contrôlez la marchandise" },
+    { num: 5, title: "Confirmation", desc: "vous validez si tout est conforme" },
+  ];
+
+  return (
+    <FbWindowFrame
+      title="Circuit d'un paiement protégé Trade Assurance"
+      caption="Les étapes d'un paiement protégé. Les garanties exactes dépendent des conditions de chaque commande : lisez-les avant de payer."
+      theme={theme}
+    >
+      <div className="space-y-3 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-2.5">
+          {steps.map((s) => (
+            <div key={s.num} className={`rounded-xl border p-3 ${cardBg}`}>
+              <div className="mb-1.5">
+                <AlibabaBadge num={s.num} />
+              </div>
+              <div className="font-bold text-slate-900 dark:text-white">{s.title}</div>
+              <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="p-3 rounded-xl border border-red-400/80 bg-red-50/50 dark:bg-red-950/20 text-center text-[11px] font-medium text-red-800 dark:text-red-300">
+          Un problème ? Ouvrez le litige dans « Mes commandes » avant de confirmer la réception.
+        </div>
+      </div>
+    </FbWindowFrame>
+  );
+}
+
+// 8. Transitaire Chine-Dakar + Numéro officiel
+function AlibabaForwarderSchema({ theme }: { theme: "light" | "sepia" | "dark" }) {
+  const cardBg =
+    theme === "dark"
+      ? "bg-slate-950/70 border-slate-800"
+      : theme === "sepia"
+      ? "bg-white/85 border-[#DFD3C1]"
+      : "bg-white border-slate-200";
+
+  return (
+    <div className="space-y-4">
+      <FbWindowFrame
+        title="Chaîne logistique Chine - Dakar"
+        caption="Le transitaire fait le lien entre le fournisseur en Chine et vous à Dakar."
+        theme={theme}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div className={`rounded-xl border p-3.5 text-center ${cardBg}`}>
+            <div className="mb-1.5 flex justify-center"><AlibabaBadge num={1} /></div>
+            <div className="font-bold text-slate-900 dark:text-white">Fournisseur</div>
+            <div className="text-[11px] text-slate-500 mt-1">Chine · prépare la commande</div>
+          </div>
+          <div className={`rounded-xl border-2 border-[#EA580C] p-3.5 text-center ${cardBg}`}>
+            <div className="mb-1.5 flex justify-center"><AlibabaBadge num={2} /></div>
+            <div className="font-bold text-slate-900 dark:text-white">Transitaire</div>
+            <div className="text-[11px] text-slate-500 mt-1">Chine - Dakar · transport et formalités</div>
+          </div>
+          <div className={`rounded-xl border p-3.5 text-center ${cardBg}`}>
+            <div className="mb-1.5 flex justify-center"><AlibabaBadge num={3} /></div>
+            <div className="font-bold text-slate-900 dark:text-white">Vous</div>
+            <div className="text-[11px] text-slate-500 mt-1">Dakar · reçoit la marchandise</div>
+          </div>
+        </div>
+      </FbWindowFrame>
+
+      <div className="my-5 rounded-xl border-l-4 border-emerald-700 bg-emerald-50/70 dark:bg-emerald-950/30 p-5 text-center">
+        <div className="text-xs font-bold text-emerald-900 dark:text-emerald-300 uppercase tracking-wider">
+          Transitaire Chine–Dakar
+        </div>
+        <div className="text-2xl font-black text-[#EA580C] tracking-wide my-1">
+          76 134 39 04
+        </div>
+        <p className="text-xs text-slate-600 dark:text-slate-300">
+          Appelez avant de payer votre commande pour demander un devis de transport.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // Bloc de code moderne et sobre avec bouton de copie
 function ModernCodeBlock({
   code,
@@ -1351,6 +1910,32 @@ function ModernCodeBlock({
   }
   if (code.includes("FB_PAS_A_PAS_CHECKLIST")) {
     return <FbStepLaunchChecklistSchema theme={theme} />;
+  }
+
+  // 12. Schémas du Guide Alibaba Rasoirs Électriques (Sénégal)
+  if (code.includes("ALIBABA_RASOIRS_VUE_ENSEMBLE")) {
+    return <AlibabaOverviewSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_COMPTE")) {
+    return <AlibabaAccountSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_RECHERCHE")) {
+    return <AlibabaSearchSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_FICHE")) {
+    return <AlibabaProductSheetSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_CHAT")) {
+    return <AlibabaChatSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_COMMANDE")) {
+    return <AlibabaOrderFlowSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_PAIEMENT")) {
+    return <AlibabaTradeAssuranceSchema theme={theme} />;
+  }
+  if (code.includes("ALIBABA_RASOIRS_TRANSITAIRE")) {
+    return <AlibabaForwarderSchema theme={theme} />;
   }
 
   return (
@@ -1664,8 +2249,20 @@ function FormattedChapterContent({
     // 8b. Citations / Encadrés génériques (> ...)
     if (line.trim().startsWith("> ")) {
       const bqText = line.trim().replace(/^>\s*/, "");
-      const isAlert = bqText.includes("À lire avant tout") || bqText.includes("contrefaçon");
-      const isGreen = bqText.includes("WhatsApp") || bqText.includes("rassurer l’acheteur") || bqText.includes("rassurer l'acheteur");
+      const isAlert =
+        bqText.includes("À lire avant tout") ||
+        bqText.includes("contrefaçon") ||
+        bqText.includes("Méfiez-vous") ||
+        bqText.includes("Batteries lithium");
+      const isGreen =
+        bqText.includes("WhatsApp") ||
+        bqText.includes("rassurer l’acheteur") ||
+        bqText.includes("rassurer l'acheteur") ||
+        bqText.includes("Cochez au minimum");
+      const isOrange =
+        bqText.includes("À savoir") ||
+        bqText.includes("Utilisez le même nom") ||
+        bqText.includes("Pour une première commande");
       elements.push(
         <div
           key={index}
@@ -1674,6 +2271,8 @@ function FormattedChapterContent({
               ? "border-red-700 bg-red-50/50 dark:bg-red-950/20"
               : isGreen
               ? "border-emerald-700 bg-emerald-50/50 dark:bg-emerald-950/20"
+              : isOrange
+              ? "border-[#EA580C] bg-amber-50/60 dark:bg-amber-950/20"
               : "border-slate-400 bg-slate-50/70 dark:bg-slate-900/40"
           }`}
         >
