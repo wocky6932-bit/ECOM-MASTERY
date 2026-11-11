@@ -525,7 +525,7 @@ En Afrique de l'Ouest, le closing sur WhatsApp convertit 4 à 5 fois plus qu'un 
 21. **La personnalisation du prénom :** Répéter le prénom du prospect avec respect.
 22. **L'essai sans engagement :** "Si l'article ne correspond pas à la photo, vous le refusez sans payer 1 franc".
 23. **La métaphore parlante :** Comparer un blender puissant à un moteur de moto compact.
-24. **Le compte à rebours visuel :** Utiliser des stickers ou émojis sablier ⏳ pour marquer le temps.
+24. **Le compte à rebours visuel :** Utiliser des stickers ou repères visuels de compte à rebours pour marquer l'urgence.
 25. **La franchise désarmante :** Admettre un petit défaut mineur pour rendre les gros points forts 100% crédibles.
 26. **L'engagement graduel :** Faire dire "oui" 3 fois sur des détails évidents avant de clore la vente.
 27. **Le sentiment de dette (Réciprocité) :** Donner un conseil gratuit de valeur avant de proposer le produit.

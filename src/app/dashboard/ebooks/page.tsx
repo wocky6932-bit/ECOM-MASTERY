@@ -86,14 +86,14 @@ export default async function EbooksPage() {
             Aucun ebook pour l&apos;instant
           </h2>
           <p className="text-gray-500 mb-6">
-            Explorez notre boutique et commencez votre apprentissage.
+            Explorez notre catalogue et commencez votre apprentissage.
           </p>
           <Link
-            href="/boutique"
+            href="/#ebooks"
             className="inline-flex items-center gap-2 bg-[#0066FF] text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
           >
             <ShoppingCart className="w-4 h-4" />
-            Découvrir la boutique
+            Découvrir nos livres
           </Link>
         </div>
       ) : (

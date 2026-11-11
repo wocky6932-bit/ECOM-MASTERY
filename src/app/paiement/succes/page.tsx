@@ -42,8 +42,8 @@ function SuccessContent() {
       <header className="bg-white border-b border-slate-100 py-4 px-4 sm:px-8">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Logo />
-          <Link href="/boutique" className="text-xs font-semibold text-slate-500 hover:text-slate-800">
-            Retour à la boutique
+          <Link href="/#ebooks" className="text-xs font-semibold text-slate-500 hover:text-slate-800">
+            Retour aux livres
           </Link>
         </div>
       </header>

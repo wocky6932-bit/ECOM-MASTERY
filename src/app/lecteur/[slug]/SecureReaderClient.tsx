@@ -1115,7 +1115,10 @@ function FormattedChapterContent({
 
     // 8. Boîtes de Callout sobres (Notion/Stripe style)
     if (line.startsWith("> [!TIP]") || line.startsWith("> Conseil :") || line.startsWith("> **Conseil")) {
-      const text = line.replace(/>.*Conseil[^:]*:/, "").replace(/> \[\!TIP\]/, "").trim();
+      const text = line
+        .replace(/^>\s*\[\!TIP\]\s*/i, "")
+        .replace(/^>\s*(?:\*\*)?\s*(?:Conseil[^:]*:\s*)+(?:\*\*)?\s*/i, "")
+        .trim();
       elements.push(
         <div
           key={index}
@@ -1133,7 +1136,10 @@ function FormattedChapterContent({
     }
 
     if (line.startsWith("> [!WARNING]") || line.startsWith("> Attention :") || line.startsWith("> **Attention")) {
-      const text = line.replace(/>.*Attention[^:]*:/, "").replace(/> \[\!WARNING\]/, "").trim();
+      const text = line
+        .replace(/^>\s*\[\!WARNING\]\s*/i, "")
+        .replace(/^>\s*(?:\*\*)?\s*(?:Attention[^:]*:\s*)+(?:\*\*)?\s*/i, "")
+        .trim();
       elements.push(
         <div
           key={index}
@@ -1151,7 +1157,10 @@ function FormattedChapterContent({
     }
 
     if (line.startsWith("> [!NOTE]") || line.startsWith("> À retenir :") || line.startsWith("> **À retenir")) {
-      const text = line.replace(/>.*À retenir[^:]*:/, "").replace(/> \[\!NOTE\]/, "").trim();
+      const text = line
+        .replace(/^>\s*\[\!NOTE\]\s*/i, "")
+        .replace(/^>\s*(?:\*\*)?\s*(?:À retenir[^:]*:\s*)+(?:\*\*)?\s*/i, "")
+        .trim();
       elements.push(
         <div
           key={index}
@@ -1297,7 +1306,7 @@ export default function SecureReaderClient({
   };
 
   return (
-    <div className={`min-h-screen flex flex-col transition-colors duration-200 ${themeClasses[theme]}`}>
+    <div className={`min-h-screen flex flex-col transition-colors duration-200 ${theme === "dark" ? "dark" : ""} ${themeClasses[theme]}`}>
       {/* 1. Barre Supérieure de Lecture */}
       <header
         className={`sticky top-0 z-40 border-b backdrop-blur-md px-4 py-2.5 flex items-center justify-between transition-colors ${headerBgClasses[theme]}`}

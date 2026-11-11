@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { verifyToken } from "@/lib/auth";
 import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
 import SecureReaderClient from "./SecureReaderClient";
+import { Lock } from "lucide-react";
 
 interface ReaderProps {
   params: Promise<{ slug: string }>;
@@ -87,7 +88,7 @@ export default async function LecteurPage({ params }: ReaderProps) {
       <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white p-8 rounded-3xl border border-slate-200 text-center space-y-4">
           <div className="w-12 h-12 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto">
-            🔒
+            <Lock className="w-5 h-5" />
           </div>
           <h2 className="text-xl font-bold text-slate-900">Accès non autorisé</h2>
           <p className="text-xs text-slate-500">
@@ -119,14 +120,18 @@ export default async function LecteurPage({ params }: ReaderProps) {
     progress = null;
   }
 
-  // 4. Parser les chapitres en toute sécurité
+  // 4. Parser les chapitres en toute sécurité (priorité au contenu officiel corrigé dans seed-data)
   let parsedChapters: any[] = [];
-  try {
-    parsedChapters = typeof product.chapters === "string" ? JSON.parse(product.chapters || "[]") : product.chapters || [];
-  } catch {
-    const allBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
-    const fallback = allBooks.find((b) => b.slug === slug);
-    parsedChapters = fallback?.chapters || [];
+  const allBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+  const officialBook = allBooks.find((b) => b.slug === slug);
+  if (officialBook && Array.isArray(officialBook.chapters) && officialBook.chapters.length > 0) {
+    parsedChapters = officialBook.chapters;
+  } else {
+    try {
+      parsedChapters = typeof product.chapters === "string" ? JSON.parse(product.chapters || "[]") : product.chapters || [];
+    } catch {
+      parsedChapters = [];
+    }
   }
 
   return (

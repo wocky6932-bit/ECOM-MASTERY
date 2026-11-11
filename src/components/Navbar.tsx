@@ -170,12 +170,12 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
             ) : (
               <div className="space-y-2.5">
                 <Link
-                  href="/boutique"
+                  href="/#ebooks"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center gap-2 bg-[#0066FF] text-white py-3 rounded-xl font-bold text-sm shadow-md hover:bg-blue-700 transition-all"
                 >
                   <ShoppingBag className="w-4 h-4" />
-                  <span>Explorer les ebooks (5 000 FCFA)</span>
+                  <span>Explorer les livres (5 000 FCFA)</span>
                 </Link>
                 <Link
                   href="/login"

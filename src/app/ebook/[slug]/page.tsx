@@ -221,7 +221,7 @@ export default async function EbookDetailPage({ params }: PageProps) {
                     </Link>
                     {isAdmin && (
                       <span className="text-[11px] text-emerald-700 font-semibold text-center sm:text-right">
-                        ✨ Compte Administrateur — Vous lisez sans payer
+                        Compte Administrateur — Vous lisez sans payer
                       </span>
                     )}
                   </div>

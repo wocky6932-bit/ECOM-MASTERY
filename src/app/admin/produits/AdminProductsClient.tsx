@@ -340,7 +340,7 @@ export function AdminProductsClient({ initialProducts }: AdminProductsClientProp
                       {product.price.toLocaleString("fr-FR")} FCFA
                     </span>
                     <span>
-                      📦 Ventes enregistrées : <strong>{product._count?.orders ?? 0}</strong>
+                      Ventes enregistrées : <strong>{product._count?.orders ?? 0}</strong>
                     </span>
                     <span>
                       Ajouté le {new Date(product.createdAt).toLocaleDateString("fr-FR")}

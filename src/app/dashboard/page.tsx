@@ -96,7 +96,7 @@ export default async function DashboardPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">
-          Bonjour {user.name} 👋
+          Bonjour {user.name}
         </h1>
         <p className="text-gray-500 mt-1">
           Bienvenue sur votre espace personnel. Retrouvez vos livres et reprenez
@@ -141,10 +141,10 @@ export default async function DashboardPage() {
             <BookOpen className="w-12 h-12 text-gray-200 mx-auto mb-3" />
             <p className="text-gray-500">Vous n&apos;avez pas encore d&apos;ebook.</p>
             <Link
-              href="/boutique"
+              href="/#ebooks"
               className="mt-4 inline-block text-blue-600 hover:underline text-sm"
             >
-              Découvrir la boutique →
+              Découvrir nos livres →
             </Link>
           </div>
         ) : (
