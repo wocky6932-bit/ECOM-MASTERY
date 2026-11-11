@@ -103,8 +103,8 @@ export default async function EbookDetailPage({ params }: PageProps) {
             Accueil
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
-          <Link href="/boutique" className="hover:text-[#0066FF] transition-colors whitespace-nowrap">
-            Boutique
+          <Link href="/#ebooks" className="hover:text-[#0066FF] transition-colors whitespace-nowrap">
+            Nos Livres
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
           <span className="text-slate-500 font-medium whitespace-nowrap">{ebook.category}</span>

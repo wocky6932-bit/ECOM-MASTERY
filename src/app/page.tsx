@@ -25,8 +25,8 @@ import {
 export default function HomePage() {
   const faqItems = [
     {
-      q: "Comment acheter un ebook sur Ecom Mastery ?",
-      a: "Choisissez votre ebook dans la boutique, cliquez sur 'Acheter', renseignez votre nom, e-mail et numéro de téléphone, puis validez votre paiement instantané via Wave Checkout. Vos accès et votre code d'accès s'affichent immédiatement après validation.",
+      q: "Comment acheter un livre sur Ecom Mastery ?",
+      a: "Choisissez votre livre sur la page d'accueil, cliquez sur « Acheter », renseignez votre nom, e-mail et numéro de téléphone, puis validez votre paiement instantané via Wave Checkout. Vos accès et votre code d'accès s'affichent immédiatement après validation.",
     },
     {
       q: "Comment payer avec Wave ?",
@@ -227,10 +227,10 @@ export default function HomePage() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="/boutique"
+                  href="/#ebooks"
                   className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-sm"
                 >
-                  <span>En savoir plus</span>
+                  <span>Explorer les livres</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
