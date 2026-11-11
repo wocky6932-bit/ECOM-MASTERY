@@ -83,20 +83,6 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
     coverImage: "/images/cover-marketing-digital.jpg",
   },
   {
-    id: "boostez-productivite",
-    slug: "boostez-votre-productivite",
-    title: "Boostez votre productivité",
-    subtitle: "Organisation & Focus absolu",
-    shortDesc: "Organisez vos journées, éliminez définitivement la procrastination et atteignez vos objectifs professionnels avec méthode.",
-    category: "Productivité",
-    theme: "productivity",
-    badgeColor: "bg-emerald-600 text-white",
-    rating: "4.8",
-    reviews: "723 avis",
-    price: 5000,
-    coverImage: "/images/cover-productivite.jpg",
-  },
-  {
     id: "developpeur-fullstack",
     slug: "developpeur-web-full-stack",
     title: "Produits à tester : dropshipping depuis le Sénégal et 50 produits Alibaba → Dakar",
@@ -112,7 +98,7 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
   },
 ];
 
-const CATEGORIES = ["Tous", "E-commerce", "Marketing & Ads", "Sourcing & Import", "Productivité"];
+const CATEGORIES = ["Tous", "E-commerce", "Marketing & Ads", "Sourcing & Import"];
 
 export const HomeCatalog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");

@@ -44,7 +44,10 @@ export default async function EbooksPage() {
 
   if (isAdmin) {
     const allProducts = await prisma.product.findMany({
-      where: { status: "ACTIVE" },
+      where: {
+        status: "ACTIVE",
+        slug: { not: "boostez-votre-productivite" },
+      },
       orderBy: { createdAt: "desc" },
     });
 

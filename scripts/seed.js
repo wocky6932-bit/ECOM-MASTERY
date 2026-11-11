@@ -119,17 +119,10 @@ Passez à l'action dès aujourd'hui : appliquez un premier concept dès cette se
       price: 5000,
     },
     {
-      title: "Boostez votre productivité",
-      slug: "boostez-votre-productivite",
-      shortDesc: "Organisez-vous et atteignez vos objectifs.",
-      category: "Productivité",
-      price: 5000,
-    },
-    {
-      title: "Développeur Web Full Stack",
+      title: "Produits à tester : dropshipping depuis le Sénégal et 50 produits Alibaba → Dakar",
       slug: "developpeur-web-full-stack",
-      shortDesc: "Maîtrisez le développement web de A à Z.",
-      category: "Développement",
+      shortDesc: "23 produits sénégalais sans gros stock et 50 produits légers Alibaba → Dakar.",
+      category: "Sourcing & Import",
       price: 5000,
     },
   ];
