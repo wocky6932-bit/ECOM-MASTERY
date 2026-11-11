@@ -99,20 +99,20 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
   {
     id: "developpeur-fullstack",
     slug: "developpeur-web-full-stack",
-    title: "Développeur Web Full Stack",
-    subtitle: "Applications modernes de A à Z",
-    shortDesc: "Maîtrisez le développement web de A à Z : Next.js, API sécurisées, PostgreSQL et déploiement cloud professionnel.",
-    category: "Développement",
-    theme: "development",
-    badgeColor: "bg-slate-800 text-white",
-    rating: "4.8",
-    reviews: "942 avis",
+    title: "Produits à tester : dropshipping depuis le Sénégal et 50 produits Alibaba → Dakar",
+    subtitle: "73 idées ciblées Sénégal & Chine",
+    shortDesc: "23 produits sénégalais à vendre sans gros stock et 50 produits légers (< 500 g) à sourcer sur Alibaba pour le marché de Dakar.",
+    category: "Sourcing & Import",
+    theme: "sourcing",
+    badgeColor: "bg-amber-600 text-white",
+    rating: "4.9",
+    reviews: "684 avis",
     price: 5000,
-    coverImage: "/images/cover-developpeur-web.jpg",
+    coverImage: "/images/cover-produits-senegal-alibaba.jpg",
   },
 ];
 
-const CATEGORIES = ["Tous", "E-commerce", "Marketing & Ads", "Sourcing & Import", "Productivité", "Développement"];
+const CATEGORIES = ["Tous", "E-commerce", "Marketing & Ads", "Sourcing & Import", "Productivité"];
 
 export const HomeCatalog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");

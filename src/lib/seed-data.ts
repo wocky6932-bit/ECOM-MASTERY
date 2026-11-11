@@ -1099,187 +1099,264 @@ Choisissez dès aujourd'hui **une seule habitude** de ce cours et pratiquez-la a
 // LIVRE 4 : DÉVELOPPEUR WEB FULL STACK (Développement)
 // =========================================================================
 const DEV_EBOOK: EbookData = {
- title: "Développeur Web Full Stack",
+ title: "Produits à tester : dropshipping depuis le Sénégal et 50 produits Alibaba → Dakar",
  slug: "developpeur-web-full-stack",
- shortDesc: "Maîtrisez le développement web moderne de A à Z avec TypeScript, React, Next.js, API sécurisées et bases de données SQL.",
- description: "Le parcours pratique complet pour concevoir, coder et déployer des applications web complètes, rapides et sécurisées. De la modélisation de données à l'intégration des passerelles de paiement et au déploiement cloud sur Vercel et TiDB.",
+ shortDesc: "Deux listes pratiques : 23 produits sénégalais à vendre sans gros stock et 50 produits légers et peu courants à commander en Chine pour Dakar.",
+ description: "Deux listes pratiques conçues pour le terrain : des produits sénégalais à vendre en dropshipping local ou vers la diaspora sans gros stock, et 50 produits légers (< 500 g) et peu courants à commander sur Alibaba pour le marché de Dakar, avec méthode de validation, calcul du prix de revient et prompt Claude prêt à copier.",
  learnPoints: [
- "Architecture moderne Next.js 15 App Router et Server Actions",
- "Modélisation de données SQL relationnelles avec Prisma ORM",
- "Authentification sécurisée par JWT, cookies HttpOnly et RBAC",
- "Intégration d'API tierces (Wave Checkout, Webhooks avec signatures cryptographiques)",
- "Déploiement en production, monitoring, optimisation des performances et CI/CD"
+  "23 produits sénégalais à vendre en dropshipping (Dakar & diaspora) sans immobiliser de stock",
+  "50 produits légers (< 500 g) et peu courants à sourcer sur Alibaba avec mots-clés en anglais",
+  "Méthode en 5 étapes pour valider un produit avant d'acheter en gros",
+  "Calcul exact du prix de revient (Alibaba, transport, douane, transitaire, livraison, pub)",
+  "Prompt Claude prêt à copier pour calculer votre marge et rédiger 3 annonces TikTok + WhatsApp"
  ],
- targetAudience: "Développeurs débutants et intermédiaires, étudiants en informatique et concepteurs d'applications web.",
+ targetAudience: "E-commerçants au Sénégal, débutants en dropshipping local, importateurs à petit budget et vendeurs ciblant Dakar et la diaspora.",
  price: 5000,
- category: "Développement",
- coverImage: "/images/cover-developpeur-web.jpg",
+ category: "Sourcing & Import",
+ coverImage: "/images/cover-produits-senegal-alibaba.jpg",
  chapters: [
- {
- id: "dev-1",
- title: "1. Architecture moderne : Next.js App Router, SSR et React 19",
- order: 1,
- content: `## L'état de l'art du développement web moderne
+  {
+   id: "prod-1",
+   title: "1. Introduction & critères de sélection",
+   order: 1,
+   content: `## Deux listes pratiques pour passer à l'action
 
-Le développement web a profondément évolué. Nous ne construisons plus des sites avec un backend PHP séparé d'un côté et un frontend lourd de l'autre : l'architecture unifiée basée sur **Next.js (App Router)** et **TypeScript** permet de concevoir des applications ultra-performantes où le code serveur et le code client cohabitent harmonieusement.
+Ce guide rassemble deux répertoires opérationnels pensés pour démarrer ou élargir votre catalogue au Sénégal :
+
+1. **Partie 1 — 23 produits sénégalais à vendre en dropshipping :** vous vendez en ligne sans gros stock ; un producteur ou un artisan local prépare la commande et un livreur l'achemine à Dakar ou vers la diaspora.
+2. **Partie 2 — 50 produits légers (< 500 g) et peu courants sur Alibaba :** sélectionnés pour leur lien direct avec le quotidien dakarois et leur faible encombrement au transport.
+
+> [!NOTE] Lisez ceci d'abord. Personne ne peut garantir qu'un produit est « gagnant » avant de l'avoir testé. Ces listes sont des **candidats à valider**, choisis selon trois critères : poids faible, utilité réelle à Dakar (chaleur, soleil, tradition, coupures de courant, religion, cheveux, voyage) et risque de transport limité. Les poids sont approximatifs : confirmez-les toujours avec le fournisseur.
+
+### Comment utiliser ce guide efficacement
+
+- **Si vous démarrez avec zéro stock :** commencez par la Partie 1 avec des producteurs et coopératives locales (alimentation, soins naturels, artisanat, mode).
+- **Si vous voulez importer en petite quantité :** piochez 2 à 3 idées de niche dans la Partie 2, vérifiez la demande à Dakar avant de commander, puis testez avec un échantillon ou un petit lot.
+- **Avant toute commande en gros :** appliquez la méthode de validation en 5 étapes et le calcul complet du prix de revient présentés dans le dernier chapitre.`
+  },
+  {
+   id: "prod-2",
+   title: "2. Partie 1 : 23 produits sénégalais en dropshipping",
+   order: 2,
+   content: `## Partie 1. Produits sénégalais à vendre en dropshipping
+
+Ici, le produit vient du Sénégal : vous vendez en ligne, un producteur ou un artisan prépare la commande, et un livreur la remet au client.
+
+**Cibles :** clients de Dakar et diaspora (France, Europe, États-Unis, etc.).
+
+### Alimentaire et boissons (#1 à #9)
+
+| # | Produit | Pour qui | Où chercher le fournisseur | Points d'attention |
+|---|---|---|---|---|
+| 1 | Moringa en poudre ou feuilles séchées | Bien-être, diaspora | Coopératives de productrices, marchés de Dakar | Hygiène, étiquetage, aucune promesse médicale |
+| 2 | Hibiscus séché (bissap) en sachets | Boisson locale, diaspora | Transformatrices, marchés | Emballage hermétique, date limite |
+| 3 | Poudre de pain de singe (bouye) | Jus, bouillies, bien-être | Marchés, coopératives | Mêmes précautions, conservation au sec |
+| 4 | Mélanges d'épices pour thiéboudienne, yassa | Diaspora, cadeaux | Transformatrices, marchés | Étiquette claire, allergènes |
+| 5 | Noix de cajou de Casamance | Snack, cadeaux | Producteurs et groupements de Casamance | Qualité constante, emballage |
+| 6 | Fonio | Cuisine saine, diaspora | Producteurs, groupements | Règles d'import du pays de destination |
+| 7 | Sel rose du lac Retba | Cuisine, cadeaux | Producteurs du Lac Rose | Étiquetage, emballage étanche |
+| 8 | Café Touba en sachets | Diaspora, cadeaux | Torréfacteurs locaux | Goût constant, règles d'export alimentaire |
+| 9 | Miel local | Cadeaux, bien-être | Apiculteurs | Traçabilité, méfiez-vous des mélanges |
+
+### Soins et parfums (#10 à #13)
+
+| # | Produit | Pour qui | Où chercher le fournisseur | Points d'attention |
+|---|---|---|---|---|
+| 10 | Beurre de karité | Peau et cheveux | Coopératives de femmes | Pureté vérifiable, autorisations cosmétiques |
+| 11 | Huile de baobab | Peau et cheveux | Coopératives | Même vérification, flacons qui ne fuient pas |
+| 12 | Savons artisanaux naturels | Cadeaux, soins | Savonniers locaux | Composition écrite, autorisations |
+| 13 | Thiouraye (encens traditionnel) | Culture, cadeaux, diaspora | Fabricantes locales, marchés | Odeur forte : emballage hermétique |
+
+### Mode et artisanat (#14 à #18)
+
+| # | Produit | Pour qui | Où chercher le fournisseur | Points d'attention |
+|---|---|---|---|---|
+| 14 | Tenues sur mesure (boubous, ensembles en wax ou bazin) | Cérémonies, diaspora | Couturiers de Dakar | Prise de mesures, délais, retouches |
+| 15 | Tissus teints à la main, wax en coupons | Couture, décoration | Marché HLM, ateliers de teinture | Tenue des couleurs au lavage |
+| 16 | Sacs et sandales en cuir | Mode, cadeaux | Artisans, village artisanal de Soumbédioune | Finition, vraies photos |
+| 17 | Bijoux en argent, perles, filigrane | Cadeaux, mariages | Bijoutiers et artisans | Pureté du métal, poinçon |
+| 18 | Perles de taille (bin-bin) artisanales | Tradition, cadeaux | Fabricantes locales | Longueur, solidité du fil |
+
+### Maison et culture (#19 à #23)
+
+| # | Produit | Pour qui | Où chercher le fournisseur | Points d'attention |
+|---|---|---|---|---|
+| 19 | Paniers en raphia ou paille tressée | Décoration, rangement | Artisans | Volume important : calculez la livraison |
+| 20 | Peintures sous verre, tableaux | Décoration, cadeaux | Artistes de Dakar | Fragile : emballage rigide |
+| 21 | Instruments (djembé, tama, kora) | Musiciens, diaspora | Facteurs d'instruments | Lourd et fragile : expédition spécialisée |
+| 22 | T-shirts, sacs et mugs avec expressions en wolof | Jeunes, diaspora, cadeaux | Imprimeurs locaux, impression à la demande | Droits sur les textes et images |
+| 23 | Kit attaya (thé) en coffret compact | Diaspora, cadeaux | Commerçants locaux | Poids, verres fragiles |
+
+### Comment travailler avec un fournisseur local
+
+1. Commandez d'abord un **échantillon** et jugez qualité, emballage et délai.
+2. Obtenez par écrit (message WhatsApp suffit) le prix, le délai de préparation et la quantité disponible.
+3. Prenez vos propres photos et vidéos du produit : ce sont elles qui vendent.
+4. Choisissez un livreur fiable pour Dakar et un transporteur pour l'international.
+5. Pour la nourriture et les soins, renseignez-vous sur les **autorisations** au Sénégal et sur les règles d'entrée dans le pays du client.
+
+> [!WARNING] Évitez les produits éclaircissants pour la peau et toute promesse de guérison : ils sont très encadrés et peuvent faire fermer vos comptes publicitaires.`
+  },
+  {
+   id: "prod-3",
+   title: "3. Partie 2 : Alibaba → Dakar — Cheveux, Bijoux & Foi (#1 à #22)",
+   order: 3,
+   content: `## Partie 2. 50 produits légers et peu courants : Alibaba → Dakar
+
+Produits de moins de **500 g**, choisis pour leur lien avec la vie à Dakar. Beaucoup sont des produits « de niche » : moins visibles sur les gros sites que les gadgets du moment, mais à vérifier avant d'acheter.
+
+> [!NOTE] Alibaba, c'est du gros. La plupart des fournisseurs demandent une quantité minimale. Pour tester, demandez un échantillon, puis une petite commande groupée que vous stockez à Dakar et vendez avec livraison locale. Mot-clé en anglais à taper dans la barre de recherche d'Alibaba : colonne « Mots-clés Alibaba ».
+
+> [!WARNING] Mention « Pile / Batterie » : plusieurs références (#19, #38, #39, #50) contiennent une pile ou une batterie. Demandez impérativement à votre transitaire si le transport est possible et à quel tarif avant de commander.
+
+### Cheveux et beauté (#1 à #8)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 1 | Peigne démêleur à dents larges | Soin des cheveux crépus et naturels | 50 | wide tooth detangling comb afro | — |
+| 2 | Brosse à bords double face | Finitions de coiffures et tresses | 30 | edge brush double sided | Tester l'échantillon |
+| 3 | Bouteille applicatrice à bec peigne | Huiles et soins du cuir chevelu | 60 | root comb applicator bottle | Vendre vide, sans liquide |
+| 4 | Boucles sans chaleur (ruban) | Coiffure sans fer, avant les fêtes | 100 | heatless curling rod headband | — |
+| 5 | Anneaux pour locks et tresses | Coiffures personnalisées | 10 | loc jewelry hair cuffs | Alliage non ternissant |
+| 6 | Perles à tresses pour enfants | Fêtes, rentrée | 50 | hair beads braids kids | Petites pièces |
+| 7 | Masseur de cuir chevelu en silicone | Shampoing, soins | 40 | silicone scalp massager | — |
+| 8 | Bandeau spa en microfibre | Routine visage, maquillage | 40 | spa headband makeup | — |
+
+### Bijoux et mode (#9 à #15)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 9 | Kit de perles de taille (bin-bin) à enfiler | Tradition forte, loisirs créatifs, cadeaux | 100 | waist beads kit seed beads | Solidité du fil |
+| 10 | Collier prénom en arabe personnalisé | Cadeaux, mariages, baptêmes | 15 | custom Arabic name necklace stainless | Orthographe et quantité minimale |
+| 11 | Bagues et bracelets ajustables en inox | Bijoux qui ne noircissent pas | 5 | adjustable stainless steel ring | Pas de faux logos de marque |
+| 12 | Kit de bracelets à lettres | Cadeaux, animations | 120 | letter beads bracelet kit | Petites pièces |
+| 13 | Foulard carré en satin | Cheveux, mode, cadeaux | 60 | square satin scarf | — |
+| 14 | Porte-cartes en aluminium anti-RFID | Cadeau pratique | 30 | RFID blocking card holder aluminum | — |
+| 15 | Pochette banane antivol | Marchés, transports, voyages | 100 | anti theft waist bag | — |
+
+### Foi et culture (#16 à #22)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 16 | Tapis de prière de voyage pliable | Travail, voyage | 200 | foldable travel prayer mat pouch | Taille et épaisseur |
+| 17 | Boussole Qibla de poche | Voyage, hôtels | 50 | qibla compass pocket | — |
+| 18 | Chapelet de 99 perles | Ramadan, Tabaski, cadeaux | 60 | tasbih 99 beads | — |
+| 19 | Anneau compteur de chapelet numérique | Pratique et discret | 20 | smart tasbih ring counter | [Batterie] Pile bouton |
+| 20 | Aimants pour hijab | Voile sans épingles | 20 | hijab magnet pins | — |
+| 21 | Planche d'écriture arabe réutilisable | Apprentissage des enfants | 150 | reusable Arabic writing board kids | Vérifier les textes |
+| 22 | Douchette hygiénique en inox | Usage quotidien d'hygiène | 300 | handheld bidet sprayer stainless | Tester étanchéité et raccords |`
+  },
+  {
+   id: "prod-4",
+   title: "4. Partie 2 (suite) : Chaleur, Maison, Électricité & Emballage (#23 à #50)",
+   order: 4,
+   content: `## Suite des 50 produits Alibaba → Dakar (#23 à #50)
+
+### Chaleur et soleil (#23 à #28)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 23 | Serviette rafraîchissante | Chaleur, sport, chantiers | 60 | cooling towel | — |
+| 24 | Manches anti-UV | Deux-roues, plein soleil | 40 | UV protection arm sleeves | — |
+| 25 | Mini parapluie anti-UV pliable | Soleil et saison des pluies | 250 | UV mini umbrella foldable | Qualité variable |
+| 26 | Couvre-plats pliable anti-mouches | Repas, cuisine, extérieur | 80 | mesh food cover foldable | — |
+| 27 | Moules à glaçons en silicone avec couvercle | Boissons fraîches | 150 | silicone ice cube tray lid | Qualité alimentaire |
+| 28 | Sac étanche 5 L | Plage, pirogue, pluie | 80 | dry bag waterproof 5L | — |
+
+### Maison et cuisine (#29 à #33)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 29 | Hachoir manuel à ficelle | Oignons, piment, ail sans électricité | 200 | manual food chopper pull string | — |
+| 30 | Couvercles en silicone extensibles | Plats et restes par forte chaleur | 100 | silicone stretch lids set | Qualité alimentaire |
+| 31 | Écailleur à poisson | Cuisine du poisson | 80 | fish scale remover scraper | Emballage sécurisé |
+| 32 | Passoire pliable en silicone | Petits espaces, voyage | 150 | collapsible silicone colander | — |
+| 33 | Entonnoir pliable en silicone | Huiles, épices, bouteilles | 40 | foldable silicone funnel | — |
+
+### Électricité et connectivité (#34 à #39)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 34 | Adaptateur de voyage universel | Voyageurs, diaspora | 100 | universal travel adapter | Choisir des produits certifiés |
+| 35 | Support de téléphone pliable en aluminium | Vidéos, TikTok, bureau | 100 | foldable aluminum phone stand | — |
+| 36 | Support voiture magnétique à grille d'aération | Taxis, VTC, livreurs | 60 | magnetic phone car mount vent | Aimant : emballer à part |
+| 37 | Pochette de téléphone étanche IPX8 | Pluie, plage | 40 | waterproof phone pouch IPX8 | — |
+| 38 | Lampe LED solaire rechargeable | Coupures de courant | 150 | solar rechargeable LED lamp | [Batterie] Batterie |
+| 39 | Mini ventilateur de cou ou de poche | Chaleur | 250 | portable neck fan USB | [Batterie] Batterie |
+
+### Bébé et enfants (#40 à #44)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 40 | Bavoir en silicone à poche | Repas de bébé | 60 | silicone baby bib pocket | Qualité alimentaire |
+| 41 | Alimentateur à fruits en silicone | Diversification alimentaire | 30 | silicone baby fruit feeder | Qualité alimentaire |
+| 42 | Attache-tétine | Cadeaux de naissance | 20 | pacifier clip silicone | Pas de cordon long |
+| 43 | Brosse à dents doigt en silicone | Hygiène de bébé | 20 | silicone finger toothbrush baby | Qualité alimentaire |
+| 44 | Mini moustiquaire pliable poussette ou berceau | Moustiques | 200 | portable stroller mosquito net | — |
+
+### Bureau, école et voyage (#45 à #47)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 45 | Cahier d'écriture rainuré réutilisable | Enfants, écriture, calligraphie | 150 | reusable handwriting practice copybook | Vérifier la langue |
+| 46 | Lanières (lanyards) personnalisées | Événements, écoles, associations | 20 | custom lanyard printed logo | Quantité minimale, délai |
+| 47 | Étiquettes de bagage en silicone | Voyageurs, pèlerins, diaspora | 20 | silicone luggage tag | — |
+
+### Emballage pour petits entrepreneurs (#48 à #50)
+
+| # | Produit | Pourquoi à Dakar | Poids (g) | Mots-clés Alibaba | Alerte |
+|---|---|---|---|---|---|
+| 48 | Sachets zip kraft avec fenêtre | Épices, poudres, produits naturels | 5 par sachet | kraft stand up pouch zip window | Matériau alimentaire requis |
+| 49 | Étiquettes adhésives personnalisées en rouleau | Produits locaux, soins maison | 100 par rouleau | custom adhesive label roll | Mentions légales à ajouter |
+| 50 | Balance de précision 0,01 g | Bijoux, épices, mélanges | 150 | digital pocket scale 0.01g | [Batterie] Piles AAA |
+
+> [!WARNING] Rappel transport : chaque référence marquée **[Batterie]** (#19, #38, #39, #50) contient une pile ou une batterie. Demandez à votre transitaire si l'expédition est autorisée et à quel tarif (aérien vs maritime) avant de passer commande.`
+  },
+  {
+   id: "prod-5",
+   title: "5. Validation, prix de revient, prompt Claude & risques à éviter",
+   order: 5,
+   content: `## Comment valider un produit avant d'acheter en gros
+
+1. **Demande réelle :** regardez si des vendeurs le proposent déjà à Dakar (Facebook, TikTok, Marketplace, sites locaux) et à quel prix. Consultez aussi la Bibliothèque publicitaire de Meta et le Creative Center de TikTok pour voir qui fait de la publicité dessus.
+2. **Test sans stock :** publiez des photos ou vidéos et comptez les messages « prix ? » avant de commander.
+3. **Échantillon :** commandez 1 à 3 pièces, testez la qualité et filmez-les.
+4. **Petit lot :** commandez la plus petite quantité possible, et vendez à vos premiers clients.
+5. **Décision :** si le produit se vend sans que vous baissiez trop le prix, recommandez ; sinon passez au suivant.
+
+## Calculer le prix de revient
+
+> [!NOTE] Formule complète : Prix de revient = prix Alibaba + transport vers Dakar + frais à l'arrivée (douane, transitaire) + livraison au client + frais de paiement + publicité. Règle de départ souvent utilisée : un prix de vente d'au moins 2 à 3 fois le prix de revient. Elle ne remplace pas un calcul précis avec vos vrais chiffres.
+
+### Prompt prêt à copier — Avec Claude
 
 \`\`\`
-┌────────────────────────────────────────────────────────────────────────┐
-│ ARCHITECTURE CLIENT / SERVEUR NEXT.JS │
-│ │
-│ [Navigateur Client] ──────── Requête HTTP / Hydratation ────────► │
-│ ▲ │ │
-│ │ ▼ │
-│ [Composants Client] ◄──── JSON Sérialisé / HTML SSR ──── [Serveur] │
-│ ("use client") (Node/Edge)│
-│ Interactivité, State, │ │
-│ Events DOM ▼ │
-│ [Base de │
-│ Données] │
-└────────────────────────────────────────────────────────────────────────┘
+Voici un produit : [nom].
+Prix Alibaba : [ ] pour [quantité].
+Transport estimé : [ ].
+Frais à l'arrivée : [ ].
+Livraison locale : [ ].
+
+Calcule mon prix de revient par pièce, le prix de vente minimum pour 40 %
+de marge et le nombre de ventes pour couvrir ma commande.
+Puis écris 3 annonces TikTok et un message WhatsApp pour le vendre à Dakar.
 \`\`\`
 
-### Différence fondamentale : Server Components vs Client Components :
-- **Server Components (par défaut) :** S'exécutent exclusivement sur le serveur. Ils accèdent directement à la base de données sans exposer vos clés secrètes ni alourdir le bundle JavaScript téléchargé par le visiteur.
-- **Client Components (\`"use client"\`) :** Nécessaires uniquement pour l'interactivité utilisateur (formulaires dynamiques, modales, \`useState\`, \`useEffect\`, écouteurs d'événements).
+## Produits et risques à éviter
 
-| Critère | Server Components (RSC) | Client Components ("use client") |
-|---|---|---|
-| Exécution | 100% sur le serveur | Serveur (SSR initial) + Navigateur |
-| Poids JS client | 0 Ko supplémentaire | Ajouté au bundle client |
-| Accès DB directe | - Validé : Oui (Prisma, SQL direct) | - Déconseillé : Non (doit passer par une API) |
-| Variables secrètes | - Validé : Sûres (jamais divulguées) | Exposées si préfixées NEXT_PUBLIC |
+- **Contrefaçons et marques :** pas de faux logos, de fausses montres ou de faux vêtements de marque : saisies, litiges, comptes bloqués.
+- **Santé et cosmétiques :** pas de crèmes, compléments ou appareils médicaux sans autorisation. Les outils (peignes, brosses) sont plus simples que les produits appliqués sur la peau.
+- **Batteries et aimants :** règles de transport strictes, surtout par avion : demandez avant.
+- **Appareils électriques sans certificat :** risque de surchauffe et de retours. Demandez les certificats.
+- **Produits trop vus :** si tout le monde le vend déjà, la bataille se fait sur le prix : changez de produit ou de variante.
+- **Produits fragiles ou lourds :** la casse et le transport mangent la marge.
 
-> **Conseil Pro du Terrain :** Gardez toujours un maximum de composants côté serveur. N'ajoutez \`"use client"\` qu'aux feuilles de votre arbre de composants qui ont réellement besoin d'interactivité.`
- },
- {
- id: "dev-2",
- title: "2. Bases de données relationnelles SQL et modélisation Prisma ORM",
- order: 2,
- content: `## Concevoir un schéma de données robuste et évolutif
+> [!WARNING] Les prix, les règles de douane et les tendances changent. Vérifiez auprès de votre transitaire et des autorités compétentes avant chaque importation.
 
-Une application robuste repose d'abord sur un schéma de données sain. Nous utilisons ici **MySQL / TiDB Cloud** associé à **Prisma ORM** pour bénéficier d'un typage strict de bout en bout.
+---
 
-\`\`\`
-┌────────────────────────────────────────────────────────────────────────┐
-│ MODÈLE RELATIONNEL DU PROJET ECOM │
-│ │
-│ ┌──────────────┐ 1:N ┌──────────────┐ │
-│ │ User │ ───────────────────► │ Order │ │
-│ │ (id, email) │ │ (id, status) │ │
-│ └──────────────┘ └──────────────┘ │
-│ │ │ │
-│ │ 1:N 1:1 ▼ │
-│ ▼ ┌──────────────┐ │
-│ ┌──────────────┐ │ Payment │ │
-│ │ AccessCode │ │ (waveTxId) │ │
-│ │(code, status)│ └──────────────┘ │
-└────────────────────────────────────────────────────────────────────────┘
-\`\`\`
-
-### Les règles d'or de l'indexation SQL :
-1. **Indexez toujours les colonnes de recherche fréquentes :** Vos champs \`slug\`, \`email\`, \`orderNumber\` doivent être marqués \`@unique\` ou \`@@index\`.
-2. **Utilisez les bons types de colonnes :** 
- - Pour les textes courts : \`VARCHAR(255)\`
- - Pour les résumés : \`TEXT\`
- - Pour les contenus longs de chapitres : \`LONGTEXT\`
-3. **RelationMode sur TiDB Cloud Serverless :**
- Sur les clusters distribués comme TiDB Serverless, définissez \`relationMode = "prisma"\` dans votre schéma pour que Prisma gère la cohérence relationnelle sans verrouillage distribué lourd.
-
-> **À retenir impérativement :** Ne modifiez jamais votre schéma de base de données en production à la main. Utilisez toujours \`npx prisma db push\` ou les migrations versionnées pour maintenir la synchronisation avec votre code TypeScript.`
- },
- {
- id: "dev-3",
- title: "3. Sécurité de pointe : Authentification JWT, Cookies HttpOnly et RBAC",
- order: 3,
- content: `## Protéger votre application contre les attaques réelles
-
-Ne stockez jamais de tokens d'authentification dans le \`localStorage\` du navigateur : ils sont vulnérables aux attaques XSS (Cross-Site Scripting).
-
-\`\`\`
-┌─────────────────────────────────────────────────────────────────────────┐
-│ FLUX D'AUTHENTIFICATION SÉCURISÉ PAR COOKIE │
-│ │
-│ [Client Navigateur] ──► POST /api/auth/login (email + mot de passe) │
-│ │ │
-│ [Serveur API] ──► bcrypt.compare() mot de passe haché │
-│ ──► Génère JWT signé cryptographiquement │
-│ ──► Répond avec Header : Set-Cookie │
-│ ecom_session=JWT; HttpOnly; Secure; SameSite=Lax│
-│ │ │
-│ [Requêtes futures] ──► Cookie transmis automatiquement au serveur │
-│ Inaccessible par document.cookie (Anti-XSS) │
-└─────────────────────────────────────────────────────────────────────────┘
-\`\`\`
-
-### Le contrôle d'accès basé sur les rôles (RBAC) :
-Toute route protégée côté serveur (comme \`/admin/*\` ou \`/api/admin/*\`) doit vérifier :
-1. La validité de la signature cryptographique du JWT.
-2. L'expiration du token.
-3. Le rôle de l'utilisateur (\`role === "ADMIN"\`).
-
-Si l'une de ces conditions n'est pas remplie, le serveur renvoie immédiatement une redirection ou une erreur HTTP \`403 Forbidden\` sans jamais divulguer les données de la page.
-
-> **Attention : Erreur fréquente à éviter :** Ne stockez jamais de mots de passe en clair dans votre base de données. Utilisez toujours l'algorithme de hachage adaptatif **bcrypt** avec un facteur de coût d'au moins 10.`
- },
- {
- id: "dev-4",
- title: "4. Intégration de passerelles de paiement et gestion des Webhooks",
- order: 4,
- content: `## Encaisser de l'argent en direct avec Wave Checkout API
-
-L'intégration d'une passerelle de paiement repose sur deux piliers : l'initialisation de la session de paiement et la confirmation asynchrone par Webhook.
-
-\`\`\`
-┌───────────────────────────────────────────────────────────────────────┐
-│ CYCLE COMPLET DE PAIEMENT WAVE │
-│ │
-│ 1. Client clique "Payer" ──► POST /api/checkout │
-│ 2. Serveur appelle Wave ──► Crée Checkout Session Wave │
-│ 3. Client est redirigé ──► Valide sur l'application Wave mobile │
-│ 4. Wave notifie webhook ──► POST /api/webhooks/wave (Serveur à serv.)│
-│ 5. Serveur valide ──► Vérifie signature HMAC, passe commande à │
-│ PAID, génère code d'accès et envoie email│
-└───────────────────────────────────────────────────────────────────────┘
-\`\`\`
-
-### Les 3 impératifs absolus d'un Webhook de production :
-1. **La vérification de signature cryptographique :** Vous devez vérifier le header de signature envoyé par Wave pour vous assurer que la requête provient bien des serveurs officiels de Wave et non d'un pirate.
-2. **L'idempotence :** Un webhook peut être réémis plusieurs fois par le réseau en cas de latence. Si la commande est déjà marquée \`PAID\`, le webhook doit répondre avec succès immédiatement sans recréer un code en double.
-3. **Le traitement non-bloquant des tâches secondaires :** Les envois d'e-mails ou de notifications ne doivent jamais bloquer la réponse HTTP \`200 OK\` renvoyée à Wave.
-
-> **Conseil Pro du Terrain :** En environnement de développement local, mettez toujours en place un simulateur de checkout qui reproduit fidèlement la payload du webhook pour tester tout votre tunnel d'achat sans consommer de vrais soldes bancaires.`
- },
- {
- id: "dev-5",
- title: "5. Déploiement Cloud Vercel, Optimisation Core Web Vitals et CI/CD",
- order: 5,
- content: `## Mettre son application en production mondiale avec haute disponibilité
-
-Déployer du code ne consiste pas à le copier sur un serveur FTP : c'est construire un pipeline continu d'intégration et de livraison (CI/CD).
-
-\`\`\`
-┌──────────────────────────────────────────────────────────────────────┐
-│ LE PIPELINE CI/CD VERS LA PRODUCTION │
-│ │
-│ [Git Commit / Push] ──► [GitHub Repository (main)] │
-│ │ │
-│ Vercel Webhook Déclenché ◄────────┘ │
-│ │ │
-│ ├──► npm install & prisma generate │
-│ ├──► next build (Vérification TypeScript & Pages statiques) │
-│ └──► Déploiement mondial sur le réseau Edge CDN │
-└──────────────────────────────────────────────────────────────────────┘
-\`\`\`
-
-### Optimisation des Core Web Vitals :
-- **LCP (Largest Contentful Paint) :** Utilisez le composant \`next/image\` avec la propriété \`priority\` sur votre logo et couverture au-dessus de la ligne de flottaison pour précharger les images critiques.
-- **CLS (Cumulative Layout Shift) :** Définissez toujours les dimensions \`width\` et \`height\` ou le ratio d'aspect sur vos conteneurs pour éviter que la page ne saute au chargement.
-- **Font Optimization :** Servez vos polices de caractères localement avec \`next/font\` pour éliminer les allers-retours vers Google Fonts.
-
-### Félicitations !
-Vous avez désormais toutes les clés techniques, architecturales et opérationnelles pour concevoir des applications web complètes, monétisables et sécurisées.`
- }
+*Listes établies à partir de critères généraux de sélection de produits (légèreté, faible risque réglementaire, utilité locale) et de guides de produits 2026 consultés en ligne. Les produits sont des idées à tester, pas des promesses de ventes.*`
+  }
  ]
 };
 
