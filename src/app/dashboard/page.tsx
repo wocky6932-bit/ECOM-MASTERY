@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { BookCover } from "@/components/BookCover";
+import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
 import {
   BookOpen,
   ShoppingBag,
@@ -48,6 +49,8 @@ export default async function DashboardPage() {
 
   if (!user) redirect("/login");
 
+  const isAdmin = user.role === "ADMIN";
+  const allOfficialBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
   const paidOrders = user.orders.filter((o) => o.status === "PAID");
   const activeDevices = user.sessions.length;
   const reading = user.readings[0];
@@ -55,8 +58,8 @@ export default async function DashboardPage() {
 
   const stats = [
     {
-      label: "Ebook acheté",
-      value: paidOrders.length,
+      label: isAdmin ? "Ebooks disponibles" : "Ebook acheté",
+      value: isAdmin ? allOfficialBooks.length : paidOrders.length,
       icon: BookOpen,
       href: "/dashboard/ebooks",
       color: "blue",
@@ -136,7 +139,7 @@ export default async function DashboardPage() {
           </Link>
         </div>
 
-        {paidOrders.length === 0 ? (
+        {paidOrders.length === 0 && !isAdmin ? (
           <div className="text-center py-12">
             <BookOpen className="w-12 h-12 text-gray-200 mx-auto mb-3" />
             <p className="text-gray-500">Vous n&apos;avez pas encore d&apos;ebook.</p>
@@ -149,29 +152,51 @@ export default async function DashboardPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {paidOrders.slice(0, 3).map((order) => (
+            {(isAdmin && paidOrders.length === 0
+              ? allOfficialBooks.slice(0, 3).map((b) => ({
+                  id: b.slug,
+                  product: b,
+                  createdAt: new Date(),
+                }))
+              : paidOrders.slice(0, 3).map((o) => {
+                  const official = allOfficialBooks.find((b) => b.slug === o.product.slug);
+                  return {
+                    id: o.id,
+                    product: official
+                      ? {
+                          ...o.product,
+                          title: official.title,
+                          category: official.category,
+                          coverImage: official.coverImage,
+                        }
+                      : o.product,
+                    createdAt: o.createdAt,
+                  };
+                })
+            ).map((item) => (
               <div
-                key={order.id}
+                key={item.id}
                 className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-blue-200 transition-all"
               >
-                <BookCover size="sm" title={order.product.title} />
+                <BookCover size="sm" title={item.product.title} coverImage={item.product.coverImage} />
                 <div className="flex-1 min-w-0">
                   <p className="text-xs text-blue-600 font-medium">
                     Ecom Mastery
                   </p>
                   <p className="text-sm font-semibold text-gray-900 truncate">
-                    {order.product.title}
+                    {item.product.title}
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
-                    {order.product.category}
+                    {item.product.category}
                   </p>
                   <p className="text-xs text-gray-400 mt-1 flex items-center gap-1">
                     <Clock className="w-3 h-3" />
-                    Acheté le{" "}
-                    {new Date(order.createdAt).toLocaleDateString("fr-FR")}
+                    {isAdmin && paidOrders.length === 0
+                      ? "Accès Admin Illimité"
+                      : `Acheté le ${new Date(item.createdAt).toLocaleDateString("fr-FR")}`}
                   </p>
                   <Link
-                    href={`/lecteur/${order.product.slug}`}
+                    href={`/lecteur/${item.product.slug}`}
                     className="mt-2 inline-flex items-center gap-1 text-xs bg-[#0066FF] text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     <Play className="w-3 h-3" />

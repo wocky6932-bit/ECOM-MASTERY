@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { BookCover } from "@/components/BookCover";
+import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
 import { BookOpen, Play, Clock, CheckCircle2, ShoppingCart, ShieldCheck } from "lucide-react";
 
 export default async function EbooksPage() {
@@ -34,13 +35,26 @@ export default async function EbooksPage() {
   const codeMap = new Map(user.accessCodes.map((c) => [c.productId, c]));
 
   // Si l'utilisateur est administrateur, lui donner accès à TOUS les ebooks du catalogue sans payer !
-  let displayItems = user.orders.map((o) => ({
-    productId: o.productId,
-    product: o.product,
-    orderNumber: o.orderNumber,
-    createdAt: o.createdAt,
-    isAdminAccess: false,
-  }));
+  const allOfficialBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+
+  let displayItems = user.orders.map((o) => {
+    const official = allOfficialBooks.find((b) => b.slug === o.product.slug);
+    return {
+      productId: o.productId,
+      product: official
+        ? {
+            ...o.product,
+            title: official.title,
+            shortDesc: official.shortDesc,
+            category: official.category,
+            coverImage: official.coverImage,
+          }
+        : o.product,
+      orderNumber: o.orderNumber,
+      createdAt: o.createdAt,
+      isAdminAccess: false,
+    };
+  });
 
   if (isAdmin) {
     const allProducts = await prisma.product.findMany({
@@ -51,13 +65,46 @@ export default async function EbooksPage() {
       orderBy: { createdAt: "desc" },
     });
 
-    displayItems = allProducts.map((p) => ({
-      productId: p.id,
-      product: p,
-      orderNumber: "ADMIN-ILLIMITE",
-      createdAt: p.createdAt,
-      isAdminAccess: true,
-    }));
+    // Synchronisation automatique de la base TiDB si nécessaire
+    for (const b of allOfficialBooks) {
+      const dbProd = allProducts.find((p) => p.slug === b.slug);
+      if (dbProd && (dbProd.title !== b.title || dbProd.coverImage !== b.coverImage || dbProd.category !== b.category)) {
+        prisma.product
+          .update({
+            where: { id: dbProd.id },
+            data: {
+              title: b.title,
+              shortDesc: b.shortDesc,
+              description: b.description || b.shortDesc,
+              category: b.category,
+              coverImage: b.coverImage,
+            },
+          })
+          .catch(() => {});
+      }
+    }
+
+    // Afficher l'intégralité des 5 livres officiels avec leurs titres et couvertures à jour
+    displayItems = allOfficialBooks.map((b) => {
+      const dbProd = allProducts.find((p) => p.slug === b.slug);
+      return {
+        productId: dbProd?.id || b.slug,
+        product: {
+          id: dbProd?.id || b.slug,
+          title: b.title,
+          slug: b.slug,
+          shortDesc: b.shortDesc,
+          category: b.category,
+          coverImage: b.coverImage,
+          price: b.price,
+          currency: "XOF",
+          createdAt: dbProd?.createdAt || new Date(),
+        } as any,
+        orderNumber: "ADMIN-ILLIMITE",
+        createdAt: dbProd?.createdAt || new Date(),
+        isAdminAccess: true,
+      };
+    });
   }
 
   return (
@@ -111,7 +158,7 @@ export default async function EbooksPage() {
                 className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div className="bg-gradient-to-r from-[#0B1528] to-slate-800 p-6 flex gap-5 items-start">
-                  <BookCover size="md" title={item.product.title} />
+                  <BookCover size="md" title={item.product.title} coverImage={item.product.coverImage} />
                   <div className="text-white min-w-0 flex-1">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-blue-300 bg-white/10 px-2 py-0.5 rounded-md inline-block mb-1.5">
                       {item.product.category}
