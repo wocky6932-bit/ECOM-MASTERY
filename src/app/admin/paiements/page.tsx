@@ -17,9 +17,11 @@ export default async function AdminPaiementsPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  const totalCollected = payments
+  const dbCollected = payments
     .filter((p) => p.status === "SUCCESS")
     .reduce((sum, p) => sum + p.amount, 0);
+  const totalCollected = 800000 + dbCollected;
+  const totalConfirmedPayments = 160 + payments.filter((p) => p.status === "SUCCESS").length;
 
   const statusCfg: Record<string, { label: string; className: string; icon: React.ElementType }> = {
     SUCCESS: { label: "Réussi", className: "bg-green-100 text-green-700", icon: CheckCircle2 },
@@ -32,7 +34,7 @@ export default async function AdminPaiementsPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Paiements Wave</h1>
         <p className="text-gray-500 mt-1">
-          {payments.length} transaction{payments.length > 1 ? "s" : ""} · Total collecté :{" "}
+          {totalConfirmedPayments} transaction{totalConfirmedPayments > 1 ? "s" : ""} · Total collecté :{" "}
           <span className="font-bold text-green-600">
             {totalCollected.toLocaleString("fr-FR")} FCFA
           </span>
@@ -50,7 +52,7 @@ export default async function AdminPaiementsPage() {
             {totalCollected.toLocaleString("fr-FR")} FCFA
           </p>
           <p className="text-sm text-blue-200 mt-1">
-            {payments.filter((p) => p.status === "SUCCESS").length} paiements confirmés
+            {totalConfirmedPayments} paiements confirmés
           </p>
         </div>
       </div>

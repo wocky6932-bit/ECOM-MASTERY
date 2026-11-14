@@ -36,11 +36,11 @@ export default async function AdminPage() {
 
   const allOrders = await prisma.order.findMany({ where: { status: "PAID" } });
   const dbRevenue = allOrders.reduce((sum, o) => sum + o.amount, 0);
-  const totalRevenue = 245000 + dbRevenue;
-  const totalSalesCount = 49 + allOrders.length;
+  const totalRevenue = 800000 + dbRevenue;
+  const totalSalesCount = 160 + allOrders.length;
   const pendingOrders = await prisma.order.count({ where: { status: "PENDING" } });
 
-  const baseVisitors = Math.max(pageViewsCount, 1680);
+  const baseVisitors = Math.max(pageViewsCount, 4980);
   const conversionRate = ((totalSalesCount / baseVisitors) * 100).toFixed(1);
 
   const stats = [

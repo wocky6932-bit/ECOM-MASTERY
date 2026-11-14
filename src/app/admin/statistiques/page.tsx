@@ -52,15 +52,15 @@ export default async function AdminStatistiquesPage() {
 
   // Base patterns for realistic, active conversion curves and revenue (Dakar market)
   const baseSalesPattern = [
-    1, 1, 0, 1, 2, 1, 1, 2, 1, 0,
-    1, 2, 2, 1, 2, 1, 2, 3, 1, 2,
-    2, 1, 2, 3, 2, 2, 3, 2, 3, 2,
+    3, 4, 3, 4, 5, 6, 5, 4, 4, 3,
+    4, 5, 6, 5, 6, 5, 6, 7, 5, 6,
+    6, 5, 7, 8, 7, 6, 8, 7, 8, 7,
   ];
 
   const baseVisitorsPattern = [
-    28, 34, 31, 29, 45, 52, 48, 38, 42, 36,
-    44, 58, 62, 51, 56, 49, 61, 74, 58, 66,
-    63, 57, 72, 85, 78, 69, 88, 82, 94, 91,
+    110, 125, 118, 122, 145, 168, 155, 134, 138, 120,
+    135, 162, 175, 158, 170, 152, 178, 195, 165, 182,
+    180, 168, 198, 225, 215, 192, 235, 220, 248, 240,
   ];
 
   // Daily timeline (last 30 days with animated curves)
@@ -110,13 +110,13 @@ export default async function AdminStatistiquesPage() {
     ? ((totalPurchases / totalCheckoutsInitiated) * 100).toFixed(1)
     : "0.0";
 
-  // Per-product breakdown with realistic sales distribution
+  // Per-product breakdown with realistic sales distribution (Total 160 ventes = 800 000 FCFA)
   const productBaseSalesMap: Record<string, number> = {
-    "formation-sourcing-alibaba-1688": 16,
-    "publicite-facebook-ads-de-a-a-z": 13,
-    "lancer-sa-boutique-en-ligne": 10,
-    "developpeur-web-full-stack": 6,
-    "strategies-marketing-digital": 4,
+    "formation-sourcing-alibaba-1688": 52,
+    "publicite-facebook-ads-de-a-a-z": 42,
+    "lancer-sa-boutique-en-ligne": 34,
+    "developpeur-web-full-stack": 20,
+    "strategies-marketing-digital": 12,
   };
 
   const productStats = products.map((product) => {
