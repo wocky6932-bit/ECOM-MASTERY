@@ -18,8 +18,8 @@ import {
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("makhou@example.sn");
-  const [password, setPassword] = useState("Client2026!");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -143,36 +143,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Quick presets for testing */}
-          <div className="mt-8 pt-6 border-t border-slate-100">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-3 text-center">
-              Comptes de test pré-configurés
-            </span>
-            <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail("makhou@example.sn");
-                  setPassword("Client2026!");
-                }}
-                className="p-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0066FF] font-bold transition-colors text-center border border-blue-100"
-              >
-                Client (Makhou)
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail("admin@ecommastery.sn");
-                  setPassword("AdminMastery2026!");
-                }}
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition-colors text-center border border-slate-200"
-              >
-                Super-Admin
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-6 text-center">
+          <div className="mt-8 pt-6 border-t border-slate-100 text-center">
             <Link
               href="/activer-code"
               className="text-xs font-semibold text-[#0066FF] hover:underline inline-flex items-center gap-1.5"

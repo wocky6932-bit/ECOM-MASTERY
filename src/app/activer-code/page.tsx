@@ -8,8 +8,8 @@ import { KeyRound, Mail, ArrowRight, Loader2, CheckCircle2 } from "lucide-react"
 
 export default function ActiverCodePage() {
   const router = useRouter();
-  const [code, setCode] = useState("NEX-7F9K-2M8X-P4QD");
-  const [email, setEmail] = useState("makhou@example.sn");
+  const [code, setCode] = useState("");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
