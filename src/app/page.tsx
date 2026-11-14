@@ -154,7 +154,7 @@ export default function HomePage() {
                 {/* Le Grand Livre 3D incliné */}
                 <div className="relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                   <BookCover
-                    title="Commander des rasoirs électriques sur Alibaba"
+                    title="Formation Alibaba : exemple de commande sur un rasoir électrique"
                     subtitle="Guide pas à pas • Sénégal"
                     size="hero"
                     theme="sourcing"

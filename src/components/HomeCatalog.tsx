@@ -25,7 +25,7 @@ export const ALL_HOMEPAGE_EBOOKS: CatalogEbook[] = [
   {
     id: "alibaba-sourcing-cheikh-akhmad",
     slug: "formation-sourcing-alibaba-1688",
-    title: "Commander des rasoirs électriques sur Alibaba",
+    title: "Formation Alibaba : exemple de commande sur un rasoir électrique",
     subtitle: "Guide pas à pas, avec schémas • Sénégal",
     shortDesc: "Guide pratique avec 8 schémas illustrés pour commander sur Alibaba vers le Sénégal : compte acheteur, recherche, fiche produit, négociation, Trade Assurance et transitaire.",
     category: "Sourcing & Import",

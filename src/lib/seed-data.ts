@@ -834,7 +834,7 @@ export const FACEBOOK_ADS_EBOOK: EbookData = {
 export const ALIBABA_EBOOK: EbookData = {
   "id": "prod-alibaba-sourcing-2026",
   "slug": "formation-sourcing-alibaba-1688",
-  "title": "Commander des rasoirs électriques sur Alibaba",
+  "title": "Formation Alibaba : exemple de commande sur un rasoir électrique",
   "subtitle": "Guide pas à pas, avec schémas : de la création du compte à la réception au Sénégal",
   "category": "Sourcing & Import",
   "coverImage": "/images/cover-alibaba-sourcing.jpg",
@@ -863,7 +863,7 @@ export const ALIBABA_EBOOK: EbookData = {
       "id": "ali-chap-1",
       "order": 1,
       "title": "1. Vue d'ensemble",
-      "content": "## Commander des rasoirs électriques sur Alibaba\n\n**Guide pas à pas, avec schémas : de la création du compte à la réception de la marchandise, pour un acheteur basé au Sénégal.**\n\n### Sommaire du guide\n1. **Vue d'ensemble**\n2. **Créer son compte**\n3. **Rechercher les rasoirs**\n4. **Lire une fiche produit**\n5. **Contacter le fournisseur**\n6. **Passer la commande**\n7. **Payer en sécurité**\n8. **Le transitaire Chine–Dakar**\n9. **Réception et contrôle**\n10. **Check-list finale**\n\n> **À savoir.** Les schémas de ce guide sont des illustrations simplifiées, pas des captures d'écran : l'interface d'Alibaba change souvent et diffère selon le pays et l'appareil. Les noms de boutons et menus peuvent donc varier légèrement.\n\n### Vue d'ensemble : dix étapes, dans cet ordre\n\n```\nALIBABA_RASOIRS_VUE_ENSEMBLE\n```\n\n**Règle d'or :** ne commandez jamais un gros volume sans avoir testé un échantillon. Un rasoir se juge à la main : moteur, finition des lames, autonomie de la batterie."
+      "content": "## Formation Alibaba : exemple de commande sur un rasoir électrique\n\n**Guide pas à pas, avec schémas : de la création du compte à la réception de la marchandise, pour un acheteur basé au Sénégal.**\n\n### Sommaire du guide\n1. **Vue d'ensemble**\n2. **Créer son compte**\n3. **Rechercher les rasoirs**\n4. **Lire une fiche produit**\n5. **Contacter le fournisseur**\n6. **Passer la commande**\n7. **Payer en sécurité**\n8. **Le transitaire Chine–Dakar**\n9. **Réception et contrôle**\n10. **Check-list finale**\n\n> **À savoir.** Les schémas de ce guide sont des illustrations simplifiées, pas des captures d'écran : l'interface d'Alibaba change souvent et diffère selon le pays et l'appareil. Les noms de boutons et menus peuvent donc varier légèrement.\n\n### Vue d'ensemble : dix étapes, dans cet ordre\n\n```\nALIBABA_RASOIRS_VUE_ENSEMBLE\n```\n\n**Règle d'or :** ne commandez jamais un gros volume sans avoir testé un échantillon. Un rasoir se juge à la main : moteur, finition des lames, autonomie de la batterie."
     },
     {
       "id": "ali-chap-2",
