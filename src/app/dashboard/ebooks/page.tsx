@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { BookCover } from "@/components/BookCover";
-import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
+import { INITIAL_EBOOK, OTHER_EBOOKS, ALL_OFFICIAL_EBOOKS } from "@/lib/seed-data";
 import { BookOpen, Play, Clock, CheckCircle2, ShoppingCart, ShieldCheck } from "lucide-react";
 
 export default async function EbooksPage() {
@@ -35,7 +35,7 @@ export default async function EbooksPage() {
   const codeMap = new Map(user.accessCodes.map((c) => [c.productId, c]));
 
   // Si l'utilisateur est administrateur, lui donner accès à TOUS les ebooks du catalogue sans payer !
-  const allOfficialBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+  const allOfficialBooks = ALL_OFFICIAL_EBOOKS;
 
   let displayItems = user.orders.map((o) => {
     const official = allOfficialBooks.find((b) => b.slug === o.product.slug);

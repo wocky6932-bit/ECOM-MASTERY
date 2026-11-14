@@ -112,10 +112,10 @@ export default async function AdminStatistiquesPage() {
 
   // Per-product breakdown with realistic sales distribution
   const productBaseSalesMap: Record<string, number> = {
-    "lancer-sa-boutique-en-ligne": 15,
+    "formation-sourcing-alibaba-1688": 16,
     "publicite-facebook-ads-de-a-a-z": 13,
-    "formation-sourcing-alibaba-1688": 10,
-    "developpeur-web-full-stack": 7,
+    "lancer-sa-boutique-en-ligne": 10,
+    "developpeur-web-full-stack": 6,
     "strategies-marketing-digital": 4,
   };
 

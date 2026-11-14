@@ -154,11 +154,11 @@ export default function HomePage() {
                 {/* Le Grand Livre 3D incliné */}
                 <div className="relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
                   <BookCover
-                    title="Le Closing : transformer vos prospects en clients"
-                    subtitle="Scripts WhatsApp & Méthode"
+                    title="Commander des rasoirs électriques sur Alibaba"
+                    subtitle="Guide pas à pas • Sénégal"
                     size="hero"
-                    theme="ecommerce"
-                    coverImage="/images/cover-closing-pro.jpg"
+                    theme="sourcing"
+                    coverImage="/images/cover-alibaba-sourcing.jpg"
                   />
                 </div>
 
@@ -184,9 +184,9 @@ export default function HomePage() {
 
                     <div className="py-2">
                       <h4 className="text-[11px] font-black uppercase leading-tight">
-                        LE CLOSING : PROSPECTS EN CLIENTS
+                        SOURCING ALIBABA & SÉNÉGAL
                       </h4>
-                      <p className="text-[9px] text-blue-200 mt-1 italic">Guide pratique & scripts</p>
+                      <p className="text-[9px] text-blue-200 mt-1 italic">Guide pratique & transitaire</p>
                     </div>
 
                     <div className="pb-2">
@@ -316,10 +316,10 @@ export default function HomePage() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="/paiement?ebook=lancer-sa-boutique-en-ligne"
+                  href="/paiement?ebook=formation-sourcing-alibaba-1688"
                   className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg transition-all"
                 >
-                  <span>Commencer avec le guide Closing (5 000 FCFA)</span>
+                  <span>Commencer avec le guide Alibaba (5 000 FCFA)</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

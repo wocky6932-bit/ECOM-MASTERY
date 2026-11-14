@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
+import { INITIAL_EBOOK, OTHER_EBOOKS, ALL_OFFICIAL_EBOOKS } from "@/lib/seed-data";
 import { AdminProductsClient, AdminProduct } from "./AdminProductsClient";
 
 export default async function AdminProduitsPage() {
@@ -23,7 +23,7 @@ export default async function AdminProduitsPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  const allOfficial = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+  const allOfficial = ALL_OFFICIAL_EBOOKS;
 
   // Synchronisation automatique de TiDB avec les titres officiels
   for (const b of allOfficial) {

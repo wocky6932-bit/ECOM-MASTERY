@@ -23,7 +23,7 @@ import {
 
 function PaiementContent() {
   const searchParams = useSearchParams();
-  const slug = searchParams.get("slug") || searchParams.get("ebook") || "lancer-sa-boutique-en-ligne";
+  const slug = searchParams.get("slug") || searchParams.get("ebook") || "formation-sourcing-alibaba-1688";
 
   const allBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
   const selectedProduct = allBooks.find((b) => b.slug === slug) || INITIAL_EBOOK;

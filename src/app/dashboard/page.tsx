@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { BookCover } from "@/components/BookCover";
-import { INITIAL_EBOOK, OTHER_EBOOKS } from "@/lib/seed-data";
+import { INITIAL_EBOOK, OTHER_EBOOKS, ALL_OFFICIAL_EBOOKS } from "@/lib/seed-data";
 import {
   BookOpen,
   ShoppingBag,
@@ -50,7 +50,7 @@ export default async function DashboardPage() {
   if (!user) redirect("/login");
 
   const isAdmin = user.role === "ADMIN";
-  const allOfficialBooks = [INITIAL_EBOOK, ...OTHER_EBOOKS];
+  const allOfficialBooks = ALL_OFFICIAL_EBOOKS;
   const paidOrders = user.orders.filter((o) => o.status === "PAID");
   const activeDevices = user.sessions.length;
   const reading = user.readings[0];
