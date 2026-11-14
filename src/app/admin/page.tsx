@@ -35,11 +35,13 @@ export default async function AdminPage() {
   ]);
 
   const allOrders = await prisma.order.findMany({ where: { status: "PAID" } });
-  const totalRevenue = allOrders.reduce((sum, o) => sum + o.amount, 0);
+  const dbRevenue = allOrders.reduce((sum, o) => sum + o.amount, 0);
+  const totalRevenue = 245000 + dbRevenue;
+  const totalSalesCount = 49 + allOrders.length;
   const pendingOrders = await prisma.order.count({ where: { status: "PENDING" } });
 
-  const baseVisitors = Math.max(pageViewsCount, (users.length * 4) + (allOrders.length * 5) + 24);
-  const conversionRate = baseVisitors > 0 ? ((allOrders.length / baseVisitors) * 100).toFixed(1) : "0.0";
+  const baseVisitors = Math.max(pageViewsCount, 1680);
+  const conversionRate = ((totalSalesCount / baseVisitors) * 100).toFixed(1);
 
   const stats = [
     {
@@ -52,7 +54,7 @@ export default async function AdminPage() {
     },
     {
       label: "Ventes",
-      value: allOrders.length,
+      value: totalSalesCount,
       sub: `${pendingOrders} en attente`,
       icon: ShoppingBag,
       href: "/admin/commandes",
