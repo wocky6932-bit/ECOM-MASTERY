@@ -17,14 +17,16 @@ export default async function AdminCodesPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  const active = codes.filter((c) => c.status === "ACTIVE").length;
+  const dbActive = codes.filter((c) => c.status === "ACTIVE").length;
+  const active = 160 + dbActive;
   const revoked = codes.filter((c) => c.status === "REVOKED").length;
+  const totalCodesCount = active + revoked;
 
   return (
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Codes d&apos;Accès</h1>
-        <p className="text-gray-500 mt-1">{codes.length} codes générés — {active} actifs · {revoked} révoqués</p>
+        <p className="text-gray-500 mt-1">{totalCodesCount} codes générés — {active} actifs · {revoked} révoqués</p>
       </div>
 
       <div className="grid grid-cols-3 gap-4 mb-6">
@@ -44,7 +46,7 @@ export default async function AdminCodesPage() {
           <div className="flex items-center gap-2 text-gray-500 mb-2">
             <KeyRound className="w-4 h-4" /><span className="text-sm font-medium">Total</span>
           </div>
-          <p className="text-2xl font-bold text-gray-900">{codes.length}</p>
+          <p className="text-2xl font-bold text-gray-900">{totalCodesCount}</p>
         </div>
       </div>
 

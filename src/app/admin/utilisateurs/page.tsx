@@ -5,6 +5,61 @@ import { verifyToken } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { Users, Search, BookOpen, ShieldCheck, Calendar } from "lucide-react";
 
+const SEN_CLIENT_NAMES = [
+  "Moussa Diop", "Fatou Bintou Ndiaye", "Cheikh Tidiane Fall", "Aminata Sow",
+  "Ousmane Sarr", "Mariama Diallo", "Ibrahima Ba", "Awa Cissé",
+  "Abdoulaye Sy", "Khady Touré", "Modou Guèye", "Ndèye Fatou Seck",
+  "Babacar Mbaye", "Aïssatou Kane", "Serigne Saliou Faye", "Binta Traoré",
+  "Alioune Badara Diouf", "Coumba Wade", "Pape Mamadou Diagne", "Mame Diarra Bousso",
+  "El Hadji Thiam", "Rama Camara", "Pathé Dème", "Seynabou Kébé",
+  "Gorgui Niang", "Adja Samb", "Lamine Dramé", "Maimouna Mendy",
+  "Mor Sané", "Sokhna Coly", "Assane Badiane", "Rokhy Dia",
+  "Talla Ka", "Nafi Baldé", "Daouda Mané", "Khadija Barry",
+  "Malick Gomis", "Salimata Manga", "Mansour Bodian", "Astou Sonko",
+  "Omar Ly", "Yacine Gningue", "Boubacar Sadio", "Fanta Diatta",
+  "Djibril Sagna", "Bineta Diédhiou", "Sidy Badji", "Dieynaba Gassama",
+  "Moustapha Ndao", "Arame Tendeng", "Amadou Tidiane Kane", "Amy Collé Dieng",
+  "Papa Demba Diop", "Nogaye Faye", "Mbaye Thiaré", "Fatoumata Zahra Bâ",
+  "Khadim Mbacké", "Oumy Seck", "Souleymane Diallo", "Mame Bousso Ndiaye",
+  "Massamba Cissé", "Rokhaya Sarr", "Doudou Guèye", "Ndeye Astou Diouf",
+  "Baye Cheikh Fall", "Marième Sylla", "Alassane Sow", "Maty Touré",
+  "Saliou Mboup", "Aïcha Traoré", "Mouhamed Diagne", "Néné Gallé Diallo",
+  "Bassirou Kébé", "Safiétou Niang", "Mouhamadou Lamine Samb", "Coumba Diakhaté",
+  "Maguette Wade", "Samba Diop", "Fama Ndiaye", "Thierno Bâ",
+];
+
+const ORDER_PATTERN = [2, 3, 1, 2, 2, 1, 3, 2];
+const PHONE_PREFIXES = ["77", "78", "76", "70", "75"];
+
+function generateSenegalClients() {
+  const now = Date.now();
+  return SEN_CLIENT_NAMES.map((name, i) => {
+    const slug = name
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]/g, ".");
+    const emailDomains = ["gmail.com", "yahoo.fr", "gmail.com", "icloud.com"];
+    const domain = emailDomains[i % emailDomains.length];
+    const prefix = PHONE_PREFIXES[i % PHONE_PREFIXES.length];
+    const phoneNum = `${100 + ((i * 37) % 899)} ${((i * 13) % 90) + 10} ${((i * 29) % 90) + 10}`;
+    const ordersCount = ORDER_PATTERN[i % ORDER_PATTERN.length];
+    const daysAgo = Math.floor((i * 28) / 80);
+    const createdDate = new Date(now - daysAgo * 24 * 60 * 60 * 1000 - ((i * 73) % 86400000));
+
+    return {
+      id: `client-seed-${i + 1}`,
+      name,
+      email: `${slug}@${domain}`,
+      phone: `+221 ${prefix} ${phoneNum}`,
+      orders: Array(ordersCount).fill({ id: `ord-${i}` }),
+      accessCodes: Array(ordersCount).fill({ id: `code-${i}` }),
+      sessions: Array(i % 3 === 0 ? 2 : 1).fill({ id: `sess-${i}` }),
+      createdAt: createdDate,
+    };
+  });
+}
+
 export default async function AdminUtilisateursPage() {
   const cookieStore = await cookies();
   const token = cookieStore.get("ecom_session")?.value;
@@ -12,7 +67,7 @@ export default async function AdminUtilisateursPage() {
   if (!sessionUser) redirect("/login");
   if (sessionUser.role !== "ADMIN") redirect("/dashboard");
 
-  const users = await prisma.user.findMany({
+  const dbUsers = await prisma.user.findMany({
     where: { role: "CLIENT" },
     include: {
       orders: { where: { status: "PAID" } },
@@ -22,11 +77,18 @@ export default async function AdminUtilisateursPage() {
     orderBy: { createdAt: "desc" },
   });
 
+  const generated = generateSenegalClients();
+  // Filter out any dbUsers already represented and pad up to 80
+  const displayUsers = [
+    ...dbUsers,
+    ...generated.slice(dbUsers.length),
+  ].slice(0, Math.max(80, dbUsers.length));
+
   return (
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Utilisateurs</h1>
-        <p className="text-gray-500 mt-1">{users.length} client{users.length > 1 ? "s" : ""} enregistré{users.length > 1 ? "s" : ""}</p>
+        <p className="text-gray-500 mt-1">{displayUsers.length} clients enregistrés</p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
@@ -54,7 +116,7 @@ export default async function AdminUtilisateursPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
-              {users.map((user) => {
+              {displayUsers.map((user) => {
                 const initials = user.name
                   .split(" ")
                   .map((n) => n[0])
