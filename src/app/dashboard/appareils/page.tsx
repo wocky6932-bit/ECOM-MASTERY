@@ -25,7 +25,7 @@ export default async function AppareilsPage() {
   // Serialize for client component
   const sessions = user.sessions.map((s) => ({
     id: s.id,
-    userAgent: s.userAgent,
+    userAgent: s.deviceName,
     ipAddress: s.ipAddress,
     lastActivity: s.lastActivity.toISOString(),
   }));

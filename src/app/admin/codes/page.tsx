@@ -93,9 +93,7 @@ export default async function AdminCodesPage() {
                       </span>
                     </td>
                     <td className="px-5 py-3.5 text-sm text-gray-500">
-                      {code.expiresAt
-                        ? new Date(code.expiresAt).toLocaleDateString("fr-FR")
-                        : "Illimité"}
+                      Illimité
                     </td>
                     <td className="px-5 py-3.5 text-sm text-gray-500">
                       {new Date(code.createdAt).toLocaleDateString("fr-FR")}

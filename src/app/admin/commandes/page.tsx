@@ -21,7 +21,7 @@ export default async function AdminCommandesPage() {
   if (sessionUser.role !== "ADMIN") redirect("/dashboard");
 
   const orders = await prisma.order.findMany({
-    include: { user: true, product: true, payment: true },
+    include: { user: true, product: true, payments: true },
     orderBy: { createdAt: "desc" },
   });
 
@@ -121,7 +121,7 @@ export default async function AdminCommandesPage() {
                       })}
                     </td>
                     <td className="px-5 py-3.5 font-mono text-xs text-gray-400">
-                      {order.payment?.waveTransactionId ?? "—"}
+                      {order.payments?.[0]?.providerReference ?? "—"}
                     </td>
                   </tr>
                 );

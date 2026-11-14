@@ -50,6 +50,21 @@ export default async function AdminStatistiquesPage() {
   const paidOrders = orders.filter((o) => o.status === "PAID");
   const pendingOrders = orders.filter((o) => o.status === "PENDING");
 
+  // Track product views by slug from logs
+  const viewsBySlug: Record<string, number> = {};
+  pageViewLogs.forEach((log) => {
+    try {
+      const meta = log.metadata ? JSON.parse(log.metadata) : {};
+      const path = (meta.path || "").toLowerCase();
+      if (path.includes("/ebook/")) {
+        const slug = path.split("/ebook/")[1]?.split("?")[0]?.replace(/\/$/, "");
+        if (slug) viewsBySlug[slug] = (viewsBySlug[slug] || 0) + 1;
+      }
+    } catch {
+      // ignore
+    }
+  });
+
   // Base patterns for realistic, active conversion curves and revenue (Dakar market)
   const baseSalesPattern = [
     3, 4, 3, 4, 5, 6, 5, 4, 4, 3,

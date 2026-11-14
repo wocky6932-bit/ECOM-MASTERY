@@ -76,7 +76,7 @@ export default async function AdminPaiementsPage() {
                 return (
                   <tr key={pay.id} className="hover:bg-slate-50/50">
                     <td className="px-5 py-4 font-mono text-xs text-gray-500">
-                      {pay.waveTransactionId ?? "—"}
+                      {pay.providerReference ?? "—"}
                     </td>
                     <td className="px-5 py-4">
                       <p className="text-sm font-medium text-gray-900">{pay.order.user.name}</p>

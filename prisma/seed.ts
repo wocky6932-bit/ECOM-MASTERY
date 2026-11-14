@@ -59,9 +59,11 @@ async function main() {
         title: book.title,
         slug: book.slug,
         shortDesc: book.shortDesc,
-        description: book.description,
+        description: book.description || book.shortDesc,
         learnPoints: JSON.stringify(book.learnPoints),
-        targetAudience: book.targetAudience,
+        targetAudience: Array.isArray(book.targetAudience)
+          ? JSON.stringify(book.targetAudience)
+          : (book.targetAudience || ""),
         price: book.price,
         currency: "XOF",
         coverImage: book.coverImage,

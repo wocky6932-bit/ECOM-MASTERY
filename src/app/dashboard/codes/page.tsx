@@ -42,7 +42,7 @@ export default async function CodesPage() {
       ) : (
         <div className="space-y-4">
           {user.accessCodes.map((code) => {
-            const isActive = code.status === "ACTIVE" && (!code.expiresAt || new Date(code.expiresAt) > new Date());
+            const isActive = code.status === "ACTIVE";
             return (
               <div
                 key={code.id}
@@ -99,16 +99,9 @@ export default async function CodesPage() {
                   </div>
                 </div>
 
-                {code.expiresAt && (
-                  <p className="text-xs text-gray-400 mt-3 pt-3 border-t border-gray-50">
-                    Expiration :{" "}
-                    {new Date(code.expiresAt).toLocaleDateString("fr-FR", {
-                      day: "2-digit",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
-                )}
+                <p className="text-xs text-gray-400 mt-3 pt-3 border-t border-gray-50">
+                  Accès à vie : illimité
+                </p>
               </div>
             );
           })}

@@ -31,9 +31,11 @@ export async function POST(req: NextRequest) {
           title: found.title,
           slug: found.slug,
           shortDesc: found.shortDesc,
-          description: found.description,
-          learnPoints: JSON.stringify(found.learnPoints),
-          targetAudience: found.targetAudience,
+          description: found.description || found.shortDesc,
+          learnPoints: JSON.stringify(found.learnPoints || []),
+          targetAudience: Array.isArray(found.targetAudience)
+            ? JSON.stringify(found.targetAudience)
+            : (found.targetAudience || ""),
           price: found.price,
           currency: "XOF",
           coverImage: found.coverImage,
