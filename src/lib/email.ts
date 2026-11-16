@@ -51,13 +51,13 @@ export async function sendOrderConfirmation(data: OrderEmailData) {
         <!-- Container Principal -->
         <table role="presentation" width="100%" max-width="580" cellspacing="0" cellpadding="0" border="0" style="max-width: 580px; background-color: #0F1A2E; border: 1px solid #1E2E4A; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
           
-          <!-- En-tête / Brand -->
+          <!-- En-tête avec VRAI LOGO DU SITE -->
           <tr>
-            <td style="padding: 36px 32px 24px; text-align: center; background: linear-gradient(180deg, #13223E 0%, #0F1A2E 100%); border-bottom: 1px solid #1A2C4B;">
-              <div style="display: inline-block; padding: 8px 18px; background-color: #0066FF; border-radius: 12px; margin-bottom: 12px;">
-                <span style="font-size: 15px; font-weight: 900; letter-spacing: 3px; color: #FFFFFF;">ECOM MASTERY</span>
-              </div>
-              <p style="margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #8FA6CA;">Académie du Commerce Digital</p>
+            <td style="padding: 40px 32px 24px; text-align: center; background: linear-gradient(180deg, #13223E 0%, #0F1A2E 100%); border-bottom: 1px solid #1A2C4B;">
+              <a href="${appUrl}" target="_blank" style="text-decoration: none; display: inline-block;">
+                <img src="${appUrl}/images/logo-white.png" alt="Ecom Mastery" width="210" style="display: block; margin: 0 auto; width: 210px; max-width: 100%; height: auto; border: 0;" />
+              </a>
+              <p style="margin: 14px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #8FA6CA;">Académie du Commerce Digital</p>
             </td>
           </tr>
 
