@@ -31,7 +31,7 @@ export async function sendOrderConfirmation(data: OrderEmailData) {
     const { error } = await resend.emails.send({
       from: `Ecom Mastery <${fromEmail}>`,
       to: data.customerEmail,
-      subject: `✅ Confirmation de commande #${data.orderNumber}`,
+      subject: `Confirmation de commande #${data.orderNumber}`,
       html: `
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@ export async function sendOrderConfirmation(data: OrderEmailData) {
     <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
       <!-- Green banner -->
       <div style="background:linear-gradient(135deg,#059669,#10b981);padding:24px;text-align:center;color:white;">
-        <div style="font-size:32px;margin-bottom:8px;">✅</div>
+        <div style="font-size:24px;font-weight:900;margin-bottom:8px;">✓</div>
         <h1 style="font-size:20px;font-weight:700;margin:0;">Paiement confirmé !</h1>
         <p style="font-size:14px;opacity:0.9;margin:4px 0 0;">Votre commande a été traitée avec succès via Wave.</p>
       </div>
@@ -105,7 +105,7 @@ export async function sendOrderConfirmation(data: OrderEmailData) {
         <div style="text-align:center;">
           <a href="${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3001"}/dashboard/ebooks"
              style="display:inline-block;background:#0066FF;color:white;padding:14px 32px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;">
-            📖 Lire mon ebook maintenant
+            Accéder à mon ebook
           </a>
         </div>
       </div>
@@ -147,7 +147,7 @@ export async function sendWelcomeEmail(name: string, email: string) {
     const { error } = await resend.emails.send({
       from: `Ecom Mastery <${fromEmail}>`,
       to: email,
-      subject: `Bienvenue sur Ecom Mastery, ${name} 🎉`,
+      subject: `Bienvenue sur Ecom Mastery, ${name}`,
       html: `
 <!DOCTYPE html>
 <html>
@@ -159,7 +159,7 @@ export async function sendWelcomeEmail(name: string, email: string) {
     </div>
     <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
       <div style="background:linear-gradient(135deg,#0B1528,#0066FF);padding:28px;text-align:center;color:white;">
-        <h1 style="font-size:22px;font-weight:700;margin:0;">Bienvenue, ${name} ! 🎉</h1>
+        <h1 style="font-size:22px;font-weight:700;margin:0;">Bienvenue, ${name} !</h1>
       </div>
       <div style="padding:28px;">
         <p style="font-size:15px;color:#334155;line-height:1.7;margin:0 0 16px;">
@@ -206,7 +206,7 @@ export async function sendAdminSaleNotification(data: OrderEmailData) {
     const { error } = await resend.emails.send({
       from: `Ecom Mastery <${fromEmail}>`,
       to: adminEmail,
-      subject: `💰 Nouvelle vente #${data.orderNumber} — ${data.amount.toLocaleString("fr-FR")} FCFA`,
+      subject: `Nouvelle vente #${data.orderNumber} — ${data.amount.toLocaleString("fr-FR")} FCFA`,
       html: `
 <!DOCTYPE html>
 <html>
@@ -216,7 +216,7 @@ export async function sendAdminSaleNotification(data: OrderEmailData) {
     <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
       <div style="background:#0B1528;padding:20px;color:white;text-align:center;">
         <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;margin:0 0 4px;opacity:0.7;">Notification Admin</p>
-        <h1 style="font-size:20px;margin:0;">💰 Nouvelle Vente</h1>
+        <h1 style="font-size:20px;margin:0;">Nouvelle Vente</h1>
       </div>
       <div style="padding:24px;">
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
