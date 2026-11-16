@@ -29,7 +29,7 @@ export class WaveService {
   /**
    * Crée une session Wave Checkout officielle.
    * Redirige directement vers le lien marchand officiel Wave :
-   * https://pay.wave.com/m/M_sn_BGVLqeWyqF_C/c/sn en forçant le paiement du montant (5 000 FCFA).
+   * https://pay.wave.com/m/M_sn_zgO2oY_XjB_2/c/sn en forçant le paiement du montant (5 000 FCFA).
    */
   static async createCheckoutSession(params: {
     amount: number;
@@ -38,7 +38,7 @@ export class WaveService {
     successUrl: string;
     errorUrl: string;
   }): Promise<{ waveLaunchUrl: string; sessionId: string }> {
-    const merchantId = "M_sn_BGVLqeWyqF_C";
+    const merchantId = process.env.WAVE_MERCHANT_ID || "M_sn_zgO2oY_XjB_2";
     const amount = params.amount || 5000;
     // URL directe marchande Wave avec montant forcé
     const waveLaunchUrl = `https://pay.wave.com/m/${merchantId}/c/sn?amount=${amount}&a=${amount}`;
